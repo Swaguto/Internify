@@ -9,12 +9,29 @@ const UA =
   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36";
 
 async function get(url, opts = {}) {
-  const res = await fetch(url, {
-    headers: { "user-agent": UA, "content-type": "application/json", ...opts.headers },
-    ...opts,
+  const timeoutMs = opts.timeoutMs || 20000;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, {
+      headers: { "user-agent": UA, "content-type": "application/json", ...opts.headers },
+      ...opts,
+      signal: controller.signal,
+    });
+    if (!res.ok) throw new Error(`${res.status} ${url}`);
+    return res.json();
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+function post(url, body, timeoutMs = 20000) {
+  return fetch(url, {
+    method: "POST",
+    headers: { "content-type": "application/json", "user-agent": UA },
+    body: JSON.stringify(body),
+    signal: AbortSignal.timeout(timeoutMs),
   });
-  if (!res.ok) throw new Error(`${res.status} ${url}`);
-  return res.json();
 }
 
 /* ---------- source: greenhouse ---------- */
@@ -123,17 +140,21 @@ async function fetchAmazon() {
     "applied%20scientist%20intern",
     "machine%20learning%20intern",
   ];
+  const combos = [];
+  for (const q of queries) for (let page = 1; page <= 2; page++) combos.push([q, page]);
+
   const seen = new Set();
   const out = [];
-  for (const q of queries) {
-    for (let page = 1; page <= 2; page++) {
+  const workers = Array.from({ length: Math.min(4, combos.length) }, async () => {
+    while (combos.length) {
+      const [q, page] = combos.shift();
       let data;
       try {
         data = await get(
           `https://www.amazon.jobs/en/search.json?base_query=${q}&country%5B%5D=USA&page=${page}&sort=recent`
         );
       } catch {
-        break;
+        continue;
       }
       for (const j of data.jobs || []) {
         if (j.country_code !== "USA") continue;
@@ -152,7 +173,8 @@ async function fetchAmazon() {
         });
       }
     }
-  }
+  });
+  await Promise.all(workers);
   return out;
 }
 function parseAgoDate(s) {
@@ -165,31 +187,40 @@ function parseAgoDate(s) {
 /* ---------- source: nvidia workday ---------- */
 async function fetchNvidia() {
   const stateRe = /\b(CA|WA|TX|MA|GA|IL|NC|OR|NY|CO|AZ|UT|NJ|MN|MD|VA|FL|PA|NH|MI|OH|SC|IN|ID|MT|RI|DE|TN|WI)\b/;
-  const out = [];
-  for (let offset = 0; offset <= 180; offset += 20) {
-    const raw = await fetch(
-      "https://nvidia.wd5.myworkdayjobs.com/wday/cxs/nvidia/NVIDIAExternalCareerSite/jobs",
-      {
-        method: "POST",
-        headers: { "content-type": "application/json", "User-Agent": UA },
-        body: JSON.stringify({ appliedFacets: {}, limit: 20, offset, searchText: "intern" }),
+  const offsets = [];
+  for (let offset = 0; offset <= 180; offset += 20) offsets.push(offset);
+  const rawRecords = [];
+  const workers = Array.from({ length: Math.min(3, offsets.length) }, async () => {
+    while (offsets.length) {
+      const offset = offsets.shift();
+      let data = {};
+      try {
+        const res = await post(
+          "https://nvidia.wd5.myworkdayjobs.com/wday/cxs/nvidia/NVIDIAExternalCareerSite/jobs",
+          { appliedFacets: {}, limit: 20, offset, searchText: "intern" }
+        );
+        data = await res.json();
+      } catch {
+        continue;
       }
-    );
-    let data = {};
-    try { data = await raw.json(); } catch { break; }
-    for (const j of data.jobPostings || []) {
-      if (!/intern/i.test(j.title)) continue;
-      const loc = j.locationsText || "";
-      if (!stateRe.test(loc) && !/remote|united states/i.test(loc)) continue;
-      out.push({
-        company: "NVIDIA",
-        title: j.title,
-        location: loc.replace(/, United States\s*$/i, ""),
-        updated_at: agoIso(j.postedOn),
-        url: `https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite${j.externalPath}`,
-        meta: /remote/i.test(loc) ? "Remote" : "On-Site",
-      });
+      rawRecords.push(...(data.jobPostings || []));
     }
+  });
+  await Promise.all(workers);
+
+  const out = [];
+  for (const j of rawRecords) {
+    if (!/intern/i.test(j.title)) continue;
+    const loc = j.locationsText || "";
+    if (!stateRe.test(loc) && !/remote|united states/i.test(loc)) continue;
+    out.push({
+      company: "NVIDIA",
+      title: j.title,
+      location: loc.replace(/, United States\s*$/i, ""),
+      updated_at: agoIso(j.postedOn),
+      url: `https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite${j.externalPath}`,
+      meta: /remote/i.test(loc) ? "Remote" : "On-Site",
+    });
   }
   const seen = new Set();
   return out.filter((r) => {
@@ -413,8 +444,9 @@ export async function runSync() {
 
   const results = [];
   const failed = [];
+  let cursor = 0;
 
-  for (const c of companies) {
+  async function processCompany(c) {
     let ats = c.ats_type ? { type: c.ats_type } : null;
     if (ats && c.ats_token) {
       ats[c.ats_type === "greenhouse" ? "token" : "slug"] = c.ats_token;
@@ -426,7 +458,7 @@ export async function runSync() {
     if (!ats) {
       failed.push(`${c.name} (no discoverable ATS)`);
       await pool.query("UPDATE companies SET last_error = $1 WHERE id = $2", ["no discoverable ATS", c.id]);
-      continue;
+      return;
     }
     try {
       let jobs;
@@ -474,6 +506,15 @@ export async function runSync() {
       console.log(`FAILED ${c.name}: ${exc}`);
     }
   }
+
+  const CONCURRENCY = 5;
+  const workers = Array.from({ length: Math.min(CONCURRENCY, companies.length) }, async () => {
+    while (cursor < companies.length) {
+      const c = companies[cursor++];
+      await processCompany(c);
+    }
+  });
+  await Promise.all(workers);
 
   const jobCount = await pool.query("SELECT COUNT(*) as count FROM jobs WHERE active = TRUE");
   console.log(`done: ${results.length} raw candidates -> ${jobCount.rows[0].count} active jobs across ${new Set(results.map((r) => r.company)).size} companies`);

@@ -1,9 +1,31 @@
 import pool from "@/lib/db";
+import { after } from "next/server";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 60;
+
+const STALE_AFTER_MS = 2 * 60 * 60 * 1000;
 
 export async function GET() {
   try {
+    const st = await pool.query(
+      "SELECT MAX(last_fetched) as last FROM companies WHERE enabled = TRUE"
+    );
+    const last = st.rows[0]?.last as string | undefined;
+    const stale = !last || Date.now() - new Date(last).getTime() > STALE_AFTER_MS;
+
+    if (stale) {
+      after(async () => {
+        try {
+          const { runSync } = await import("../../../scripts/sync-jobs.mjs");
+          await runSync();
+          console.log("stale refresh completed");
+        } catch (e) {
+          console.error("stale refresh failed:", e);
+        }
+      });
+    }
+
     const result = await pool.query(`
       SELECT 
         j.id,
@@ -23,7 +45,7 @@ export async function GET() {
       WHERE j.active = TRUE AND c.enabled = TRUE
       ORDER BY j.posted_at DESC NULLS LAST, j.id DESC
     `);
-    
+
     const jobs = result.rows.map((r) => ({
       id: r.id,
       companyName: r.companyName,
@@ -39,7 +61,7 @@ export async function GET() {
       applicationUrl: r.applicationUrl || "#",
       category: r.category || "SWE",
     }));
-    
+
     return Response.json({ syncedAt: new Date().toISOString(), jobs });
   } catch (error) {
     console.error("Error fetching jobs:", error);
