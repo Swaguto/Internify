@@ -9,7 +9,6 @@ import {
   ShieldCheck,
   Workflow,
 } from "lucide-react";
-import { JOBS } from "@/lib/data";
 import { useStore } from "@/lib/store";
 import { cn, companyTag, timeAgo, WORK_LABELS, type CompanyTag } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
@@ -54,13 +53,14 @@ function MetaRow({
 export function JobDetailDialog() {
   const selectedJobId = useStore((s) => s.selectedJobId);
   const selectJob = useStore((s) => s.selectJob);
+  const jobs = useStore((s) => s.jobs);
   const status = useStore((s) =>
     s.selectedJobId ? s.statuses[s.selectedJobId] : undefined
   );
 
   const job = useMemo(
-    () => JOBS.find((j) => j.id === selectedJobId) ?? null,
-    [selectedJobId]
+    () => jobs.find((j) => j.id === selectedJobId) ?? null,
+    [selectedJobId, jobs]
   );
 
   return (
