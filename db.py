@@ -23,7 +23,7 @@ def connect():
         raise RuntimeError(
             "no Postgres connection string set — configure DATABASE_URL / POSTGRES_URL in your environment"
         )
-    conn = psycopg.connect(DB_URL, row_factory=dict_row)
+    conn = psycopg.connect(DB_URL, row_factory=dict_row, prepare_threshold=None)
     conn.autocommit = True
     return conn
 
@@ -162,24 +162,25 @@ def replace_jobs(company_id, jobs):
             )
             for j in jobs
         ]
-        conn.executemany(
-            """
-            INSERT INTO jobs (company_id, source_id, title, location, url, posted_at,
-                              compensation, category, summary, active, first_seen, updated_at)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, TRUE, %s, %s)
-            ON CONFLICT (company_id, source_id) DO UPDATE SET
-                title = EXCLUDED.title,
-                location = EXCLUDED.location,
-                url = EXCLUDED.url,
-                posted_at = EXCLUDED.posted_at,
-                compensation = EXCLUDED.compensation,
-                category = EXCLUDED.category,
-                summary = EXCLUDED.summary,
-                active = TRUE,
-                updated_at = EXCLUDED.updated_at
-            """,
-            rows,
-        )
+        with conn.cursor() as cur:
+            cur.executemany(
+                """
+                INSERT INTO jobs (company_id, source_id, title, location, url, posted_at,
+                                  compensation, category, summary, active, first_seen, updated_at)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, TRUE, %s, %s)
+                ON CONFLICT (company_id, source_id) DO UPDATE SET
+                    title = EXCLUDED.title,
+                    location = EXCLUDED.location,
+                    url = EXCLUDED.url,
+                    posted_at = EXCLUDED.posted_at,
+                    compensation = EXCLUDED.compensation,
+                    category = EXCLUDED.category,
+                    summary = EXCLUDED.summary,
+                    active = TRUE,
+                    updated_at = EXCLUDED.updated_at
+                """,
+                rows,
+            )
         if rows:
             seen = [j["source_id"] for j in jobs]
             placeholders = ",".join("%s" for _ in seen)
@@ -253,7 +254,7 @@ def query_jobs(q=None, hidden_company_ids=None, intern_only=False, limit=200, of
             total = conn.execute(
                 f"SELECT COUNT(*) FROM jobs j JOIN companies c ON c.id = j.company_id WHERE {where}",
                 params,
-            ).fetchone()[0]
+            ).fetchone()["count"]
             rows = conn.execute(
                 f"""
                 SELECT j.*, c.name AS company, c.board_type, c.domain AS company_domain
@@ -272,15 +273,15 @@ def query_jobs(q=None, hidden_company_ids=None, intern_only=False, limit=200, of
 def stats():
     conn = connect()
     try:
-        c_total = conn.execute("SELECT COUNT(*) FROM companies WHERE enabled = TRUE").fetchone()[0]
-        c_all = conn.execute("SELECT COUNT(*) FROM companies").fetchone()[0]
-        j_total = conn.execute("SELECT COUNT(*) FROM jobs WHERE active = TRUE").fetchone()[0]
+        c_total = conn.execute("SELECT COUNT(*) FROM companies WHERE enabled = TRUE").fetchone()["count"]
+        c_all = conn.execute("SELECT COUNT(*) FROM companies").fetchone()["count"]
+        j_total = conn.execute("SELECT COUNT(*) FROM jobs WHERE active = TRUE").fetchone()["count"]
         last = conn.execute(
             "SELECT MAX(last_fetched) FROM companies WHERE last_fetched IS NOT NULL"
-        ).fetchone()[0]
+        ).fetchone()["max"]
         errors = conn.execute(
             "SELECT COUNT(*) FROM companies WHERE last_error IS NOT NULL"
-        ).fetchone()[0]
+        ).fetchone()["count"]
     finally:
         conn.close()
     return {
