@@ -24,8 +24,8 @@ export async function GET() {
       ORDER BY j.posted_at DESC NULLS LAST, j.id DESC
     `);
     
-    const jobs = result.rows.map((r) => ({
-      ...r,
+    const jobs = result.rows.map((r: Record<string, unknown>) => ({
+      ...(r as Record<string, string>),
       companyLogoUrl: r.companyLogoUrl
         ? `https://www.google.com/s2/favicons?domain=${r.companyLogoUrl}&sz=64`
         : undefined,

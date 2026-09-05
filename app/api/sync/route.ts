@@ -1,9 +1,8 @@
-import { runSync } from "@/scripts/sync-jobs.mjs";
-
 export const dynamic = "force-dynamic";
 
 export async function POST() {
   try {
+    const { runSync } = await import("../../../scripts/sync-jobs.mjs");
     await runSync();
     return Response.json({ ok: true });
   } catch (error) {
