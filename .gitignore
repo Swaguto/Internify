@@ -8,6 +8,10 @@ venv/
 env/
 .deps/
 
+# Next.js
+.next/
+out/
+
 # Environment
 .env
 .env.*
@@ -27,3 +31,5 @@ Thumbs.db
 
 # Logs
 *.log
+node_modules/
+node_modules/
