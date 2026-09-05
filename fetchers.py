@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 
 import httpx
 
-TIMEOUT = httpx.Timeout(30.0)
+TIMEOUT = httpx.Timeout(15.0)
 _HTML_TAG = re.compile(r"<[^>]+>")
 _BOARD_TYPES = {"greenhouse", "lever", "workable", "ashby", "rss", "amazon", "nvidia"}
 

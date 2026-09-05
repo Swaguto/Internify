@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_DIR = os.path.join(BASE_DIR, "static")
 CONFIG_PATH = os.path.join(BASE_DIR, "config.json")
 POLL_MINUTES = int(os.environ.get("POLL_MINUTES", "60"))
-MAX_WORKERS = 6
+MAX_WORKERS = 10
 IS_VERCEL = os.environ.get("VERCEL") == "1"
 
 app = FastAPI(title="RoboRadar")
@@ -57,7 +57,16 @@ def fetch_all():
     if _refresh_lock.locked():
         return False
     with _refresh_lock:
-        companies = [c for c in db.list_companies() if c["enabled"]]
+        try:
+            companies = [c for c in db.list_companies() if c["enabled"]]
+        except Exception as exc:
+            log.error("list_companies failed: %s", exc)
+            try:
+                db.init_db()
+                seed_companies()
+            except Exception as init_exc:
+                log.error("db re-init failed: %s", init_exc)
+            return False
         with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
             list(pool.map(_fetch_company, companies))
         return True
@@ -70,12 +79,18 @@ def run_refresh_in_background():
 
 @app.on_event("startup")
 def startup():
-    db.init_db()
-    seed_companies()
+    try:
+        db.init_db()
+        seed_companies()
+    except Exception as exc:
+        log.error("db init failed: %s", exc)
     if IS_VERCEL:
-        if db.stats()["jobs_active"] == 0:
-            log.info("vercel: empty db on cold start, fetching jobs now")
-            fetch_all()
+        try:
+            if db.stats()["jobs_active"] == 0:
+                log.info("vercel: empty db on cold start, kicking refresh in background")
+                run_refresh_in_background()
+        except Exception as exc:
+            log.error("vercel cold-start check failed: %s", exc)
         return
     scheduler = BackgroundScheduler()
     scheduler.add_job(
@@ -182,5 +197,9 @@ def refresh(request: Request):
     if request.method == "GET" and secret:
         if request.headers.get("authorization") != f"Bearer {secret}":
             raise HTTPException(401, "unauthorized")
+    if request.method == "POST":
+        started = not _refresh_lock.locked()
+        run_refresh_in_background()
+        return {"started": started}
     started = fetch_all()
     return {"started": started}
