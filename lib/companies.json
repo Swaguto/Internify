@@ -1,0 +1,252 @@
+{
+  "version": 1,
+  "companies": [
+    {
+      "name": "Amazon",
+      "domain": "amazon.com",
+      "careersUrl": "https://www.amazon.jobs/en/",
+      "ats": { "type": "amazon" },
+      "trackOnly": false
+    },
+    {
+      "name": "NVIDIA",
+      "domain": "nvidia.com",
+      "careersUrl": "https://www.nvidia.com/en-us/about-nvidia/careers/",
+      "ats": { "type": "nvidia" },
+      "trackOnly": false
+    },
+    {
+      "name": "Palantir",
+      "domain": "palantir.com",
+      "careersUrl": "https://www.palantir.com/careers/",
+      "ats": { "type": "lever", "slug": "palantir" },
+      "trackOnly": false
+    },
+    {
+      "name": "Scale AI",
+      "domain": "scale.com",
+      "careersUrl": "https://boards.greenhouse.io/scaleai",
+      "ats": { "type": "greenhouse", "token": "scaleai" },
+      "trackOnly": false
+    },
+    {
+      "name": "Roblox",
+      "domain": "roblox.com",
+      "careersUrl": "https://careers.roblox.com/",
+      "ats": { "type": "greenhouse", "token": "roblox" },
+      "trackOnly": false
+    },
+    {
+      "name": "Stripe",
+      "domain": "stripe.com",
+      "careersUrl": "https://stripe.com/jobs",
+      "ats": { "type": "greenhouse", "token": "stripe" },
+      "trackOnly": false
+    },
+    {
+      "name": "Waymo",
+      "domain": "waymo.com",
+      "careersUrl": "https://careers.withwaymo.com/",
+      "ats": { "type": "greenhouse", "token": "waymo" },
+      "trackOnly": false
+    },
+    {
+      "name": "Databricks",
+      "domain": "databricks.com",
+      "careersUrl": "https://www.databricks.com/company/careers",
+      "ats": { "type": "greenhouse", "token": "databricks" },
+      "trackOnly": false
+    },
+    {
+      "name": "Datadog",
+      "domain": "datadoghq.com",
+      "careersUrl": "https://careers.datadoghq.com/",
+      "ats": { "type": "greenhouse", "token": "datadog" },
+      "trackOnly": false
+    },
+    {
+      "name": "Figma",
+      "domain": "figma.com",
+      "careersUrl": "https://www.figma.com/careers/",
+      "ats": { "type": "greenhouse", "token": "figma" },
+      "trackOnly": false
+    },
+    {
+      "name": "Postman",
+      "domain": "postman.com",
+      "careersUrl": "https://www.postman.com/company/careers/",
+      "ats": { "type": "greenhouse", "token": "postman" },
+      "trackOnly": false
+    },
+    {
+      "name": "Anthropic",
+      "domain": "anthropic.com",
+      "careersUrl": "https://www.anthropic.com/careers",
+      "ats": { "type": "greenhouse", "token": "anthropic" },
+      "trackOnly": false
+    },
+    {
+      "name": "Robinhood",
+      "domain": "robinhood.com",
+      "careersUrl": "https://careers.robinhood.com/",
+      "ats": { "type": "greenhouse", "token": "robinhood" },
+      "trackOnly": false
+    },
+    {
+      "name": "Snowflake",
+      "domain": "snowflake.com",
+      "careersUrl": "https://careers.snowflake.com/",
+      "ats": { "type": "ashby", "slug": "snowflake" },
+      "trackOnly": false
+    },
+    {
+      "name": "Notion",
+      "domain": "notion.so",
+      "careersUrl": "https://www.notion.com/careers",
+      "ats": { "type": "ashby", "slug": "notion" },
+      "trackOnly": false
+    },
+    {
+      "name": "Cohere",
+      "domain": "cohere.com",
+      "careersUrl": "https://careers.cohere.com/",
+      "ats": { "type": "ashby", "slug": "cohere" },
+      "trackOnly": false
+    },
+    {
+      "name": "Twitch",
+      "domain": "twitch.tv",
+      "careersUrl": "https://www.twitch.tv/jobs",
+      "ats": { "type": "greenhouse", "token": "twitch" },
+      "trackOnly": false
+    },
+    {
+      "name": "Vercel",
+      "domain": "vercel.com",
+      "careersUrl": "https://vercel.com/careers",
+      "ats": { "type": "greenhouse", "token": "vercel" },
+      "trackOnly": false
+    },
+    {
+      "name": "Optiver",
+      "domain": "optiver.com",
+      "careersUrl": "https://www.optiver.com/careers/",
+      "ats": { "type": "greenhouse", "token": "optiver" },
+      "trackOnly": false
+    },
+    {
+      "name": "Apple",
+      "domain": "apple.com",
+      "careersUrl": "https://www.apple.com/careers/",
+      "trackOnly": true
+    },
+    {
+      "name": "Google",
+      "domain": "google.com",
+      "careersUrl": "https://careers.google.com/",
+      "trackOnly": true
+    },
+    {
+      "name": "Meta",
+      "domain": "meta.com",
+      "careersUrl": "https://www.metacareers.com/",
+      "trackOnly": true
+    },
+    {
+      "name": "Microsoft",
+      "domain": "microsoft.com",
+      "careersUrl": "https://careers.microsoft.com/",
+      "trackOnly": true
+    },
+    {
+      "name": "Tesla",
+      "domain": "tesla.com",
+      "careersUrl": "https://www.tesla.com/careers",
+      "trackOnly": true
+    },
+    {
+      "name": "Netflix",
+      "domain": "netflix.com",
+      "careersUrl": "https://jobs.netflix.com/",
+      "trackOnly": true
+    },
+    {
+      "name": "Uber",
+      "domain": "uber.com",
+      "careersUrl": "https://www.uber.com/us/en/careers/",
+      "trackOnly": true
+    },
+    {
+      "name": "Citadel",
+      "domain": "citadel.com",
+      "careersUrl": "https://www.citadelsecurities.com/careers",
+      "trackOnly": true
+    },
+    {
+      "name": "Jump Trading",
+      "domain": "jumptrading.com",
+      "careersUrl": "https://www.jumptrading.com/careers/",
+      "trackOnly": true
+    },
+    {
+      "name": "Hudson River Trading",
+      "domain": "hrt.com",
+      "careersUrl": "https://www.hudsonrivertrading.com/careers/",
+      "trackOnly": true
+    },
+    {
+      "name": "IMC Trading",
+      "domain": "imc.com",
+      "careersUrl": "https://www.imc.com/us/en/careers/",
+      "trackOnly": true
+    },
+    {
+      "name": "D. E. Shaw",
+      "domain": "deshaw.com",
+      "careersUrl": "https://www.deshaw.com/careers",
+      "trackOnly": true
+    },
+    {
+      "name": "Akuna Capital",
+      "domain": "akunacapital.com",
+      "careersUrl": "https://www.akunacapital.com/careers",
+      "trackOnly": true
+    },
+    {
+      "name": "Squarepoint Capital",
+      "domain": "squarepoint-capital.com",
+      "careersUrl": "https://www.squarepoint-capital.com/careers",
+      "trackOnly": true
+    },
+    {
+      "name": "Goldman Sachs",
+      "domain": "goldmansachs.com",
+      "careersUrl": "https://www.goldmansachs.com/careers",
+      "trackOnly": true
+    },
+    {
+      "name": "Kanza Research",
+      "domain": "kanzaresearch.com",
+      "careersUrl": "https://www.kanzaresearch.com/careers",
+      "trackOnly": true
+    },
+    {
+      "name": "OpenAI",
+      "domain": "openai.com",
+      "careersUrl": "https://openai.com/careers/",
+      "trackOnly": true
+    },
+    {
+      "name": "Cockroach Labs",
+      "domain": "cockroachlabs.com",
+      "careersUrl": "https://www.cockroachlabs.com/careers/",
+      "trackOnly": true
+    },
+    {
+      "name": "Anduril",
+      "domain": "anduril.com",
+      "careersUrl": "https://www.anduril.com/careers/",
+      "trackOnly": true
+    }
+  ]
+}

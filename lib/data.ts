@@ -1,8 +1,5 @@
 import type { Job } from "./types";
 
-const LOGO = (domain: string) =>
-  `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
-
 export const JOBS: Job[] = [
   {
     id: "scale-ai-software-engineering-intern-summer-2027",
@@ -234,7 +231,7 @@ export const JOBS: Job[] = [
     location: "US, CA, Santa Clara",
     workType: "On-Site",
     sponsorship: "Unknown",
-    datePosted: "2026-08-06T02:51:06.409Z",
+    datePosted: "2026-08-06T03:34:51.987Z",
     applicationUrl: "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Applied-Deep-Learning-PhD-Research-Intern--Reinforcement-Learning-for-LLMs---Fall-2026_JR2012398",
     category: "AI/ML",
   },
@@ -247,7 +244,7 @@ export const JOBS: Job[] = [
     location: "US, CA, Santa Clara",
     workType: "On-Site",
     sponsorship: "Unknown",
-    datePosted: "2026-08-06T02:51:06.409Z",
+    datePosted: "2026-08-06T03:34:51.987Z",
     applicationUrl: "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/PhD-Software-Engineering-Intern--Decision-Intelligence---Fall-2026_JR2017522",
     category: "SWE",
   },
@@ -260,7 +257,7 @@ export const JOBS: Job[] = [
     location: "US, CA, Santa Clara",
     workType: "On-Site",
     sponsorship: "Unknown",
-    datePosted: "2026-08-06T02:51:06.409Z",
+    datePosted: "2026-08-06T03:34:51.987Z",
     applicationUrl: "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/PhD-Research-Intern--Generative-AI---2026_JR2016035",
     category: "SWE",
   },
@@ -273,7 +270,7 @@ export const JOBS: Job[] = [
     location: "US, CA, Santa Clara",
     workType: "On-Site",
     sponsorship: "Unknown",
-    datePosted: "2026-08-06T02:51:06.409Z",
+    datePosted: "2026-08-06T03:34:51.987Z",
     applicationUrl: "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Applied-Research-Intern--NLP---Fall-2026_JR2010488",
     category: "SWE",
   },

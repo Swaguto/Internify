@@ -3,6 +3,7 @@ import { JOBS } from "@/lib/data";
 import { companyTag } from "@/lib/utils";
 import { JobsView } from "@/components/jobs/jobs-view";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { AddCompanyDialog } from "@/components/companies/add-company-dialog";
 
 const TOTAL_ROLES = JOBS.length;
 const TOTAL_COMPANIES = new Set(JOBS.map((j) => j.companyName)).size;
@@ -33,6 +34,7 @@ export default function Home() {
               </span>
               live
             </span>
+            <AddCompanyDialog />
             <ThemeToggle />
           </div>
         </div>

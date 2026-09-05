@@ -1,9 +1,9 @@
 "use client";
 
 import { useMemo } from "react";
-import { JOBS } from "@/lib/data";
 import { useStore } from "@/lib/store";
 import { SORT_LABELS, STATE_LABELS, stateFromLocation } from "@/lib/utils";
+import type { Job } from "@/lib/types";
 import { SearchInput } from "./search-input";
 import { CategoryTabs } from "./category-tabs";
 import { FilterSelect } from "./filter-select";
@@ -16,13 +16,19 @@ const DATE_OPTIONS = [
   { value: "30d", label: "Past month" },
 ];
 
-export function FilterBar({ resultCount }: { resultCount: number }) {
+export function FilterBar({
+  jobs,
+  resultCount,
+}: {
+  jobs: Job[];
+  resultCount: number;
+}) {
   const filters = useStore((s) => s.filters);
   const setFilter = useStore((s) => s.setFilter);
 
   const stateOptions = useMemo(() => {
     const counts = new Map<string, number>();
-    for (const job of JOBS) {
+    for (const job of jobs) {
       const s = stateFromLocation(job.location);
       if (s) counts.set(s, (counts.get(s) ?? 0) + 1);
     }
@@ -33,7 +39,17 @@ export function FilterBar({ resultCount }: { resultCount: number }) {
         value: abbr,
         label: STATE_LABELS[abbr] ?? abbr,
       }));
-  }, []);
+  }, [jobs]);
+
+  const companyOptions = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const job of jobs) {
+      counts.set(job.companyName, (counts.get(job.companyName) ?? 0) + 1);
+    }
+    return [...counts.entries()]
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([name]) => ({ value: name, label: name }));
+  }, [jobs]);
 
   return (
     <div className="space-y-3">
@@ -47,6 +63,16 @@ export function FilterBar({ resultCount }: { resultCount: number }) {
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
         <CategoryTabs />
         <div className="flex flex-wrap items-center gap-2">
+          <FilterSelect
+            value={filters.company}
+            onChange={(v) => setFilter("company", v)}
+            placeholder="Company"
+            ariaLabel="Filter by company"
+            options={[
+              { value: "all", label: "All companies" },
+              ...companyOptions,
+            ]}
+          />
           <FilterSelect
             value={filters.location}
             onChange={(v) => setFilter("location", v)}

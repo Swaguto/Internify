@@ -89,6 +89,7 @@ export interface Filters {
   q: string;
   category: string; // "all" | Category
   location: string; // "all" | WorkType | State abbr
+  company: string; // "all" | exact company name
   sponsorshipOnly: boolean;
   dateRange: string; // "all" | "24h" | "7d" | "30d"
   sort: SortKey;
@@ -98,6 +99,7 @@ export const DEFAULT_FILTERS: Filters = {
   q: "",
   category: "all",
   location: "all",
+  company: "all",
   sponsorshipOnly: false,
   dateRange: "all",
   sort: "newest",
@@ -115,6 +117,7 @@ export function applyFilters(jobs: Job[], f: Filters, statuses: Record<string, s
 
   return jobs.filter((job) => {
     if (f.category !== "all" && job.category !== f.category) return false;
+    if (f.company !== "all" && job.companyName !== f.company) return false;
     if (f.sponsorshipOnly && job.sponsorship !== "Yes") return false;
 
     if (f.location !== "all") {

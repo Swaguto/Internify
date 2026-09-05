@@ -1,8 +1,7 @@
 "use client";
 
-import { Suspense, useMemo } from "react";
+import { Suspense, useEffect, useMemo } from "react";
 import { SearchX } from "lucide-react";
-import { JOBS } from "@/lib/data";
 import { DEFAULT_FILTERS, applyFilters, sortJobs } from "@/lib/utils";
 import { useStore } from "@/lib/store";
 import { Button } from "@/components/ui/button";
@@ -15,17 +14,24 @@ import { UrlSync } from "./url-sync";
 export function JobsView() {
   const filters = useStore((s) => s.filters);
   const statuses = useStore((s) => s.statuses);
+  const jobs = useStore((s) => s.jobs);
+  const refreshJobs = useStore((s) => s.refreshJobs);
   const resetFilters = useStore((s) => s.resetFilters);
 
-  const jobs = useMemo(
-    () => sortJobs(applyFilters(JOBS, filters, statuses), filters.sort),
-    [filters, statuses]
+  useEffect(() => {
+    refreshJobs();
+  }, [refreshJobs]);
+
+  const filtered = useMemo(
+    () => sortJobs(applyFilters(jobs, filters, statuses), filters.sort),
+    [jobs, filters, statuses]
   );
 
   const isFiltered =
     filters.q !== "" ||
     filters.category !== DEFAULT_FILTERS.category ||
     filters.location !== DEFAULT_FILTERS.location ||
+    filters.company !== DEFAULT_FILTERS.company ||
     filters.sponsorshipOnly !== DEFAULT_FILTERS.sponsorshipOnly ||
     filters.dateRange !== DEFAULT_FILTERS.dateRange;
 
@@ -35,9 +41,9 @@ export function JobsView() {
         <UrlSync />
       </Suspense>
 
-      <FilterBar resultCount={jobs.length} />
+      <FilterBar jobs={jobs} resultCount={filtered.length} />
 
-      {jobs.length === 0 ? (
+      {filtered.length === 0 ? (
         <div className="mt-16 flex flex-col items-center gap-3 text-center">
           <SearchX className="size-8 text-muted-foreground" />
           <div>
@@ -55,10 +61,10 @@ export function JobsView() {
       ) : (
         <>
           <div className="mt-5 hidden lg:block">
-            <JobsTable jobs={jobs} />
+            <JobsTable jobs={filtered} />
           </div>
           <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:hidden">
-            {jobs.map((job) => (
+            {filtered.map((job) => (
               <JobCard key={job.id} job={job} />
             ))}
           </div>
@@ -69,7 +75,7 @@ export function JobsView() {
 
       <footer className="mt-10 border-t border-border pt-4 text-[11px] text-muted-foreground">
         <p className="flex flex-wrap items-center gap-x-4 gap-y-1">
-          <span>{JOBS.length} tracked roles · updated hourly · data is illustrative</span>
+          <span>{jobs.length} tracked roles · updated hourly · curated from live ATS boards</span>
           <span className="font-mono">⌘K search · row click = details · bookmark = track pipeline</span>
         </p>
       </footer>

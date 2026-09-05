@@ -13,6 +13,8 @@ function parseFilters(sp: URLSearchParams): Partial<Filters> {
   if (cat) next.category = cat;
   const loc = sp.get("loc");
   if (loc) next.location = loc;
+  const co = sp.get("co");
+  if (co) next.company = co;
   if (sp.get("spon") === "1") next.sponsorshipOnly = true;
   const range = sp.get("range");
   if (range) next.dateRange = range;
@@ -50,6 +52,7 @@ export function UrlSync() {
     if (f.q) params.set("q", f.q);
     if (f.category !== DEFAULT_FILTERS.category) params.set("cat", f.category);
     if (f.location !== DEFAULT_FILTERS.location) params.set("loc", f.location);
+    if (f.company !== DEFAULT_FILTERS.company) params.set("co", f.company);
     if (f.sponsorshipOnly) params.set("spon", "1");
     if (f.dateRange !== DEFAULT_FILTERS.dateRange) params.set("range", f.dateRange);
     if (f.sort !== DEFAULT_FILTERS.sort) params.set("sort", f.sort);
