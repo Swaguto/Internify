@@ -158,7 +158,7 @@ async function fetchAmazon() {
       }
       for (const j of data.jobs || []) {
         if (j.country_code !== "USA") continue;
-        if (!j.is_intern && !/intern/i.test(j.title)) continue;
+        if (!j.is_intern && !/\bintern(?:ship(?:s)?)?\b/i.test(j.title)) continue;
         const key = `${j.id}`;
         if (seen.has(key)) continue;
         seen.add(key);
@@ -210,7 +210,7 @@ async function fetchNvidia() {
 
   const out = [];
   for (const j of rawRecords) {
-    if (!/intern/i.test(j.title)) continue;
+    if (!/\bintern(?:ship(?:s)?)?\b/i.test(j.title)) continue;
     const loc = j.locationsText || "";
     if (!stateRe.test(loc) && !/remote|united states/i.test(loc)) continue;
     out.push({
@@ -331,6 +331,49 @@ function normalizeLocation(loc) {
   return s.trim();
 }
 
+/* ---------- ATS discovery ---------- */
+function discoverFromUrl(careersUrl) {
+  if (!careersUrl) return null;
+  let m;
+  if ((m = careersUrl.match(/boards\.greenhouse\.io\/([a-z0-9_-]+)/i)))
+    return { type: "greenhouse", token: m[1] };
+  if ((m = careersUrl.match(/(?:www\.)?([a-z0-9-]+)\.greenhouse\.io/i)))
+    return { type: "greenhouse", token: m[1] };
+  if ((m = careersUrl.match(/jobs\.lever\.co\/([a-z0-9_-]+)/i)))
+    return { type: "lever", slug: m[1] };
+  if ((m = careersUrl.match(/jobs\.ashbyhq\.com\/([a-z0-9_-]+)/i)))
+    return { type: "ashby", slug: m[1] };
+  if (/(amazon\.jobs|amazon\.com\/jobs)/i.test(careersUrl)) return { type: "amazon" };
+  if (/\.wd\d+\.myworkdayjobs\.com/i.test(careersUrl) || /nvidia|workday/i.test(careersUrl))
+    return { type: "nvidia" };
+  return null;
+}
+
+async function probe(url) {
+  try {
+    const res = await fetch(url, {
+      headers: { "user-agent": UA },
+      signal: AbortSignal.timeout(10000),
+    });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
+async function discoverByName(name) {
+  const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "");
+  if (await probe(`https://boards-api.greenhouse.io/v1/boards/${slug}/jobs?content=false`))
+    return { type: "greenhouse", token: slug };
+  if (await probe(`https://api.ashbyhq.com/posting-api/job-board/${slug}`))
+    return { type: "ashby", slug };
+  if (await probe(`https://api.lever.co/v0/postings/${slug}?mode=json`))
+    return { type: "lever", slug };
+  if (/amazon/i.test(name)) return { type: "amazon" };
+  if (/nvidia/i.test(name)) return { type: "nvidia" };
+  return null;
+}
+
 /* ---------- run sync ---------- */
 export async function runSync() {
   // Auto-load .env.local if DATABASE_URL is not set
@@ -448,16 +491,19 @@ export async function runSync() {
 
   async function processCompany(c) {
     let ats = c.ats_type ? { type: c.ats_type } : null;
-    if (ats && c.ats_token) {
-      ats[c.ats_type === "greenhouse" ? "token" : "slug"] = c.ats_token;
-    }
+    if (ats) ats[c.ats_type === "greenhouse" ? "token" : "slug"] = c.ats_token;
+    if (!ats) ats = discoverFromUrl(c.careers_url);
     if (!ats) {
-      if (/(amazon\.jobs|amazon\.com\/jobs)/i.test(c.careers_url || "")) ats = { type: "amazon" };
-      else if (/\.wd\d+\.myworkdayjobs\.com/i.test(c.careers_url || "")) ats = { type: "nvidia" };
+      ats = await discoverByName(c.name);
     }
     if (!ats) {
       failed.push(`${c.name} (no discoverable ATS)`);
       await pool.query("UPDATE companies SET last_error = $1 WHERE id = $2", ["no discoverable ATS", c.id]);
+      return;
+    }
+    if (ats.type === "amazon" && c.name !== "Amazon") {
+      await pool.query("UPDATE jobs SET active = FALSE WHERE company_id = $1 AND active = TRUE", [c.id]);
+      await pool.query("UPDATE companies SET last_fetched = $1, last_error = NULL WHERE id = $2", [new Date().toISOString(), c.id]);
       return;
     }
     try {
@@ -472,6 +518,19 @@ export async function runSync() {
         jobs = await fetcher(key, c.name);
       }
       results.push(...jobs);
+
+      const seenD = new Set();
+      jobs = jobs
+        .filter((j) => {
+          const k = j.title.toLowerCase();
+          if (seenD.has(k)) return false;
+          seenD.add(k);
+          return true;
+        })
+        .filter((j) => !EXCLUDE.test(j.title))
+        .filter((j) => !(NON_US.test(j.location) && !US_MARKER.test(j.location)))
+        .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
+        .slice(0, 4);
 
       for (const j of jobs) {
         const sid = slugify(`${c.name}-${j.title}`);
@@ -499,6 +558,9 @@ export async function runSync() {
       }
 
       await pool.query("UPDATE companies SET last_fetched = $1, last_error = NULL WHERE id = $2", [new Date().toISOString(), c.id]);
+      if (!c.ats_type && ats.type !== "amazon") {
+        await pool.query("UPDATE companies SET ats_type = $1, ats_token = $2 WHERE id = $3", [ats.type, ats.token || ats.slug || null, c.id]);
+      }
       console.log(`fetched ${jobs.length} jobs from ${c.name} (${c.ats_type || "discovered"})`);
     } catch (exc) {
       failed.push(c.name);
