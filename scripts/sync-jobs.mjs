@@ -49,7 +49,7 @@ async function fetchGreenhouse(token, company) {
 /* ---------- source: lever ---------- */
 async function fetchLever(slug, company) {
   const data = await get(`https://api.lever.co/v0/postings/${slug}?mode=json`);
-  const intern = /intern|undergrad|university|graduate|new grad|early career/i;
+  const intern = /\bintern(?:ship)?s?\b|undergrad|university|graduate|new grad|new-grad|early career|co-op/i;
   const out = [];
   for (const j of data) {
     if (!intern.test(j.text)) continue;
@@ -75,7 +75,7 @@ async function fetchLever(slug, company) {
 /* ---------- source: ashby ---------- */
 async function fetchAshby(slug, company) {
   const data = await get(`https://api.ashbyhq.com/posting-api/job-board/${slug}`);
-  const intern = /intern|undergrad|university|graduate|new grad|early career/i;
+  const intern = /\bintern(?:ship)?s?\b|undergrad|university|graduate|new grad|new-grad|early career|co-op/i;
   const out = [];
   for (const j of data.jobs || []) {
     if (!intern.test(j.title)) continue;

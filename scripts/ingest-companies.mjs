@@ -36,11 +36,27 @@ function parseCsv(text) {
 
 const HEADER_ALIASES = {
   name: ["name", "company", "companyname", "company name"],
-  careersUrl: ["careersurl", "careers url", "careers", "url", "careersurl url", "careerspage"],
-  domain: ["domain", "domainname", "website"],
+  careersUrl: ["careersurl", "careers url", "careers", "url", "careerspage", "website"],
+  domain: ["domain", "domainname"],
   atsType: ["atstype", "ats", "ats type", "system"],
   atsKey: ["atskey", "token", "slug", "board", "ats token", "ats slug"],
 };
+
+/** Collapse "X (Y)" and "A / B" into a base display name for dedupe. */
+function baseName(name) {
+  return name
+    .replace(/\s*\(.*\)\s*$/, "")
+    .split("/")[0]
+    .trim();
+}
+
+function hostOf(url) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "").toLowerCase();
+  } catch {
+    return url.toLowerCase().replace(/^https?:\/\//, "");
+  }
+}
 
 function pick(header, row, aliases) {
   for (const a of aliases) {
@@ -79,17 +95,18 @@ const companies = registry.companies ?? [];
 let added = 0;
 let updated = 0;
 for (const row of rows.slice(1)) {
-  const name = pick(header, row, HEADER_ALIASES.name);
-  if (!name) continue;
+  const rawName = pick(header, row, HEADER_ALIASES.name);
+  if (!rawName) continue;
+  const name = baseName(rawName);
   const careersUrl = pick(header, row, HEADER_ALIASES.careersUrl);
-  const domain = pick(header, row, HEADER_ALIASES.domain);
+  const domain = hostOf(pick(header, row, HEADER_ALIASES.domain) || careersUrl);
   const ats = toAts(pick(header, row, HEADER_ALIASES.atsType), pick(header, row, HEADER_ALIASES.atsKey));
   const existing = companies.find((c) => norm(c.name) === norm(name));
   if (existing) {
     if (ats && !existing.ats) existing.ats = ats;
     if (careersUrl && !existing.careersUrl) existing.careersUrl = careersUrl;
     if (domain && !existing.domain) existing.domain = domain;
-    if (existing.trackOnly === true && ats) existing.trackOnly = false;
+    if (existing.trackOnly && (ats || careersUrl)) existing.trackOnly = false;
     updated++;
   } else {
     companies.push({
@@ -97,7 +114,7 @@ for (const row of rows.slice(1)) {
       domain: domain || null,
       careersUrl: careersUrl || null,
       ats,
-      trackOnly: !ats,
+      trackOnly: !(ats || careersUrl),
       addedAt: new Date().toISOString(),
     });
     added++;
