@@ -2,7 +2,7 @@ export type WorkType = "Remote" | "On-Site" | "Hybrid";
 
 export type Sponsorship = "Yes" | "No" | "Unknown";
 
-export type Category = "SWE" | "AI/ML" | "Quant" | "Systems/Infrastructure";
+export type Category = "SWE" | "AI/ML" | "Quant" | "Systems/Infrastructure" | "Robotics";
 
 export type ApplicationStatus = "Saved" | "Applied" | "Interviewing";
 

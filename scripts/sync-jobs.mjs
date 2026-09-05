@@ -254,8 +254,13 @@ const NON_US =
   /\b(canada|united kingdom|\buk\b|london|toronto|waterloo|zurich|berlin|paris|dublin|amsterdam|singapore|india|mexico|sao paulo|tel aviv|israel|japan|tokyo|beijing|shanghai|sydney|hong kong|munich|stockholm|oslo|copenhagen|sweden|netherlands|switzerland|ireland|germany|france|barcelona|madrid|australia)\b/i;
 const US_MARKER = /\b(united states|\busa\b|, [A-Z]{2}\b|california|washington|new york|texas|massachusetts|illinois|colorado|virginia|north carolina|oregon)\b/i;
 
-function category(title) {
+const ROBOTICS_COMPANIES = /^(nvidia|waymo|zoox|nuro|skydio|shield ai|anduril|figure ai|apptronik|physical intelligence|1x technologies|boston dynamics|agility robotics|sanctuary ai|skild ai|unitree|covariant|fourier|waabi|torc|kodiak|gatik|ghost robotics|saronic|aurora|cruise|autonomous|robotics|robot)/i;
+
+function category(title, companyName) {
   const t = title.toLowerCase();
+  const c = (companyName || "").toLowerCase();
+  if (/(robotics|autonomous|locomotion|manipulation|perception|slam|ros\b|navigation2|nav2|simulation|embodied|grasp|locomot)/i.test(t)) return "Robotics";
+  if (ROBOTICS_COMPANIES.test(c)) return "Robotics";
   if (/(machine learning|ml engineer|ml engineering|research engineer|ai\/ml|artificial intelligence|deep learning|llm|applied scientist)/i.test(t)) return "AI/ML";
   if (/(trader|trading|derivatives|market making|quantitative (analyst|developer|researcher)|portfolio|hedge fund|market microstructure)\b/i.test(t)) return "Quant";
   if (/(embedded|systems|infrastructure|platform|network|sre|site reliability|storage|database|firmware|hardware|devops|security)/i.test(t)) return "Systems/Infrastructure";
@@ -423,7 +428,7 @@ export async function runSync() {
         sponsorship: "Unknown",
         datePosted: r.updated_at,
         applicationUrl: r.url,
-        category: category(r.title),
+        category: category(r.title, company),
       });
     }
   }

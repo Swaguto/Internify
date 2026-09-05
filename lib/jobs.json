@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-09-05T03:46:14.928Z",
+  "syncedAt": "2026-09-05T03:55:49.991Z",
   "jobs": [
     {
       "id": "scale-ai-software-engineering-intern-summer-2027",
@@ -90,7 +90,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-09-04T04:00:00.000Z",
       "applicationUrl": "https://www.amazon.jobs/en/jobs/10529525",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "waymo-2027-summer-intern-ms-software-engineering",
@@ -103,7 +103,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-09-03T20:19:33-04:00",
       "applicationUrl": "https://careers.withwaymo.com/jobs?gh_jid=8174504",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "waymo-2027-summer-intern-ms-phd-data-science-com",
@@ -116,7 +116,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-09-03T20:19:14-04:00",
       "applicationUrl": "https://careers.withwaymo.com/jobs?gh_jid=8167323",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "anduril-2026-early-career-electrical-engineer",
@@ -129,7 +129,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-09-02T20:46:09-04:00",
       "applicationUrl": "https://boards.greenhouse.io/andurilindustries/jobs/4802172007?gh_jid=4802172007",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "anduril-2026-early-career-flight-test-engineer-m",
@@ -142,7 +142,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-09-02T20:46:09-04:00",
       "applicationUrl": "https://boards.greenhouse.io/andurilindustries/jobs/5185089007?gh_jid=5185089007",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "anduril-2026-early-career-manufacturing-engineer",
@@ -155,7 +155,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-09-02T20:46:09-04:00",
       "applicationUrl": "https://boards.greenhouse.io/andurilindustries/jobs/5176254007?gh_jid=5176254007",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "anduril-2026-early-career-mechanical-engineer",
@@ -168,7 +168,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-09-02T20:46:09-04:00",
       "applicationUrl": "https://boards.greenhouse.io/andurilindustries/jobs/4802167007?gh_jid=4802167007",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "datadog-software-engineering-intern-winter",
@@ -194,7 +194,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-09-01T02:09:49.870Z",
       "applicationUrl": "https://jobs.lever.co/shieldai/8c6cfcee-c6da-4a73-9bdf-3ef098ff59e6",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "shield-ai-summer-2027-electrical-engineering-int",
@@ -207,7 +207,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-09-01T02:03:06.664Z",
       "applicationUrl": "https://jobs.lever.co/shieldai/200a293f-71ce-4982-a100-ac4b500c4cf7",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "shield-ai-summer-2027-advanced-manufacturing-eng",
@@ -220,7 +220,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-08-27T23:18:32.589Z",
       "applicationUrl": "https://jobs.lever.co/shieldai/c41c41a2-83d8-41a0-8a3b-ff8b84dc1c8a",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "amazon-software-development-engineer-intern-anna",
@@ -259,7 +259,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-08-27T04:00:00.000Z",
       "applicationUrl": "https://www.amazon.jobs/en/jobs/10517149",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "nuro-software-engineer-ai-platform-intern",
@@ -272,7 +272,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-08-26T19:07:27-04:00",
       "applicationUrl": "https://nuro.ai/careersitem?gh_jid=7351061",
-      "category": "Systems/Infrastructure"
+      "category": "Robotics"
     },
     {
       "id": "nuro-software-engineer-ai-platform-new-grad",
@@ -285,7 +285,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-08-26T19:07:27-04:00",
       "applicationUrl": "https://nuro.ai/careersitem?gh_jid=7351066",
-      "category": "Systems/Infrastructure"
+      "category": "Robotics"
     },
     {
       "id": "figma-software-engineer-intern-winter-2027",
@@ -311,7 +311,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-08-24T14:54:05-04:00",
       "applicationUrl": "https://boards.greenhouse.io/apptronik/jobs/5985132004?gh_jid=5985132004",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "databricks-software-engineering-intern-2027-star",
@@ -361,9 +361,9 @@
       "location": "US, CA, Santa Clara",
       "workType": "On-Site",
       "sponsorship": "Unknown",
-      "datePosted": "2026-08-06T03:45:28.830Z",
+      "datePosted": "2026-08-06T03:55:29.231Z",
       "applicationUrl": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Applied-Deep-Learning-PhD-Research-Intern--Reinforcement-Learning-for-LLMs---Fall-2026_JR2012398",
-      "category": "AI/ML"
+      "category": "Robotics"
     },
     {
       "id": "nvidia-phd-software-engineering-intern-decision-",
@@ -374,9 +374,9 @@
       "location": "US, CA, Santa Clara",
       "workType": "On-Site",
       "sponsorship": "Unknown",
-      "datePosted": "2026-08-06T03:45:28.830Z",
+      "datePosted": "2026-08-06T03:55:29.231Z",
       "applicationUrl": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/PhD-Software-Engineering-Intern--Decision-Intelligence---Fall-2026_JR2017522",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "nvidia-phd-research-intern-generative-ai-2026",
@@ -387,9 +387,9 @@
       "location": "US, CA, Santa Clara",
       "workType": "On-Site",
       "sponsorship": "Unknown",
-      "datePosted": "2026-08-06T03:45:28.830Z",
+      "datePosted": "2026-08-06T03:55:29.231Z",
       "applicationUrl": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/PhD-Research-Intern--Generative-AI---2026_JR2016035",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "nvidia-applied-research-intern-nlp-fall-2026",
@@ -400,9 +400,9 @@
       "location": "US, CA, Santa Clara",
       "workType": "On-Site",
       "sponsorship": "Unknown",
-      "datePosted": "2026-08-06T03:45:28.830Z",
+      "datePosted": "2026-08-06T03:55:29.231Z",
       "applicationUrl": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Applied-Research-Intern--NLP---Fall-2026_JR2010488",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "figure-ai-power-systems-integration-intern-fall-",
@@ -415,7 +415,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-08-03T19:00:39-04:00",
       "applicationUrl": "https://job-boards.greenhouse.io/figureai/jobs/4702104006",
-      "category": "Systems/Infrastructure"
+      "category": "Robotics"
     },
     {
       "id": "figure-ai-electrical-engineering-intern-fall-202",
@@ -428,7 +428,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-08-02T19:13:18-04:00",
       "applicationUrl": "https://job-boards.greenhouse.io/figureai/jobs/4676467006",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "figure-ai-firmware-intern-fall-2026",
@@ -441,7 +441,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-08-02T19:13:18-04:00",
       "applicationUrl": "https://job-boards.greenhouse.io/figureai/jobs/4691070006",
-      "category": "Systems/Infrastructure"
+      "category": "Robotics"
     },
     {
       "id": "figure-ai-hardware-test-intern-fall-2026",
@@ -454,7 +454,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-08-02T19:13:18-04:00",
       "applicationUrl": "https://job-boards.greenhouse.io/figureai/jobs/4613067006",
-      "category": "Systems/Infrastructure"
+      "category": "Robotics"
     },
     {
       "id": "shield-ai-electrical-engineering-spring-co-op-ja",
@@ -467,7 +467,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2026-04-15T13:22:29.091Z",
       "applicationUrl": "https://jobs.lever.co/shieldai/87d982f2-8b2b-4c73-9a19-71e461c7b724",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "waabi-research-internship-co-op",
@@ -480,7 +480,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2025-12-18T22:08:55.237Z",
       "applicationUrl": "https://jobs.lever.co/waabi/0fd4e30b-9bd1-4b53-9043-6088457363cb",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "waabi-2026-intern-phd-research-scientist",
@@ -493,7 +493,7 @@
       "sponsorship": "Unknown",
       "datePosted": "2025-12-18T21:59:13.993Z",
       "applicationUrl": "https://jobs.lever.co/waabi/62700386-b9db-4c78-aec3-5ef59cbe841e",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "palantir-forward-deployed-infrastructure-enginee",
@@ -584,7 +584,7 @@
       "sponsorship": "Unknown",
       "datePosted": "1970-01-01T00:00:00.000Z",
       "applicationUrl": "https://jobs.ashbyhq.com/physicalintelligence/f020ff1a-4b4c-4415-8434-2da5010a7076",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "skydio-autonomy-engineer-intern-computer-vision-",
@@ -597,7 +597,7 @@
       "sponsorship": "Unknown",
       "datePosted": "1970-01-01T00:00:00.000Z",
       "applicationUrl": "https://jobs.ashbyhq.com/skydio/ae4a6f7d-a240-4fa2-8c8e-04cc906e4ef9",
-      "category": "AI/ML"
+      "category": "Robotics"
     },
     {
       "id": "skydio-hardware-test-reliability-intern-fall-202",
@@ -610,7 +610,7 @@
       "sponsorship": "Unknown",
       "datePosted": "1970-01-01T00:00:00.000Z",
       "applicationUrl": "https://jobs.ashbyhq.com/skydio/d75d4adf-760c-46b6-bb98-3497650a8924",
-      "category": "Systems/Infrastructure"
+      "category": "Robotics"
     },
     {
       "id": "skydio-electrical-engineer-intern-fall-2026",
@@ -623,7 +623,7 @@
       "sponsorship": "Unknown",
       "datePosted": "1970-01-01T00:00:00.000Z",
       "applicationUrl": "https://jobs.ashbyhq.com/skydio/9ac944bc-89da-44bb-bf9c-3b9922e7cbee",
-      "category": "SWE"
+      "category": "Robotics"
     },
     {
       "id": "skydio-operations-program-management-intern-fall",
@@ -636,7 +636,7 @@
       "sponsorship": "Unknown",
       "datePosted": "1970-01-01T00:00:00.000Z",
       "applicationUrl": "https://jobs.ashbyhq.com/skydio/3444dc8a-1b2a-4bb1-9bfb-15252d2a25e5",
-      "category": "SWE"
+      "category": "Robotics"
     }
   ]
 }

@@ -7,6 +7,7 @@ export const CATEGORY_OPTIONS = [
   { value: "all", label: "All roles" },
   { value: "SWE", label: "Software Eng" },
   { value: "AI/ML", label: "AI / ML" },
+  { value: "Robotics", label: "Robotics" },
   { value: "Quant", label: "Quant / Finance" },
   { value: "Systems/Infrastructure", label: "Systems & Infra" },
 ] as const;
