@@ -48,7 +48,7 @@ export function JobRow({ job }: { job: Job }) {
     >
       <TableCell className="max-w-0 w-[24%]">
         <div className="flex items-center gap-2.5 pr-2">
-          <CompanyLogo name={job.companyName} />
+          <CompanyLogo name={job.companyName} logoUrl={job.companyLogoUrl} />
           <div className="min-w-0">
             <div className="flex items-center gap-1.5 font-medium text-foreground">
               <span className="truncate">{job.companyName}</span>
