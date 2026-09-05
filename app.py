@@ -197,9 +197,5 @@ def refresh(request: Request):
     if request.method == "GET" and secret:
         if request.headers.get("authorization") != f"Bearer {secret}":
             raise HTTPException(401, "unauthorized")
-    if request.method == "POST":
-        started = not _refresh_lock.locked()
-        run_refresh_in_background()
-        return {"started": started}
     started = fetch_all()
     return {"started": started}
