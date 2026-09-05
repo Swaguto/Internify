@@ -9,7 +9,7 @@ export async function GET() {
         j.id,
         j.source_id as "id",
         c.name as "companyName",
-        c.domain as "companyLogoUrl",
+        c.domain as "domain",
         j.title as "roleTitle",
         j.season,
         j.location,
@@ -24,11 +24,20 @@ export async function GET() {
       ORDER BY j.posted_at DESC NULLS LAST, j.id DESC
     `);
     
-    const jobs = result.rows.map((r: Record<string, unknown>) => ({
-      ...(r as Record<string, string>),
-      companyLogoUrl: r.companyLogoUrl
-        ? `https://www.google.com/s2/favicons?domain=${r.companyLogoUrl}&sz=64`
+    const jobs = result.rows.map((r) => ({
+      id: r.id,
+      companyName: r.companyName,
+      companyLogoUrl: r.domain
+        ? `https://www.google.com/s2/favicons?domain=${r.domain}&sz=64`
         : undefined,
+      roleTitle: r.roleTitle,
+      season: r.season || "Rolling",
+      location: r.location || "",
+      workType: r.workType || "On-Site",
+      sponsorship: r.sponsorship || "Unknown",
+      datePosted: r.datePosted || new Date().toISOString(),
+      applicationUrl: r.applicationUrl || "#",
+      category: r.category || "SWE",
     }));
     
     return Response.json({ syncedAt: new Date().toISOString(), jobs });
