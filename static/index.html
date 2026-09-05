@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RoboRadar — Robotics Internship Radar</title>
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Roboto+Serif:opsz,wght@8..144,400;8..144,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23e65547'/><circle cx='50' cy='50' r='16' fill='white'/><circle cx='50' cy='50' r='30' fill='none' stroke='white' stroke-opacity='0.6' stroke-width='9'/><circle cx='50' cy='50' r='44' fill='none' stroke='white' stroke-opacity='0.28' stroke-width='7'/></svg>" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 48 48" width="44" height="44" aria-hidden="true">
+        <rect width="48" height="48" rx="12" fill="#e65547" />
+        <circle cx="24" cy="24" r="7.5" fill="#fff" />
+        <circle cx="24" cy="24" r="14" fill="none" stroke="#fff" stroke-opacity="0.6" stroke-width="4.5" />
+        <circle cx="24" cy="24" r="21" fill="none" stroke="#fff" stroke-opacity="0.28" stroke-width="3.5" />
+      </svg>
+      <div class="brand-text">
+        <h1>RoboRadar</h1>
+        <p>Robotics &amp; autonomy internships, pulled live from company boards.</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-ghost theme-btn" id="themeBtn" title="Toggle dark mode">
+        <svg id="iconSun" class="icon-theme" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4"/></svg>
+        <svg id="iconMoon" class="icon-theme" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" hidden><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <div class="status-pill" id="statusPill"><span class="dot"></span> checking…</div>
+      <button class="btn btn-ghost" id="refreshBtn" title="Poll every board now">↻&nbsp; Refresh</button>
+      <button class="btn btn-primary" id="manageBtn">Manage companies</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-row">
+      <h2 class="hero-title">Robotics internship radar</h2>
+      <span class="pill-green" id="thisWeekPill" hidden></span>
+    </div>
+    <p class="hero-sub">Live roles across aerospace, humanoids, drones, autonomy and industrial automation — refreshed from each company's own job board.</p>
+  </section>
+
+  <section class="stats" id="stats">
+    <div class="stat"><span class="stat-num mono" id="statJobs">–</span><span class="stat-label">open roles</span></div>
+    <div class="stat"><span class="stat-num mono" id="statCompanies">–</span><span class="stat-label">companies</span></div>
+    <div class="stat"><span class="stat-num mono" id="statNew">–</span><span class="stat-label">new this week</span></div>
+    <div class="stat"><span class="stat-num mono" id="statUpdated">–</span><span class="stat-label">last updated</span></div>
+  </section>
+
+  <section class="filters">
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="text" id="search" placeholder="Search role, company, location, skill…" autocomplete="off" />
+    </div>
+    <div class="filter-rest">
+      <label class="switch">
+        <input type="checkbox" id="internOnly" />
+        <span class="slider"></span>
+        <span class="switch-label">Internships / co-ops only</span>
+      </label>
+      <select id="sort">
+        <option value="newest">Newest first</option>
+        <option value="oldest">Oldest first</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="chips"><span class="chips-title">Filter by company</span></section>
+
+  <main class="grid" id="grid" aria-live="polite"></main>
+
+  <div class="empty" id="empty" hidden>
+    <div class="empty-icon">◈</div>
+    <h3>No roles match</h3>
+    <p>Try a different search, or un-hide more companies.</p>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <div>
+          <h2>Companies <span class="muted" id="companyCount"></span></h2>
+          <p class="modal-sub">Pick the board type that matches each company's careers page, or paste an RSS feed URL.</p>
+        </div>
+        <button class="icon-btn" id="closeModal" aria-label="Close">✕</button>
+      </div>
+
+      <form class="add-form" id="addForm">
+        <input type="text" id="cName" placeholder="Company name" required />
+        <select id="cType">
+          <option value="greenhouse">Greenhouse</option>
+          <option value="lever">Lever</option>
+          <option value="workable">Workable</option>
+          <option value="ashby">Ashby</option>
+          <option value="rss">RSS feed</option>
+        </select>
+        <input type="text" id="cKey" placeholder="e.g. spacex" required />
+        <button type="submit" class="btn btn-primary" id="addBtn">Add</button>
+        <input type="text" id="cDomain" placeholder="Website domain (optional) — e.g. spacex.com — used for the company logo" />
+      </form>
+      <p class="board-hint" id="boardHint"></p>
+      <p class="board-hint what-is">
+        The <b>board type</b> is the software a company uses to publish jobs. Their careers-page URL reveals it:
+        <b>boards.greenhouse.io/&lt;key&gt;</b>, <b>jobs.lever.co/&lt;key&gt;</b>, <b>apply.workable.com/&lt;key&gt;</b> or
+        <b>jobs.ashbyhq.com/&lt;key&gt;</b> — pick the matching type and paste the key. Use <b>RSS feed</b> for any feed URL.
+      </p>
+
+      <div class="company-list" id="companyList"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

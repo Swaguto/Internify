@@ -1,0 +1,33 @@
+{
+  "companies": [
+    { "name": "Amazon", "board_type": "amazon", "board_key": "amazon", "domain": "amazon.com" },
+    { "name": "NVIDIA", "board_type": "nvidia", "board_key": "nvidia", "domain": "nvidia.com" },
+    { "name": "Scale AI", "board_type": "greenhouse", "board_key": "scaleai", "domain": "scale.com" },
+    { "name": "Roblox", "board_type": "greenhouse", "board_key": "roblox", "domain": "roblox.com" },
+    { "name": "Stripe", "board_type": "greenhouse", "board_key": "stripe", "domain": "stripe.com" },
+    { "name": "Waymo", "board_type": "greenhouse", "board_key": "waymo", "domain": "waymo.com" },
+    { "name": "Anduril", "board_type": "greenhouse", "board_key": "andurilindustries", "domain": "anduril.com" },
+    { "name": "Datadog", "board_type": "greenhouse", "board_key": "datadog", "domain": "datadoghq.com" },
+    { "name": "Shield AI", "board_type": "greenhouse", "board_key": "shieldai", "domain": "shield.ai" },
+    { "name": "Nuro", "board_type": "greenhouse", "board_key": "nuro", "domain": "nuro.ai" },
+    { "name": "Figma", "board_type": "greenhouse", "board_key": "figma", "domain": "figma.com" },
+    { "name": "Apptronik", "board_type": "greenhouse", "board_key": "apptronik", "domain": "apptronik.com" },
+    { "name": "Databricks", "board_type": "greenhouse", "board_key": "databricks", "domain": "databricks.com" },
+    { "name": "Postman", "board_type": "greenhouse", "board_key": "postman", "domain": "postman.com" },
+    { "name": "Figure AI", "board_type": "greenhouse", "board_key": "figureai", "domain": "figure.ai" },
+    { "name": "Palantir", "board_type": "greenhouse", "board_key": "palantir", "domain": "palantir.com" },
+    { "name": "Snowflake", "board_type": "greenhouse", "board_key": "snowflake", "domain": "snowflake.com" },
+    { "name": "Notion", "board_type": "greenhouse", "board_key": "notion", "domain": "notion.so" },
+    { "name": "SpaceX", "board_type": "greenhouse", "board_key": "spacex", "domain": "spacex.com" },
+    { "name": "Agility Robotics", "board_type": "greenhouse", "board_key": "agilityrobotics", "domain": "agilityrobotics.com" },
+    { "name": "Waabi", "board_type": "ashby", "board_key": "waabi", "domain": "waabi.ai" },
+    { "name": "Skydio", "board_type": "ashby", "board_key": "skydio", "domain": "skydio.com" },
+    { "name": "Physical Intelligence", "board_type": "ashby", "board_key": "physicalintelligence", "domain": "physicalintelligence.company" },
+    { "name": "Saronic", "board_type": "ashby", "board_key": "saronic", "domain": "saronic.com" },
+    { "name": "Formic", "board_type": "greenhouse", "board_key": "formic", "domain": "formic.ai" },
+    { "name": "Field AI", "board_type": "lever", "board_key": "field-ai", "domain": "fieldai.com" },
+    { "name": "Dexterity", "board_type": "lever", "board_key": "dexterity", "domain": "dexterity.ai" },
+    { "name": "Flexion Robotics", "board_type": "workable", "board_key": "flexion-robotics", "domain": "flexion.ai" },
+    { "name": "Robotics Jobs HQ (aggregator)", "board_type": "rss", "board_key": "https://roboticsjobshq.com/feed.xml", "domain": "roboticsjobshq.com" }
+  ]
+}
