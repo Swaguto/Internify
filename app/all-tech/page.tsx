@@ -59,6 +59,12 @@ export default function AllTech() {
             <span className="hidden rounded-md border border-border bg-card px-2.5 py-1.5 font-mono text-[11px] text-foreground sm:inline-flex">
               All Tech
             </span>
+            <Link
+              href="/events"
+              className="rounded-md border border-border bg-card px-2.5 py-1.5 font-mono text-[11px] text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Events
+            </Link>
             <ThemeToggle />
           </div>
         </div>
