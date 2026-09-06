@@ -2,36 +2,34 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Radar } from "lucide-react";
-import { companyTag } from "@/lib/utils";
+import { Radar, Database } from "lucide-react";
 import { setActiveView } from "@/lib/store";
 import { JobsView } from "@/components/jobs/jobs-view";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { AddCompanyDialog } from "@/components/companies/add-company-dialog";
 
-setActiveView("internship");
+setActiveView("alltech");
 
 interface Stats {
   totalRoles: number;
   totalCompanies: number;
   openWeek: number;
-  tags: number;
+  tracked: number;
 }
 
-export default function Home() {
-  const [stats, setStats] = useState<Stats>({ totalRoles: 0, totalCompanies: 0, openWeek: 0, tags: 0 });
+export default function AllTech() {
+  const [stats, setStats] = useState<Stats>({ totalRoles: 0, totalCompanies: 0, openWeek: 0, tracked: 0 });
 
   useEffect(() => {
     async function loadStats() {
       try {
-        const res = await fetch("/api/jobs", { cache: "no-store" });
+        const res = await fetch("/api/jobs-all", { cache: "no-store" });
         const data = await res.json();
         const jobs = data.jobs || [];
         setStats({
           totalRoles: jobs.length,
           totalCompanies: new Set(jobs.map((j: { companyName: string }) => j.companyName)).size,
           openWeek: jobs.filter((j: { datePosted: string }) => Date.now() - new Date(j.datePosted).getTime() < 7 * 86_400_000).length,
-          tags: new Set(jobs.map((j: { companyName: string }) => companyTag(j.companyName))).size,
+          tracked: data.trackedCompanies || 0,
         });
       } catch {}
     }
@@ -48,24 +46,19 @@ export default function Home() {
             </span>
             <span className="text-sm font-semibold tracking-tight">Internify</span>
             <span className="hidden font-mono text-[11px] text-muted-foreground sm:inline">
-              / us · swe · internships
+              / all · tech · robotics
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 font-mono text-[11px] text-emerald-700 dark:text-emerald-400">
-              <span className="relative flex size-1.5">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500 opacity-75" />
-                <span className="relative inline-flex size-1.5 rounded-full bg-emerald-500" />
-              </span>
-              live
-            </span>
-            <AddCompanyDialog />
             <Link
-              href="/all-tech"
+              href="/"
               className="rounded-md border border-border bg-card px-2.5 py-1.5 font-mono text-[11px] text-muted-foreground transition-colors hover:text-foreground"
             >
-              All Tech
+              Internships
             </Link>
+            <span className="hidden rounded-md border border-border bg-card px-2.5 py-1.5 font-mono text-[11px] text-foreground sm:inline-flex">
+              All Tech
+            </span>
             <ThemeToggle />
           </div>
         </div>
@@ -74,21 +67,21 @@ export default function Home() {
       <section className="border-b border-border">
         <div className="mx-auto max-w-7xl px-4 pt-10 pb-8 sm:px-6">
           <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-balance sm:text-4xl">
-            US Software Engineering Internship Tracker
+            All Tech &amp; Robotics Internship Feed
           </h1>
           <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-            A curated, filterable feed of software internships across Big Tech,
-            quant funds, AI labs and startups — searchable, sortable by pay, and
-            tracked through to offer.
+            Every big tech, quant, AI and robotics internship we can find on public
+            job boards across the US and Canada — a rolling scrape of a 2,000+
+            company universe.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-2">
             {[
               { value: `${stats.totalRoles}+`, label: "open roles" },
-              { value: `${stats.totalCompanies}`, label: "companies" },
-              { value: `${stats.tags}`, label: "company types" },
+              { value: `${stats.totalCompanies}`, label: "companies hiring" },
               { value: `${stats.openWeek}`, label: "posted this week" },
-              { value: "hourly", label: "update cadence" },
+              { value: `${stats.tracked}+`, label: "companies tracked" },
+              { value: "rolling", label: "update cadence" },
             ].map((stat) => (
               <div
                 key={stat.label}
@@ -107,6 +100,13 @@ export default function Home() {
       <main className="flex-1">
         <JobsView />
       </main>
+
+      <footer className="border-t border-border py-4 text-center text-[11px] text-muted-foreground">
+        <p className="flex items-center justify-center gap-1.5">
+          <Database className="size-3" />
+          Scraped from Greenhouse · Ashby · Lever · SmartRecruiters · Amazon.jobs boards via scheduled cron
+        </p>
+      </footer>
     </div>
   );
 }

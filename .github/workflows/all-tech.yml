@@ -1,0 +1,22 @@
+name: Refresh All Tech board
+
+on:
+  schedule:
+    - cron: "5,20,35,50 * * * *"
+  workflow_dispatch:
+
+jobs:
+  sync-all:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger all-tech sync
+        run: |
+          for i in 1 2 3; do
+            if curl -sS -f -X POST --max-time 120 https://internify-gzsg-nu.vercel.app/api/sync-all; then
+              echo "All-tech sync triggered"
+              exit 0
+            fi
+            echo "Attempt $i failed, retrying"
+            sleep 15
+          done
+          exit 1
