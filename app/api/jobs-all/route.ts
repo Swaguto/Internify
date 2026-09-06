@@ -30,21 +30,22 @@ export async function GET() {
       LIMIT 5000
     `);
 
-    const jobs = result.rows.map((r) => ({
-      id: r.id,
-      companyName: r.companyName,
-      ...(r.logoHost
-        ? logoUrls(r.logoHost)
-        : { companyLogoUrl: undefined, companyLogoFallbackUrl: undefined }),
-      roleTitle: r.roleTitle,
-      season: r.season || "Rolling",
-      location: r.location || "",
-      workType: r.workType || "On-Site",
-      sponsorship: r.sponsorship || "Unknown",
-      datePosted: r.datePosted || new Date().toISOString(),
-      applicationUrl: r.applicationUrl || "#",
-      category: r.category || "SWE",
-    }));
+    const jobs = result.rows.map((r: Record<string, unknown>) => {
+      const host = typeof r.logoHost === "string" ? r.logoHost : null;
+      return {
+        id: r.id,
+        companyName: r.companyName,
+        ...(host ? logoUrls(host) : { companyLogoUrl: undefined, companyLogoFallbackUrl: undefined }),
+        roleTitle: r.roleTitle,
+        season: r.season || "Rolling",
+        location: r.location || "",
+        workType: r.workType || "On-Site",
+        sponsorship: r.sponsorship || "Unknown",
+        datePosted: r.datePosted || new Date().toISOString(),
+        applicationUrl: r.applicationUrl || "#",
+        category: r.category || "SWE",
+      };
+    });
 
     const st = await pool.query("SELECT COUNT(*)::int AS n FROM all_companies");
     return Response.json({
