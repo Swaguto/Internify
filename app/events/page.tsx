@@ -36,7 +36,8 @@ interface EventItem {
   hotelPerNight: number;
   nights: number;
   notes: string;
-  logoHost?: string;
+  logoUrl?: string;
+  logoFallbackUrl?: string;
   region?: string;
 }
 
@@ -315,10 +316,8 @@ export default function EventsPage() {
                   <div className="flex min-w-0 items-center gap-2.5">
                     <CompanyLogo
                       name={e.name}
-                      logoUrl={e.logoHost ? `https://icons.duckduckgo.com/ip3/${e.logoHost}.ico` : undefined}
-                      logoFallbackUrl={
-                        e.logoHost ? `https://www.google.com/s2/favicons?domain=${e.logoHost}&sz=64` : undefined
-                      }
+                      logoUrl={e.logoUrl}
+                      logoFallbackUrl={e.logoFallbackUrl}
                     />
                     <h3 className="text-sm font-semibold leading-snug text-foreground">{e.name}</h3>
                   </div>

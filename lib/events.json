@@ -15,8 +15,9 @@
     "hotelPerNight": 240,
     "nights": 4,
     "notes": "The top venue for robot learning. Single-track, very strong networking. Sellouts are common.",
-    "logoHost": "corl.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/corl.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=corl.org&sz=64"
   },
   {
     "name": "IROS — IEEE/RSJ Intelligent Robots & Systems",
@@ -34,8 +35,9 @@
     "hotelPerNight": 210,
     "nights": 4,
     "notes": "'Roboburgh' — biggest general robotics conference (7k+ attendees). Book early for hotels.",
-    "logoHost": "ieee-iros.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/ieee-iros.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=ieee-iros.org&sz=64"
   },
   {
     "name": "ICRA — IEEE Robotics & Automation",
@@ -53,8 +55,9 @@
     "hotelPerNight": 190,
     "nights": 4,
     "notes": "Flagship IEEE robotics conference. 2027 edition in Tokyo.",
-    "logoHost": "ieee-icra.org",
-    "region": "Global"
+    "region": "Global",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/ieee-icra.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=ieee-icra.org&sz=64"
   },
   {
     "name": "RSS — Robotics: Science & Systems",
@@ -72,8 +75,9 @@
     "hotelPerNight": 190,
     "nights": 4,
     "notes": "Single-track, highly selective — the premier place to see frontier robotics & ML work.",
-    "logoHost": "roboticsconference.org",
-    "region": "Global"
+    "region": "Global",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/roboticsconference.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=roboticsconference.org&sz=64"
   },
   {
     "name": "ROSCon Global",
@@ -91,8 +95,9 @@
     "hotelPerNight": 230,
     "nights": 3,
     "notes": "The ROS/ROS2 community event — best place for robotics software engineers & interns. Often sells out.",
-    "logoHost": "ros.org",
-    "region": "Canada"
+    "region": "Canada",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/ros.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=ros.org&sz=64"
   },
   {
     "name": "ROSCon UK",
@@ -110,8 +115,8 @@
     "hotelPerNight": 160,
     "nights": 3,
     "notes": "Compact, cheap, genuinely friendly UK ROS gathering with workshops and tours.",
-    "logoHost": "roscon.org.uk",
-    "region": "Europe"
+    "region": "Europe",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=roscon.org.uk&sz=64"
   },
   {
     "name": "IEEE-RAS Humanoids",
@@ -129,7 +134,6 @@
     "hotelPerNight": 190,
     "nights": 4,
     "notes": "All humanoid robotics — worth it if you build legged or bipedal systems.",
-    "logoHost": "humanoids-robot.org",
     "region": "Global"
   },
   {
@@ -148,8 +152,9 @@
     "hotelPerNight": 160,
     "nights": 3,
     "notes": "European robotics ecosystem meet — heavy industry presence, lots of internship recruiting.",
-    "logoHost": "eu-robotics.net",
-    "region": "Europe"
+    "region": "Europe",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/eu-robotics.net.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=eu-robotics.net&sz=64"
   },
   {
     "name": "RoboBusiness",
@@ -167,8 +172,9 @@
     "hotelPerNight": 210,
     "nights": 2,
     "notes": "Robotics industry, investors, and startups — great for startup internship hunting.",
-    "logoHost": "roboticsbusinessreview.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/roboticsbusinessreview.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=roboticsbusinessreview.com&sz=64"
   },
   {
     "name": "Automate",
@@ -186,8 +192,9 @@
     "hotelPerNight": 200,
     "nights": 2,
     "notes": "North America's largest industrial automation show — logistics, AMRs, cobots, factory AI.",
-    "logoHost": "automateshow.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/automateshow.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=automateshow.com&sz=64"
   },
   {
     "name": "Robotics Summit & Expo",
@@ -205,8 +212,9 @@
     "hotelPerNight": 240,
     "nights": 3,
     "notes": "Deep-dive robotics engineering talks across hardware, safety, and autonomy.",
-    "logoHost": "roboticssummit.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/roboticssummit.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=roboticssummit.com&sz=64"
   },
   {
     "name": "Hannover Messe",
@@ -224,8 +232,9 @@
     "hotelPerNight": 160,
     "nights": 3,
     "notes": "World's biggest industrial trade fair — every industrial robot OEM exhibits.",
-    "logoHost": "hannovermesse.de",
-    "region": "Europe"
+    "region": "Europe",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/hannovermesse.de.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=hannovermesse.de&sz=64"
   },
   {
     "name": "NVIDIA GTC",
@@ -243,8 +252,9 @@
     "hotelPerNight": 240,
     "nights": 3,
     "notes": "GPU + accelerated computing + robotics (Isaac/Omniverse). Student pass is very cheap.",
-    "logoHost": "nvidia.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/nvidia.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=nvidia.com&sz=64"
   },
   {
     "name": "AUVSI XPONENTIAL",
@@ -262,8 +272,9 @@
     "hotelPerNight": 230,
     "nights": 3,
     "notes": "Drones, UAS, autonomy expo — massive vendor floor for autonomy jobs.",
-    "logoHost": "xponential.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/xponential.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=xponential.org&sz=64"
   },
   {
     "name": "CPS-IoT Week",
@@ -281,7 +292,6 @@
     "hotelPerNight": 190,
     "nights": 4,
     "notes": "The 'physics-meets-systems' crowd — IoT, real-time, robotics control.",
-    "logoHost": "cpsi-week.org",
     "region": "US"
   },
   {
@@ -300,7 +310,6 @@
     "hotelPerNight": 150,
     "nights": 5,
     "notes": "Robot soccer World Cup — teams of undergrads from 45+ countries. Great for joining a team.",
-    "logoHost": "robocup.org",
     "region": "Global"
   },
   {
@@ -319,7 +328,6 @@
     "hotelPerNight": 170,
     "nights": 3,
     "notes": "40+ robot contest categories under one roof — combat bots, sumo, maze, LEGO. Hidden gem.",
-    "logoHost": "robogames.net",
     "region": "US"
   },
   {
@@ -338,8 +346,9 @@
     "hotelPerNight": 150,
     "nights": 3,
     "notes": "80k-person robotics festival (FRC finale). Alumni network is unmatched.",
-    "logoHost": "firstinspires.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/firstinspires.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=firstinspires.org&sz=64"
   },
   {
     "name": "VEX Robotics World Championship",
@@ -357,8 +366,9 @@
     "hotelPerNight": 150,
     "nights": 3,
     "notes": "World's largest robotics competition by team count.",
-    "logoHost": "vexworlds.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/vexworlds.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=vexworlds.com&sz=64"
   },
   {
     "name": "NHRL — National Havoc Robot League",
@@ -376,8 +386,9 @@
     "hotelPerNight": 150,
     "nights": 1,
     "notes": "Welterweight combat bot league — the hidden gem of fight robotics. Very DIY-friendly.",
-    "logoHost": "nhrl.io",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/nhrl.io.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=nhrl.io&sz=64"
   },
   {
     "name": "BattleBots (spectator)",
@@ -395,8 +406,9 @@
     "hotelPerNight": 180,
     "nights": 3,
     "notes": "Heavyweight combat robots. Team spots for students are scarce — spectating is easy.",
-    "logoHost": "battlebots.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/battlebots.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=battlebots.com&sz=64"
   },
   {
     "name": "RoboSub",
@@ -414,8 +426,9 @@
     "hotelPerNight": 0,
     "nights": 0,
     "notes": "Autonomous underwater robotics — college teams, funded by sponsors.",
-    "logoHost": "robosub.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/robosub.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=robosub.org&sz=64"
   },
   {
     "name": "Eurobot",
@@ -433,8 +446,9 @@
     "hotelPerNight": 0,
     "nights": 0,
     "notes": "Amateur/student robot builders across Europe — very approachable teams.",
-    "logoHost": "eurobot.org",
-    "region": "Europe"
+    "region": "Europe",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/eurobot.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=eurobot.org&sz=64"
   },
   {
     "name": "Robofest",
@@ -452,8 +466,9 @@
     "hotelPerNight": 0,
     "nights": 0,
     "notes": "RIT-run autonomous robotics competition with an easy regional on-ramp.",
-    "logoHost": "rit.edu",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/rit.edu.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=rit.edu&sz=64"
   },
   {
     "name": "NeurIPS",
@@ -471,8 +486,9 @@
     "hotelPerNight": 230,
     "nights": 7,
     "notes": "The AI conference. 2026 is multi-site (Sydney + Atlanta + Paris). Career fair is enormous.",
-    "logoHost": "neurips.cc",
-    "region": "Global"
+    "region": "Global",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/neurips.cc.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=neurips.cc&sz=64"
   },
   {
     "name": "ICML",
@@ -490,8 +506,9 @@
     "hotelPerNight": 190,
     "nights": 5,
     "notes": "Core ML conference — papers, career fair, and industry recruiting all week.",
-    "logoHost": "icml.cc",
-    "region": "Global"
+    "region": "Global",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/icml.cc.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=icml.cc&sz=64"
   },
   {
     "name": "ICLR",
@@ -509,8 +526,9 @@
     "hotelPerNight": 190,
     "nights": 5,
     "notes": "Open-review ML conference, heavy on deep learning & LLM research.",
-    "logoHost": "iclr.cc",
-    "region": "Global"
+    "region": "Global",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/iclr.cc.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=iclr.cc&sz=64"
   },
   {
     "name": "AAAI",
@@ -528,8 +546,9 @@
     "hotelPerNight": 190,
     "nights": 4,
     "notes": "Premier general AI conference with strong student outreach programs.",
-    "logoHost": "aaai.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/aaai.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=aaai.org&sz=64"
   },
   {
     "name": "CVPR",
@@ -547,8 +566,9 @@
     "hotelPerNight": 230,
     "nights": 5,
     "notes": "Computer vision flagship. Huge expo + demo hall for startups.",
-    "logoHost": "thecvf.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/thecvf.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=thecvf.com&sz=64"
   },
   {
     "name": "ICCV",
@@ -566,8 +586,9 @@
     "hotelPerNight": 210,
     "nights": 5,
     "notes": "Vision conference on even years (next: 2028). Big industry presence.",
-    "logoHost": "thecvf.com",
-    "region": "Global"
+    "region": "Global",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/thecvf.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=thecvf.com&sz=64"
   },
   {
     "name": "ECCV",
@@ -585,8 +606,9 @@
     "hotelPerNight": 190,
     "nights": 5,
     "notes": "European vision conference on odd years (next: 2027).",
-    "logoHost": "thecvf.com",
-    "region": "Europe"
+    "region": "Europe",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/thecvf.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=thecvf.com&sz=64"
   },
   {
     "name": "ACL",
@@ -604,8 +626,9 @@
     "hotelPerNight": 190,
     "nights": 5,
     "notes": "Core NLP/LLM research venue.",
-    "logoHost": "aclweb.org",
-    "region": "Global"
+    "region": "Global",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/aclweb.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=aclweb.org&sz=64"
   },
   {
     "name": "EMNLP",
@@ -623,8 +646,8 @@
     "hotelPerNight": 190,
     "nights": 5,
     "notes": "LLMs, NLP systems, and heavy industry recruiting for applied ML roles.",
-    "logoHost": "emnlp.org",
-    "region": "Global"
+    "region": "Global",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=emnlp.org&sz=64"
   },
   {
     "name": "KDD",
@@ -642,8 +665,9 @@
     "hotelPerNight": 190,
     "nights": 4,
     "notes": "Applied ML + data science venue. Strong at catching start-up MLEs.",
-    "logoHost": "kdd.org",
-    "region": "Global"
+    "region": "Global",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/kdd.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=kdd.org&sz=64"
   },
   {
     "name": "SIGGRAPH",
@@ -661,8 +685,9 @@
     "hotelPerNight": 230,
     "nights": 6,
     "notes": "Graphics, simulation, render, and embodied AI. The expo is spectacular.",
-    "logoHost": "siggraph.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/siggraph.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=siggraph.org&sz=64"
   },
   {
     "name": "MLOps World",
@@ -680,8 +705,9 @@
     "hotelPerNight": 200,
     "nights": 3,
     "notes": "Practical ML infra. Great for spotting free-agent startups hiring interns.",
-    "logoHost": "mlopsworld.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/mlopsworld.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=mlopsworld.com&sz=64"
   },
   {
     "name": "TinyML Summit",
@@ -699,8 +725,9 @@
     "hotelPerNight": 190,
     "nights": 2,
     "notes": "Microcontrollers + ML — where robotics sensors and model quantization collide.",
-    "logoHost": "tinyml.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/tinyml.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=tinyml.org&sz=64"
   },
   {
     "name": "CppCon",
@@ -718,8 +745,9 @@
     "hotelPerNight": 260,
     "nights": 6,
     "notes": "The C++ conference. Student ticket is a steal. Run by CppCon volunteers.",
-    "logoHost": "cppcon.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/cppcon.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=cppcon.org&sz=64"
   },
   {
     "name": "C++Now",
@@ -737,8 +765,8 @@
     "hotelPerNight": 240,
     "nights": 5,
     "notes": "C++ template/metaprogramming mecca at Aspen — small, intense, unforgettable.",
-    "logoHost": "cppnow.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=cppnow.org&sz=64"
   },
   {
     "name": "KubeCon + CloudNativeCon NA",
@@ -756,8 +784,9 @@
     "hotelPerNight": 230,
     "nights": 4,
     "notes": "Cloud-native infrastructure. Free co-located events + huge expo.",
-    "logoHost": "linuxfoundation.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/linuxfoundation.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=linuxfoundation.org&sz=64"
   },
   {
     "name": "KubeCon EU",
@@ -775,8 +804,9 @@
     "hotelPerNight": 200,
     "nights": 4,
     "notes": "European cloud-native counterpart to KubeCon NA.",
-    "logoHost": "linuxfoundation.org",
-    "region": "Europe"
+    "region": "Europe",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/linuxfoundation.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=linuxfoundation.org&sz=64"
   },
   {
     "name": "PyCon US",
@@ -794,8 +824,9 @@
     "hotelPerNight": 200,
     "nights": 5,
     "notes": "The friendly giant. Massive tutorials + expo. Student sprints ideal for open-source.",
-    "logoHost": "pycon.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/pycon.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=pycon.org&sz=64"
   },
   {
     "name": "EuroPython",
@@ -813,8 +844,9 @@
     "hotelPerNight": 150,
     "nights": 5,
     "notes": "Community-run Python conference, budget-friendly.",
-    "logoHost": "europython.eu",
-    "region": "Europe"
+    "region": "Europe",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/europython.eu.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=europython.eu&sz=64"
   },
   {
     "name": "FOSDEM",
@@ -832,8 +864,9 @@
     "hotelPerNight": 140,
     "nights": 3,
     "notes": "Story of free-software devrooms, 800+ talks, zero cost. Bring a USB-C charger and water.",
-    "logoHost": "fosdem.org",
-    "region": "Europe"
+    "region": "Europe",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/fosdem.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=fosdem.org&sz=64"
   },
   {
     "name": "Linux Plumbers Conference",
@@ -851,8 +884,9 @@
     "hotelPerNight": 180,
     "nights": 4,
     "notes": "Kernel & systems devroom-style micro-confs. Watch for GSoC students.",
-    "logoHost": "lpc.events",
-    "region": "Global"
+    "region": "Global",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/lpc.events.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=lpc.events&sz=64"
   },
   {
     "name": "USENIX ATC / OSDI",
@@ -870,8 +904,9 @@
     "hotelPerNight": 200,
     "nights": 4,
     "notes": "Systems research — OS, storage, networking. Academia-heavy.",
-    "logoHost": "usenix.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/usenix.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=usenix.org&sz=64"
   },
   {
     "name": "SPLASH / OOPSLA",
@@ -889,8 +924,9 @@
     "hotelPerNight": 190,
     "nights": 4,
     "notes": "Where programming-language and software-design research meets industry.",
-    "logoHost": "splashcon.org",
-    "region": "Global"
+    "region": "Global",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/splashcon.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=splashcon.org&sz=64"
   },
   {
     "name": "CAV / PLDI (formal methods)",
@@ -908,7 +944,6 @@
     "hotelPerNight": 180,
     "nights": 4,
     "notes": "Program verification + safety-critical robotics; small community, big hiring.",
-    "logoHost": "sigplan.org",
     "region": "Global"
   },
   {
@@ -927,8 +962,9 @@
     "hotelPerNight": 170,
     "nights": 3,
     "notes": "Compiler engineering — chip and ML teams recruit tooling folks here.",
-    "logoHost": "llvm.org",
-    "region": "Global"
+    "region": "Global",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/llvm.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=llvm.org&sz=64"
   },
   {
     "name": "EuroSys / SOSP",
@@ -946,8 +982,9 @@
     "hotelPerNight": 180,
     "nights": 4,
     "notes": "Systems research superconference. Golden networking for distributed systems.",
-    "logoHost": "sigops.org",
-    "region": "Global"
+    "region": "Global",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/sigops.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=sigops.org&sz=64"
   },
   {
     "name": "Supercomputing (SC)",
@@ -965,8 +1002,9 @@
     "hotelPerNight": 200,
     "nights": 5,
     "notes": "Compute + data-center infrastructure. Buckets of accelerator startups.",
-    "logoHost": "supercomputing.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/supercomputing.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=supercomputing.org&sz=64"
   },
   {
     "name": "CIDR (databases)",
@@ -984,7 +1022,6 @@
     "hotelPerNight": 200,
     "nights": 4,
     "notes": "The 'cool kids' database systems conference — signaling to DB/vector startups.",
-    "logoHost": "cidrdb.org",
     "region": "US"
   },
   {
@@ -1003,8 +1040,9 @@
     "hotelPerNight": 190,
     "nights": 4,
     "notes": "Database research + industry — good for vector DB and data-infra folks.",
-    "logoHost": "sigmod.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/sigmod.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=sigmod.org&sz=64"
   },
   {
     "name": "Google I/O",
@@ -1022,8 +1060,9 @@
     "hotelPerNight": 250,
     "nights": 2,
     "notes": "Google's dev conference — free livestreams, in-person ticket lottery.",
-    "logoHost": "google.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/google.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=google.com&sz=64"
   },
   {
     "name": "Microsoft Build",
@@ -1041,8 +1080,9 @@
     "hotelPerNight": 230,
     "nights": 3,
     "notes": "Azure/.NET/AI dev conference.",
-    "logoHost": "microsoft.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/microsoft.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=microsoft.com&sz=64"
   },
   {
     "name": "WWDC (Apple)",
@@ -1060,8 +1100,9 @@
     "hotelPerNight": 250,
     "nights": 3,
     "notes": "Apple's developer conference (invite/lottery). The student scholarship program covers travel.",
-    "logoHost": "apple.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/apple.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=apple.com&sz=64"
   },
   {
     "name": "AWS re:Invent",
@@ -1079,8 +1120,8 @@
     "hotelPerNight": 220,
     "nights": 5,
     "notes": "AWS's 60k-attendee conference. Insane scale; expo worth it alone.",
-    "logoHost": "awsevents.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=awsevents.com&sz=64"
   },
   {
     "name": "Embedded World",
@@ -1098,8 +1139,9 @@
     "hotelPerNight": 160,
     "nights": 3,
     "notes": "Embedded/microcontrollers/RTOS — combine with a German tech visit.",
-    "logoHost": "embedded-world.de",
-    "region": "Europe"
+    "region": "Europe",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/embedded-world.de.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=embedded-world.de&sz=64"
   },
   {
     "name": "RISC-V Summit",
@@ -1117,8 +1159,9 @@
     "hotelPerNight": 200,
     "nights": 3,
     "notes": "RISC-V cores, AI accelerators, and the hottest chip startup scene.",
-    "logoHost": "riscv.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/riscv.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=riscv.org&sz=64"
   },
   {
     "name": "Hot Chips",
@@ -1136,8 +1179,9 @@
     "hotelPerNight": 220,
     "nights": 3,
     "notes": "Where chip architects present new silicon — AMD/Intel/Nvidia folks recruit here.",
-    "logoHost": "hotchips.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/hotchips.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=hotchips.org&sz=64"
   },
   {
     "name": "Go / Rust / Zig community confs",
@@ -1155,8 +1199,9 @@
     "hotelPerNight": 180,
     "nights": 3,
     "notes": "RustConf, GopherCon, Zig, OCaml — cheap and full of OSS builders.",
-    "logoHost": "rust-lang.org",
-    "region": "Global"
+    "region": "Global",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/rust-lang.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=rust-lang.org&sz=64"
   },
   {
     "name": "Black Hat USA",
@@ -1174,8 +1219,9 @@
     "hotelPerNight": 260,
     "nights": 4,
     "notes": "Corporate security conference. Expensive but the expo + hiring fair is deep.",
-    "logoHost": "blackhat.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/blackhat.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=blackhat.com&sz=64"
   },
   {
     "name": "DEF CON",
@@ -1193,7 +1239,6 @@
     "hotelPerNight": 240,
     "nights": 4,
     "notes": "The hacker pilgrimage after Black Hat. Bring cash, a burner laptop, and a great story.",
-    "logoHost": "defcon.org",
     "region": "US"
   },
   {
@@ -1212,8 +1257,9 @@
     "hotelPerNight": 170,
     "nights": 2,
     "notes": "Community-run security confs the week before DEF CON. Hidden-network goldmines.",
-    "logoHost": "securitybsides.com",
-    "region": "Global"
+    "region": "Global",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/securitybsides.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=securitybsides.com&sz=64"
   },
   {
     "name": "RSA Conference",
@@ -1231,8 +1277,9 @@
     "hotelPerNight": 260,
     "nights": 4,
     "notes": "Giant of infosec. The exhibit hall is huge for networking.",
-    "logoHost": "rsaconference.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/rsaconference.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=rsaconference.com&sz=64"
   },
   {
     "name": "GDC — Game Developers Conference",
@@ -1250,8 +1297,9 @@
     "hotelPerNight": 250,
     "nights": 5,
     "notes": "Game dev show — useful if you build graphics/real-time simulators.",
-    "logoHost": "gdconf.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/gdconf.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=gdconf.com&sz=64"
   },
   {
     "name": "SmallSat Conference",
@@ -1269,8 +1317,8 @@
     "hotelPerNight": 180,
     "nights": 4,
     "notes": "CubeSats, lunar landers, on-orbit computing. Space robotics recruit here.",
-    "logoHost": "smallsat.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://smallsat.org/favicon.ico"
   },
   {
     "name": "Space Symposium",
@@ -1288,8 +1336,9 @@
     "hotelPerNight": 230,
     "nights": 3,
     "notes": "Defense/space establishment — Lockheed, Raytheon, SpaceX presence.",
-    "logoHost": "spacesymposium.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/spacesymposium.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=spacesymposium.org&sz=64"
   },
   {
     "name": "NASA Human Exploration Rover Challenge",
@@ -1307,8 +1356,9 @@
     "hotelPerNight": 0,
     "nights": 0,
     "notes": "Design a human-powered rover. Mechanical + controls + software teams.",
-    "logoHost": "nasa.gov",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/nasa.gov.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=nasa.gov&sz=64"
   },
   {
     "name": "DAC — Design Automation Conference",
@@ -1326,8 +1376,9 @@
     "hotelPerNight": 240,
     "nights": 4,
     "notes": "EDA, RTL, FPGA, ML-at-the-edge designers and chip startups.",
-    "logoHost": "dac.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/dac.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=dac.com&sz=64"
   },
   {
     "name": "QuantCon",
@@ -1345,8 +1396,8 @@
     "hotelPerNight": 280,
     "nights": 2,
     "notes": "NYC quant scene — networking with funds is very direct.",
-    "logoHost": "quantcon.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=quantcon.com&sz=64"
   },
   {
     "name": "NYC quant meetups",
@@ -1364,8 +1415,9 @@
     "hotelPerNight": 0,
     "nights": 1,
     "notes": "Check NYC/London quant meetups — cheaper access to the trading world than conferences.",
-    "logoHost": "meetup.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/meetup.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=meetup.com&sz=64"
   },
   {
     "name": "HackMIT",
@@ -1383,8 +1435,8 @@
     "hotelPerNight": 140,
     "nights": 2,
     "notes": "MIT's flagship 1000+ student hackathon. Apply by early July.",
-    "logoHost": "hackmit.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=hackmit.org&sz=64"
   },
   {
     "name": "PennApps",
@@ -1402,8 +1454,8 @@
     "hotelPerNight": 140,
     "nights": 2,
     "notes": "48-hour college hackathon, 1000+ students.",
-    "logoHost": "pennapps.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=pennapps.com&sz=128"
   },
   {
     "name": "TreeHacks (Stanford)",
@@ -1421,8 +1473,9 @@
     "hotelPerNight": 140,
     "nights": 2,
     "notes": "Stanford's elite 36-hour hardware + AI hackathon.",
-    "logoHost": "treehacks.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/treehacks.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=treehacks.com&sz=64"
   },
   {
     "name": "Cal Hacks",
@@ -1440,8 +1493,9 @@
     "hotelPerNight": 140,
     "nights": 2,
     "notes": "Berkeley's fall megahackathon.",
-    "logoHost": "calhacks.io",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/calhacks.io.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=calhacks.io&sz=64"
   },
   {
     "name": "LA Hacks (UCLA)",
@@ -1459,8 +1513,9 @@
     "hotelPerNight": 140,
     "nights": 2,
     "notes": "UCLA hackathon with generous travel for out-of-state students.",
-    "logoHost": "lahacks.com",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/lahacks.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=lahacks.com&sz=64"
   },
   {
     "name": "Hack the North (Waterloo)",
@@ -1478,8 +1533,9 @@
     "hotelPerNight": 0,
     "nights": 2,
     "notes": "Canada's largest collegiate hackathon, 1000 hackers.",
-    "logoHost": "hackthenorth.com",
-    "region": "Canada"
+    "region": "Canada",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/hackthenorth.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=hackthenorth.com&sz=64"
   },
   {
     "name": "HackHarvard",
@@ -1497,8 +1553,8 @@
     "hotelPerNight": 140,
     "nights": 2,
     "notes": "Harvard's lively debut-event hackathon.",
-    "logoHost": "hackharvard.io",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=hackharvard.io&sz=64"
   },
   {
     "name": "MHacks (Michigan)",
@@ -1516,8 +1572,9 @@
     "hotelPerNight": 120,
     "nights": 2,
     "notes": "Big Midwestern hackathon back on the circuit.",
-    "logoHost": "mhacks.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=mhacks.org&sz=128",
+    "logoFallbackUrl": "https://mhacks.org/favicon.ico"
   },
   {
     "name": "hackNY (Fellowship)",
@@ -1535,8 +1592,9 @@
     "hotelPerNight": 200,
     "nights": 0,
     "notes": "Not a weekend hack — a paid NYC startup summer fellowship with a hackday.",
-    "logoHost": "hackny.org",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/hackny.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=hackny.org&sz=64"
   },
   {
     "name": "CityHacks (London)",
@@ -1554,7 +1612,6 @@
     "hotelPerNight": 150,
     "nights": 2,
     "notes": "Student-run London hackathon with a hardware track.",
-    "logoHost": "cityhacks.io",
     "region": "Europe"
   },
   {
@@ -1573,7 +1630,6 @@
     "hotelPerNight": 0,
     "nights": 1,
     "notes": "Inclusive hackathon series with strong sponsor mentorship.",
-    "logoHost": "techtogether.org",
     "region": "US"
   },
   {
@@ -1592,8 +1648,9 @@
     "hotelPerNight": 170,
     "nights": 4,
     "notes": "AR/VR/embodied-AI hack week with industry sponsors — robotics-adjacent.",
-    "logoHost": "mit.edu",
-    "region": "US"
+    "region": "US",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/mit.edu.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=mit.edu&sz=64"
   },
   {
     "name": "NASA Space Apps Challenge",
@@ -1611,8 +1668,9 @@
     "hotelPerNight": 0,
     "nights": 2,
     "notes": "NASA's worldwide civic hackathon — find a local node, join a team.",
-    "logoHost": "spaceappschallenge.org",
-    "region": "Online"
+    "region": "Online",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/spaceappschallenge.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=spaceappschallenge.org&sz=64"
   },
   {
     "name": "ICPC World Finals",
@@ -1630,8 +1688,9 @@
     "hotelPerNight": 150,
     "nights": 4,
     "notes": "Competitive programming world finals. Your school registers the team.",
-    "logoHost": "icpc.global",
-    "region": "Global"
+    "region": "Global",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/icpc.global.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=icpc.global&sz=64"
   },
   {
     "name": "MIT Battlecode",
@@ -1649,8 +1708,9 @@
     "hotelPerNight": 0,
     "nights": 0,
     "notes": "Realtime robot programming game. Perfect ice-breaker for robotics/eng interviews.",
-    "logoHost": "battlecode.org",
-    "region": "Online"
+    "region": "Online",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/battlecode.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=battlecode.org&sz=64"
   },
   {
     "name": "Kaggle Competitions",
@@ -1668,8 +1728,9 @@
     "hotelPerNight": 0,
     "nights": 0,
     "notes": "Ongoing ML competitions — small hidden ones feed directly into internships.",
-    "logoHost": "kaggle.com",
-    "region": "Online"
+    "region": "Online",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/kaggle.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=kaggle.com&sz=64"
   },
   {
     "name": "ARC-AGI Prize",
@@ -1687,8 +1748,9 @@
     "hotelPerNight": 0,
     "nights": 0,
     "notes": "$1M ARC-AGI benchmark — winning it is a recruiting rocket.",
-    "logoHost": "arcprize.org",
-    "region": "Online"
+    "region": "Online",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/arcprize.org.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=arcprize.org&sz=64"
   },
   {
     "name": "iCTF (UCSB)",
@@ -1706,8 +1768,9 @@
     "hotelPerNight": 0,
     "nights": 0,
     "notes": "The original attack-defense CTF. Join a campus team.",
-    "logoHost": "ucsb.edu",
-    "region": "Online"
+    "region": "Online",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/ucsb.edu.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=ucsb.edu&sz=64"
   },
   {
     "name": "Meta Hacker Cup",
@@ -1725,8 +1788,9 @@
     "hotelPerNight": 0,
     "nights": 0,
     "notes": "Meta's algorithm competition with a paid travel final.",
-    "logoHost": "facebook.com",
-    "region": "Online"
+    "region": "Online",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/facebook.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=facebook.com&sz=64"
   },
   {
     "name": "Student Cluster Competition (SC)",
@@ -1744,7 +1808,6 @@
     "hotelPerNight": 0,
     "nights": 0,
     "notes": "Build + tune an HPC cluster under power limits at SC. Great resume line.",
-    "logoHost": "studentclustercompetition.us",
     "region": "US"
   },
   {
@@ -1763,8 +1826,9 @@
     "hotelPerNight": 0,
     "nights": 0,
     "notes": "Not a conference — a stipended open-source summer. Best offline 'event' for interns.",
-    "logoHost": "withgoogle.com",
-    "region": "Online"
+    "region": "Online",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/withgoogle.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=withgoogle.com&sz=64"
   },
   {
     "name": "Hacktoberfest",
@@ -1782,8 +1846,9 @@
     "hotelPerNight": 0,
     "nights": 0,
     "notes": "Monthly open-source push — small OSS contributions snowball into offers.",
-    "logoHost": "hacktoberfest.com",
-    "region": "Online"
+    "region": "Online",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/hacktoberfest.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=hacktoberfest.com&sz=64"
   },
   {
     "name": "Advent of Code",
@@ -1801,8 +1866,9 @@
     "hotelPerNight": 0,
     "nights": 0,
     "notes": "25 days of tough puzzles — great fun and a talking point in interviews.",
-    "logoHost": "adventofcode.com",
-    "region": "Online"
+    "region": "Online",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/adventofcode.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=adventofcode.com&sz=64"
   },
   {
     "name": "NeurIPS competitions & challenges",
@@ -1820,8 +1886,9 @@
     "hotelPerNight": 0,
     "nights": 0,
     "notes": "NeurIPS hosts side challenges — winning one is a recruiting rocket.",
-    "logoHost": "kaggle.com",
-    "region": "Online"
+    "region": "Online",
+    "logoUrl": "https://icons.duckduckgo.com/ip3/kaggle.com.ico",
+    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=kaggle.com&sz=64"
   },
   {
     "name": "Hackster.io challenges",
@@ -1839,7 +1906,7 @@
     "hotelPerNight": 0,
     "nights": 0,
     "notes": "Hardware + embedded design challenges that look great in internship apps.",
-    "logoHost": "hackster.io",
-    "region": "Online"
+    "region": "Online",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=hackster.io&sz=64"
   }
 ]
