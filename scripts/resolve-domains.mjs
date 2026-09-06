@@ -1,20 +1,20 @@
 // Resolves a logo host for every company in the all-tech universe so the feed
 // can render a favicon logo for each row instead of falling back to the
-// monogram. For each company we try, in order:
-//   1. its known domain,
-//   2. the origin host of its careers_url (when it is a real company site),
-//   3. its ATS board subdomain (greenhouse/ashby host a per-company favicon),
-//   4. a DNS probe of <slug>.com/.io/.ai/.co/.org.
-// The result is written to the new all_companies.logo_host column, which
-// /api/jobs-all uses to build `https://www.google.com/s2/favicons?domain=...`.
+// monogram. Uses DNS-over-HTTPS (Cloudflare) so non-`.com` TLDs resolve
+// quickly without the blocking `dns.lookup` stalls seen on this environment.
+// Per company, priority order:
+//   1. hand-verified override domain (exact company name),
+//   2. its known domain (when it is a real company site),
+//   3. the origin host of its careers_url (when it is a real company site),
+//   4. ATS token + TLDs (e.g. arizeai -> arizeai.com),
+//   5. name slug + TLDs (e.g. coreweave -> coreweave.com).
+// Both 4 & 5 use DoH so every TLD is probed until the first hit.
 //
 //   node scripts/resolve-domains.mjs
-process.env.UV_THREADPOOL_SIZE = "256";
 import pg from "pg";
 import { readFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { lookup } from "node:dns/promises";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const ENV = resolve(ROOT, ".env.local");
@@ -47,6 +47,122 @@ const GENERIC_HOSTS = new Set([
   "womenintechuk.com", "www.linkedin.com", "linkedin.com",
 ]);
 
+// Hand-verified real domains for companies whose brand/site differs from the
+// slug/TLD probing rules (subsidiaries, acronyms, orgs, etc.).
+const OVERRIDES = {
+  // feed companies currently missing a logo
+  "Drivetrain": "drivetrainhq.com",
+  "E-Space": "e-space.com",
+  "Ekimetrics": "ekimetrics.com",
+  "Extreme Networks": "extremenetworks.com",
+  "General Dynamics UK": "gdmissionsystems.com",
+  "HCVT": "hcvt.com",
+  "KOSTAL Group": "kostal.com",
+  "Lawrence Livermore National Laboratory (LLNL)": "llnl.gov",
+  "Reply": "reply.com",
+  "Robert Bosch Venture Capital": "boschventures.com",
+  "SFMOMA": "sfmoma.org",
+  "Tutor Intelligence": "tutorintelligence.com",
+  "VWH Capital Management": "vwhcapital.com",
+  "Voltus": "voltus.com",
+  "Wade Trim": "wadetrim.com",
+  "Waterfall": "waterfallsolutions.com",
+  "Western Digital": "westerndigital.com",
+  "Winsupply": "winsupplyinc.com",
+  "Xsolla": "xsolla.com",
+  "Zoomifier": "zoomifier.com",
+  // common large employers whose slug would otherwise miss
+  "San Francisco Museum of Modern Art": "sfmoma.org",
+  "Amazon": "amazon.com",
+  "Apple": "apple.com",
+  "Google": "google.com",
+  "Meta": "meta.com",
+  "Microsoft": "microsoft.com",
+  "NVIDIA": "nvidia.com",
+  "Tesla": "tesla.com",
+  "Tesla Energy": "tesla.com",
+  "SpaceX": "spacex.com",
+  "OpenAI": "openai.com",
+  "Anthropic": "anthropic.com",
+  "xAI": "x.ai",
+  "Palantir": "palantir.com",
+  "Stripe": "stripe.com",
+  "Snowflake": "snowflake.com",
+  "Databricks": "databricks.com",
+  "JPMorgan Chase": "jpmorganchase.com",
+  "Goldman Sachs": "goldmansachs.com",
+  "Lockheed Martin": "lockheedmartin.com",
+  "Northrop Grumman": "northropgrumman.com",
+  "Raytheon": "rtx.com",
+  "General Atomics": "ga.com",
+  "Anduril": "anduril.com",
+  "Boston Dynamics": "bostondynamics.com",
+  "Figure AI": "figure.ai",
+  "1X Technologies": "1x.tech",
+  "Intuitive Surgical": "intuitive.com",
+  "Stryker": "stryker.com",
+  "Medtronic": "medtronic.com",
+  "Boeing": "boeing.com",
+  "General Motors": "gm.com",
+  "Ford": "ford.com",
+  "Rivian": "rivian.com",
+  "Waymo": "waymo.com",
+  "Zoox": "zoox.com",
+  "Cruise": "getcruise.com",
+  "Siemens": "siemens.com",
+  "ABB": "global.abb",
+  "Fanuc": "fanuc.com",
+  "Universal Robots": "universal-robots.com",
+  "KUKA": "kuka.com",
+  "Mitsubishi Electric": "mitsubishielectric.com",
+  "Texas Instruments": "ti.com",
+  "Analog Devices": "analog.com",
+  "Qualcomm": "qualcomm.com",
+  "Intel": "intel.com",
+  "AMD": "amd.com",
+  "ARM": "arm.com",
+  "TSMC": "tsmc.com",
+  "Broadcom": "broadcom.com",
+  "Micron": "micron.com",
+  "Applied Materials": "amat.com",
+  "ASML": "asml.com",
+  "Lam Research": "lamresearch.com",
+  "Synopsys": "synopsys.com",
+  "Cadence": "cadence.com",
+  "CrowdStrike": "crowdstrike.com",
+  "Fortinet": "fortinet.com",
+  "Palo Alto Networks": "paloaltonetworks.com",
+  "Nutanix": "nutanix.com",
+  "VMware": "vmware.com",
+  "NetApp": "netapp.com",
+  "CDW": "cdw.com",
+  "ADP": "adp.com",
+  "Cognizant": "cognizant.com",
+  "Capgemini": "capgemini.com",
+  "Accenture": "accenture.com",
+  "Ansys": "ansys.com",
+  "Salesforce": "salesforce.com",
+  "ServiceNow": "servicenow.com",
+  "Workday": "workday.com",
+  "Docusign": "docusign.com",
+  "Okta": "okta.com",
+  "Asana": "asana.com",
+  "Atlassian": "atlassian.com",
+  "Canva": "canva.com",
+  "GitLab": "gitlab.com",
+  "Harness": "harness.io",
+  "HashiCorp": "hashicorp.com",
+  "Splunk": "splunk.com",
+  "Tableau": "tableau.com",
+  "MongoDB": "mongodb.com",
+  "Redis": "redis.io",
+  "Elastic": "elastic.co",
+  "SUSE": "suse.com",
+  "Canonical": "canonical.com",
+  "AWS": "aws.amazon.com",
+  "Anthropic (Claude)": "anthropic.com",
+};
+
 const slugHost = (name) =>
   name.toLowerCase()
     .replace(/&/g, " and ")
@@ -57,191 +173,163 @@ const slugHost = (name) =>
 function careersHost(raw) {
   if (!raw) return null;
   let s = raw.trim();
-  if (/^https?:\/\//.test(s)) s = s.replace(/^https?:\/\//, "").split("/")[0];
-  else s = s.split("/")[0];
-  s = s.toLowerCase().replace(/^www\./, "");
-  if (!s.includes(".")) return null;
-  return s;
+  if (!/^https?:\/\//.test(s)) s = "https://" + s;
+  try {
+    const u = new URL(s);
+    return u.hostname.toLowerCase().replace(/^www\./, "");
+  } catch { return null; }
 }
-
-const boardHost = (type, token) => {
-  if (!token) return null;
-  const t = String(token).toLowerCase().replace(/[^a-z0-9.-]/g, "");
-  if (type === "greenhouse") return `${t}.greenhouse.io`;
-  if (type === "ashby") return `${t}.ashbyhq.com`;
-  if (type === "nvidia") return "nvidia.com";
-  if (type === "amazon") return t === "amazonaws" ? "amazonaws.com" : "amazon.com";
-  return null;
-};
 
 const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false }, max: 1 });
 
-/* ---------------- candidate resolution ---------------- */
+/* ------------- DNS-over-HTTPS resolution ------------- */
 
-const TLDS = ["com", "io", "ai", "co", "org"];
-const seen = new Set();
-const cached = new Map(); // hostname -> boolean (resolves)
-function dnsCached(host) {
-  if (cached.has(host)) return cached.get(host);
-  seen.add(host);
-  return undefined; // not yet known
-}
+const TLDS = ["com", "io", "ai", "co", "org", "net", "dev", "tech", "app", "cloud", "us", "uk", "ca"];
+const cached = new Map(); // hostname -> boolean (has A record)
 
-async function probeDns(host) {
+async function probeDoh(host) {
   if (cached.has(host)) return cached.get(host);
   try {
-    await Promise.race([
-      lookup(host, { family: 4 }),
-      new Promise((_, rej) => setTimeout(() => rej(new Error("dns slow")), 1200)),
-    ]);
-    cached.set(host, true);
-    return true;
+    const r = await fetch("https://cloudflare-dns.com/dns-query?name=" + host + "&type=A", {
+      headers: { accept: "application/dns-json" },
+      signal: AbortSignal.timeout(6000),
+    });
+    const j = await r.json();
+    const ok = j.Status === 0 && Array.isArray(j.Answer) && j.Answer.some((a) => a.type === 1 || a.type === 5);
+    cached.set(host, ok);
+    return ok;
   } catch {
     cached.set(host, false);
     return false;
   }
 }
 
-async function pickDomain(name, careersHostValue) {
-  if (careersHostValue) return careersHostValue; // real company site
-  const slug = slugHost(name);
+// Returns first resolving host among slug+TLDs in priority order, or null.
+async function firstResolving(slug, limit = TLDS.length) {
   if (!slug) return null;
-  for (const tld of TLDS) {
-    const host = `${slug}.${tld}`;
+  const tried = [];
+  for (let i = 0; i < limit; i++) {
+    const host = slug + "." + TLDS[i];
     if (host.length > 63) continue;
-    if (dnsCached(host) === true) return host;
+    tried.push(host);
+    if (await probeDoh(host)) return host;
   }
   return null;
 }
 
 async function main() {
-  const reg = JSON.parse(readFileSync(resolve(ROOT, "lib/companies-all.json"), "utf8"));
   await pool.query(`ALTER TABLE all_companies ADD COLUMN IF NOT EXISTS logo_host TEXT`);
 
-  const { rows } = await pool.query("SELECT id, name, domain, careers_url, ats_type, ats_token FROM all_companies ORDER BY id");
+  const { rows } = await pool.query("SELECT id, name, domain, careers_url, ats_type, ats_token, logo_host FROM all_companies ORDER BY id");
   console.log("companies:", rows.length);
 
-  const employers = rows
-    .map((r) => ({
-      id: r.id,
-      name: r.name,
-      domain: r.domain || null,
-      careers: careersHost(r.careers_url),
-      ats: r.ats_type || null,
-      token: r.ats_token || null,
-    }))
-    .filter((c) => !c.domain); // ones we still need a logo host for
+  // Companies to (re)resolve: no logo_host yet, or the current one is an ATS/
+  // generic board host that renders a generic favicon instead of the company's.
+  const needs = rows.filter((r) => {
+    const cur = (r.logo_host || "").toLowerCase().replace(/^www\./, "");
+    if (!cur) return true;
+    return GENERIC_HOSTS.has(cur) || cur.endsWith(".greenhouse.io") || cur.endsWith(".ashbyhq.com") ||
+      cur.endsWith(".lever.co") || cur.endsWith(".smartrecruiters.com") || cur.endsWith(".workable.com") ||
+      cur.includes("myworkdayjobs.com") || cur.includes("greenhouse.io") || cur.includes("ashbyhq.com") ||
+      cur.includes("lever.co");
+  });
+  console.log("need logo host (or have generic ATS host):", needs.length);
 
-  console.log("need logo host:", employers.length);
+  const resolved = new Map(); // id -> host
 
-  // Pre-classify: careers_url host is a real company site?
-  const viaCareers = [];
-  const rest = [];
-  for (const c of employers) {
-    if (c.careers && !GENERIC_HOSTS.has(c.careers) && c.careers !== boardHost(c.ats, c.token)) {
-      viaCareers.push({ ...c, host: c.careers });
-    } else {
-      rest.push(c);
+  // 1. hand-verified overrides
+  for (const r of needs) {
+    const d = OVERRIDES[r.name];
+    if (d) resolved.set(r.id, d);
+  }
+  console.log("via overrides:", resolved.size);
+
+  // 2. known domain
+  for (const r of needs) {
+    if (resolved.has(r.id) || !r.domain) continue;
+    const d = r.domain.toLowerCase().replace(/^www\./, "");
+    if (d && !GENERIC_HOSTS.has(d) && !d.includes("greenhouse.io") && !d.includes("ashbyhq.com") && !d.includes("lever.co") && d.includes(".")) {
+      resolved.set(r.id, d);
     }
   }
-  console.log("via careers_url host:", viaCareers.length);
+  console.log("via domain:", resolved.size);
 
-  // ATS board subdomains (validated only that token looks sane)
-  const atsBoard = [];
-  const needsDns = [];
-  for (const c of rest) {
-    const bh = boardHost(c.ats, c.token);
-    if (bh && c.ats !== "amazon" && c.ats !== "nvidia") atsBoard.push({ ...c, host: bh });
-    else needsDns.push(c);
+  // 3. careers_url host
+  for (const r of needs) {
+    if (resolved.has(r.id)) continue;
+    const host = careersHost(r.careers_url);
+    if (host && !GENERIC_HOSTS.has(host) && !host.includes("greenhouse.io") && !host.includes("ashbyhq.com") && !host.includes("lever.co") && !host.includes("smartrecruiters") && !host.includes("workable")) {
+      resolved.set(r.id, host);
+    }
   }
-  console.log("via ATS board subdomain:", atsBoard.length);
-  console.log("needs DNS probe:", needsDns.length);
+  console.log("via careers_url:", resolved.size);
 
-  // Resolve DNS candidates: <slug>.com has the highest hit rate and probes
-// quickly (negative answers are cached/fast); rarer TLDs trigger multi-second
-// resolver stalls in this environment, so we skip them and let the frontend's
-// monogram fallback handle the remainder.
-  const dnsCompanies = [...needsDns];
-  async function probeMany(hosts) {
-    const todo = [...new Set(hosts)];
-    let di = 0;
-    const worker = async () => {
-      for (;;) {
-        const i = di++;
-        if (i >= todo.length) return;
-        const host = todo[i];
-        if (cached.has(host)) continue;
-        try {
-          await Promise.race([
-            lookup(host, { family: 4 }),
-            new Promise((_, rej) => setTimeout(() => rej(new Error("dns slow")), 900)),
-          ]);
-          cached.set(host, true);
-        } catch {
-          cached.set(host, false);
-        }
-      }
-    };
-    await Promise.all(Array.from({ length: 96 }, worker));
-  }
+  // 4+5. DoH probing of ATS-token slug and name slug over the TLD list.
+  const toProbe = needs.filter((r) => !resolved.has(r.id));
+  console.log("needs DoH probing:", toProbe.length);
 
-  const phase1Hosts = dnsCompanies
-    .map((c) => `${slugHost(c.name)}.com`)
-    .filter((h) => h.length <= 63)
-    .filter((h) => !["boards.greenhouse.io", "jobs.ashbyhq.com", "jobs.lever.co", "jobs.smartrecruiters.com", "www.amazon.jobs"].includes(h));
-  console.log("dns .com hosts:", phase1Hosts.length);
-  await probeMany(phase1Hosts);
-  console.log("dns .com done");
+  // unique slugs, token slugs first (more precise) then name slugs
+  const namesSeen = new Map(); // host base -> company id
+  for (const r of toProbe) {
+    const tokenSlug = (r.ats_token || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+    const nameSlug = slugHost(r.name);
+    if (tokenSlug && tokenSlug.length >= 3 && tokenSlug.length <= 40) namesSeen.set(tokenSlug, r.id);
+    if (nameSlug && nameSlug.length >= 3 && nameSlug.length <= 40) namesSeen.set(nameSlug, r.id);
+  }
+  const slugs = [...namesSeen.keys()];
+  console.log("unique slugs to probe:", slugs.length, "over", TLDS.length, "TLDs");
 
-  const found = new Set();
-  for (const c of dnsCompanies) {
-    const host = `${slugHost(c.name)}.com`;
-    if (host.length <= 63 && cached.get(host) === true) found.add(c.id);
+  // Parallel probing with a small worker pool. First-resolving host per slug is
+  // recorded after the batch so we only issue one request per host.
+  let hitCount = 0;
+  let done = 0;
+  const matchOf = new Map();
+  const BATCH = 40;
+  for (let i = 0; i < slugs.length; i += BATCH) {
+    const chunk = slugs.slice(i, i + BATCH);
+    const results = await Promise.all(chunk.map((s) => firstResolving(s)));
+    results.forEach((host, k) => {
+      if (host) { matchOf.set(chunk[k], host); hitCount++; }
+    });
+    done += chunk.length;
+    process.stdout.write(`\r  probed ${done}/${slugs.length} (hits ${hitCount})    `);
   }
-  const missing = dnsCompanies.filter((c) => !found.has(c.id));
-  if (missing.length) {
-    await pool.query("UPDATE all_companies SET last_error = 'no domain resolved' WHERE id = ANY($1)", [missing.map((c) => c.id)]);
-  }
+  process.stdout.write("\n");
 
-  // Assign best host per company.
-  const updates = [];
-  const seenById = new Set();
-  for (const c of viaCareers) {
-    updates.push([c.id, c.host]);
-    seenById.add(c.id);
+  let viaDoh = 0;
+  for (const r of toProbe) {
+    if (resolved.has(r.id)) continue;
+    const tokenSlug = (r.ats_token || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+    const nameSlug = slugHost(r.name);
+    let host = null;
+    if (tokenSlug.length >= 3 && tokenSlug.length <= 40) host = matchOf.get(tokenSlug) || null;
+    if (!host && nameSlug.length >= 3 && nameSlug.length <= 40) host = matchOf.get(nameSlug) || null;
+    if (host) {
+      resolved.set(r.id, host);
+      viaDoh++;
+    }
   }
-  for (const c of atsBoard) {
-    if (seenById.has(c.id)) continue;
-    updates.push([c.id, c.host]);
-    seenById.add(c.id);
-  }
-  for (const c of needsDns) {
-    if (seenById.has(c.id)) continue;
-    const host = await pickDomain(c.name, null);
-    if (host) { updates.push([c.id, host]); seenById.add(c.id); }
-  }
-  console.log("dns matches:", seenById.size, "| total updates:", updates.length);
+  console.log("via DoH:", viaDoh, "| still missing:", toProbe.length - viaDoh);
 
-  // Companies already having a domain
-  const withDomain = rows.filter((r) => r.domain);
-  for (const r of withDomain) updates.push([r.id, r.domain]);
+  // Everything that got a host gets a negative-cached NXDOMAIN check for the
+  // chosen host: prefer registrable parent? We keep it simple: write the host.
+  const updates = [...resolved.entries()];
 
-  // Batch-write updates instead of one round-trip per company.
+  // Batch-write updates.
   const CHUNK = 1500;
   for (let i = 0; i < updates.length; i += CHUNK) {
     const chunk = updates.slice(i, i + CHUNK);
-    const values = chunk
-      .map((_, k) => `($${k * 2 + 1}, $${k * 2 + 2})`)
-      .join(",");
+    const values = chunk.map((_, k) => `($${k * 2 + 1}, $${k * 2 + 2})`).join(",");
     const params = chunk.flatMap(([id, host]) => [id, host]);
     await pool.query(
-      `UPDATE all_companies ac SET logo_host = v.logo
+      `UPDATE all_companies ac SET logo_host = v.logo, last_error = NULL
        FROM (VALUES ${values}) AS v(id, logo)
        WHERE ac.id = v.id::int AND ac.logo_host IS DISTINCT FROM v.logo`,
       params
     );
   }
   await pool.query("UPDATE all_companies SET last_error = NULL WHERE logo_host IS NOT NULL");
+
   const covered = (await pool.query("SELECT COUNT(*)::int AS n FROM all_companies WHERE logo_host IS NOT NULL")).rows[0].n;
   const total = (await pool.query("SELECT COUNT(*)::int AS n FROM all_companies")).rows[0].n;
   console.log("updated:", updates.length, "| covered:", covered, "of", total, "=", Math.round((covered / total) * 100) + "%");
