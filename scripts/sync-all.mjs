@@ -352,8 +352,8 @@ async function ensureSchema() {
   await pool.query(`INSERT INTO sync_state (tag, cursor, updated_at) VALUES ('all', 0, $1) ON CONFLICT (tag) DO NOTHING`, [new Date().toISOString()]);
 }
 
-async function seedCompanies() {
-  const reg = JSON.parse(readFileSync(resolve(ROOT, "lib/companies-all.json"), "utf8"));
+async function seedCompanies(injected = null) {
+  const reg = injected || JSON.parse(readFileSync(resolve(ROOT, "lib/companies-all.json"), "utf8"));
   // ATS-bearing companies first so early batches cover the best sources.
   const list = [...(reg.companies || [])].sort((a, b) => (!!b.ats) - (!!a.ats));
   for (const c of list) {
@@ -465,12 +465,12 @@ async function processCompany(c) {
 
 /* ---------------- run ---------------- */
 
-export async function runAllSync({ limit = BATCH, timeLimitMs = TIME_LIMIT_MS } = {}) {
+export async function runAllSync({ limit = BATCH, timeLimitMs = TIME_LIMIT_MS, registry = null } = {}) {
   const connectionString = await getEnv();
   pool = new pg.Pool({ connectionString, ssl: { rejectUnauthorized: false } });
   try {
     await ensureSchema();
-    const total = await seedCompanies();
+    const total = await seedCompanies(registry);
 
     const state = await pool.query("SELECT cursor FROM sync_state WHERE tag = 'all'");
     let cursor = state.rows[0]?.cursor || 0;
