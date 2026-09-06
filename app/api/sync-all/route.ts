@@ -18,7 +18,7 @@ export async function POST() {
     }
 
     const { runAllSync } = await import("../../../scripts/sync-all.mjs");
-    const result = await runAllSync({ limit: 120, timeLimitMs: 50_000, registry });
+    const result = await runAllSync({ limit: 120, timeLimitMs: 50_000, registry: registry as any });
     return Response.json(result);
   } catch (error) {
     console.error("All-tech sync failed:", error);
