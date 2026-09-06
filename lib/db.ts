@@ -34,6 +34,7 @@ export async function initDB() {
         enabled BOOLEAN NOT NULL DEFAULT TRUE,
         last_fetched TEXT,
         last_error TEXT,
+        last_probe TEXT,
         created_at TEXT NOT NULL
       )
     `);
@@ -61,6 +62,7 @@ export async function initDB() {
     await client.query("CREATE INDEX IF NOT EXISTS idx_jobs_active ON jobs(active)");
     await client.query("CREATE INDEX IF NOT EXISTS idx_jobs_company ON jobs(company_id)");
     await client.query("CREATE INDEX IF NOT EXISTS idx_jobs_category ON jobs(category)");
+    await client.query("ALTER TABLE companies ADD COLUMN IF NOT EXISTS last_probe TEXT");
   } finally {
     client.release();
   }

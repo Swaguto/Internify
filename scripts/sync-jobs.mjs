@@ -425,6 +425,7 @@ export async function runSync() {
         enabled BOOLEAN NOT NULL DEFAULT TRUE,
         last_fetched TEXT,
         last_error TEXT,
+        last_probe TEXT,
         created_at TEXT NOT NULL
       )
     `);
@@ -451,6 +452,7 @@ export async function runSync() {
     await client.query("CREATE INDEX IF NOT EXISTS idx_jobs_active ON jobs(active)");
     await client.query("CREATE INDEX IF NOT EXISTS idx_jobs_company ON jobs(company_id)");
     await client.query("CREATE INDEX IF NOT EXISTS idx_jobs_category ON jobs(category)");
+    await client.query("ALTER TABLE companies ADD COLUMN IF NOT EXISTS last_probe TEXT");
   } finally {
     client.release();
   }
@@ -494,7 +496,13 @@ export async function runSync() {
     if (ats) ats[c.ats_type === "greenhouse" ? "token" : "slug"] = c.ats_token;
     if (!ats) ats = discoverFromUrl(c.careers_url);
     if (!ats) {
-      ats = await discoverByName(c.name);
+      const alreadyFailed = (c.last_error || "").startsWith("no discoverable");
+      const probedRecently =
+        c.last_probe && Date.now() - new Date(c.last_probe).getTime() < 6 * 60 * 60 * 1000;
+      if (!(alreadyFailed && probedRecently)) {
+        ats = await discoverByName(c.name);
+      }
+      await pool.query("UPDATE companies SET last_probe = $1 WHERE id = $2", [new Date().toISOString(), c.id]);
     }
     if (!ats) {
       failed.push(`${c.name} (no discoverable ATS)`);

@@ -241,7 +241,11 @@
       "name": "Jump Trading",
       "domain": "jumptrading.com",
       "careersUrl": "https://www.jumptrading.com/careers/",
-      "trackOnly": true
+      "trackOnly": false,
+      "ats": {
+        "type": "greenhouse",
+        "token": "jumptrading"
+      }
     },
     {
       "name": "Hudson River Trading",
@@ -253,7 +257,11 @@
       "name": "IMC Trading",
       "domain": "imc.com",
       "careersUrl": "https://www.imc.com/us/en/careers/",
-      "trackOnly": true
+      "trackOnly": false,
+      "ats": {
+        "type": "greenhouse",
+        "token": "imc"
+      }
     },
     {
       "name": "D. E. Shaw",
@@ -265,13 +273,21 @@
       "name": "Akuna Capital",
       "domain": "akunacapital.com",
       "careersUrl": "https://www.akunacapital.com/careers",
-      "trackOnly": true
+      "trackOnly": false,
+      "ats": {
+        "type": "greenhouse",
+        "token": "akunacapital"
+      }
     },
     {
       "name": "Squarepoint Capital",
       "domain": "squarepoint-capital.com",
       "careersUrl": "https://www.squarepoint-capital.com/careers",
-      "trackOnly": true
+      "trackOnly": false,
+      "ats": {
+        "type": "greenhouse",
+        "token": "squarepointcapital"
+      }
     },
     {
       "name": "Goldman Sachs",
@@ -289,7 +305,11 @@
       "name": "OpenAI",
       "domain": "openai.com",
       "careersUrl": "https://openai.com/careers/",
-      "trackOnly": true
+      "trackOnly": false,
+      "ats": {
+        "type": "ashby",
+        "slug": "openai"
+      }
     },
     {
       "name": "Cockroach Labs",
@@ -343,17 +363,21 @@
       "name": "1X Technologies",
       "domain": "1x.tech",
       "careersUrl": "https://www.1x.tech",
-      "ats": null,
-      "trackOnly": false,
-      "addedAt": "2026-09-05T03:43:19.357Z"
+      "ats": {
+        "type": "ashby",
+        "slug": "1x"
+      },
+      "trackOnly": false
     },
     {
       "name": "Agility Robotics",
       "domain": "agilityrobotics.com",
       "careersUrl": "https://agilityrobotics.com",
-      "ats": null,
-      "trackOnly": false,
-      "addedAt": "2026-09-05T03:43:19.358Z"
+      "ats": {
+        "type": "greenhouse",
+        "token": "agilityrobotics"
+      },
+      "trackOnly": false
     },
     {
       "name": "Apptronik",
@@ -431,17 +455,21 @@
       "name": "Kodiak Robotics",
       "domain": "kodiak.ai",
       "careersUrl": "https://kodiak.ai",
-      "ats": null,
-      "trackOnly": false,
-      "addedAt": "2026-09-05T03:43:19.360Z"
+      "ats": {
+        "type": "greenhouse",
+        "token": "kodiak"
+      },
+      "trackOnly": false
     },
     {
       "name": "Nuro",
       "domain": "nuro.ai",
       "careersUrl": "https://www.nuro.ai",
-      "ats": null,
-      "trackOnly": false,
-      "addedAt": "2026-09-05T03:43:19.360Z"
+      "ats": {
+        "type": "greenhouse",
+        "token": "nuro"
+      },
+      "trackOnly": false
     },
     {
       "name": "Gatik",
@@ -455,9 +483,11 @@
       "name": "Torc Robotics",
       "domain": "torc.ai",
       "careersUrl": "https://torc.ai",
-      "ats": null,
-      "trackOnly": false,
-      "addedAt": "2026-09-05T03:43:19.360Z"
+      "ats": {
+        "type": "greenhouse",
+        "token": "torcrobotics"
+      },
+      "trackOnly": false
     },
     {
       "name": "Intrinsic",
@@ -511,9 +541,11 @@
       "name": "Saronic",
       "domain": "saronic.com",
       "careersUrl": "https://www.saronic.com",
-      "ats": null,
-      "trackOnly": false,
-      "addedAt": "2026-09-05T03:43:19.361Z"
+      "ats": {
+        "type": "ashby",
+        "slug": "saronic"
+      },
+      "trackOnly": false
     },
     {
       "name": "Bear Flag Robotics",
@@ -543,9 +575,11 @@
       "name": "Locus Robotics",
       "domain": "locusrobotics.com",
       "careersUrl": "https://locusrobotics.com",
-      "ats": null,
-      "trackOnly": false,
-      "addedAt": "2026-09-05T03:43:19.361Z"
+      "ats": {
+        "type": "greenhouse",
+        "token": "locusrobotics"
+      },
+      "trackOnly": false
     },
     {
       "name": "Symbotic",
