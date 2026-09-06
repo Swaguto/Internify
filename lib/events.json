@@ -120,6 +120,7 @@
   },
   {
     "name": "IEEE-RAS Humanoids",
+    "logoUrl": "https://www.google.com/s2/favicons?domain=ieee.org&sz=128",
     "type": "robotics",
     "kind": "conference",
     "url": "https://www.humanoids-robot.org/",
@@ -487,8 +488,7 @@
     "nights": 7,
     "notes": "The AI conference. 2026 is multi-site (Sydney + Atlanta + Paris). Career fair is enormous.",
     "region": "Global",
-    "logoUrl": "https://icons.duckduckgo.com/ip3/neurips.cc.ico",
-    "logoFallbackUrl": "https://www.google.com/s2/favicons?domain=neurips.cc&sz=64"
+    "logoUrl": "https://www.google.com/s2/favicons?domain=neurips.cc&sz=128"
   },
   {
     "name": "ICML",
