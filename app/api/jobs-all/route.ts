@@ -3,6 +3,11 @@ import pool from "@/lib/db";
 export const dynamic = "force-dynamic";
 export const maxDuration = 10;
 
+const logoUrls = (host: string) => ({
+  companyLogoUrl: `https://icons.duckduckgo.com/ip3/${host}.ico`,
+  companyLogoFallbackUrl: `https://www.google.com/s2/favicons?domain=${host}&sz=64`,
+});
+
 export async function GET() {
   try {
     const result = await pool.query(`
@@ -28,9 +33,9 @@ export async function GET() {
     const jobs = result.rows.map((r) => ({
       id: r.id,
       companyName: r.companyName,
-      companyLogoUrl: r.logoHost
-        ? `https://www.google.com/s2/favicons?domain=${r.logoHost}&sz=64`
-        : undefined,
+      ...(r.logoHost
+        ? logoUrls(r.logoHost)
+        : { companyLogoUrl: undefined, companyLogoFallbackUrl: undefined }),
       roleTitle: r.roleTitle,
       season: r.season || "Rolling",
       location: r.location || "",

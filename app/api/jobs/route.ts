@@ -49,9 +49,12 @@ export async function GET() {
     const jobs = result.rows.map((r) => ({
       id: r.id,
       companyName: r.companyName,
-      companyLogoUrl: r.domain
-        ? `https://www.google.com/s2/favicons?domain=${r.domain}&sz=64`
-        : undefined,
+      ...(r.domain
+        ? {
+            companyLogoUrl: `https://icons.duckduckgo.com/ip3/${r.domain}.ico`,
+            companyLogoFallbackUrl: `https://www.google.com/s2/favicons?domain=${r.domain}&sz=64`,
+          }
+        : { companyLogoUrl: undefined, companyLogoFallbackUrl: undefined }),
       roleTitle: r.roleTitle,
       season: r.season || "Rolling",
       location: r.location || "",

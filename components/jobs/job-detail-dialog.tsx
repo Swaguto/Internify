@@ -70,7 +70,7 @@ export function JobDetailDialog() {
           <>
             <DialogHeader className="border-b border-border px-5 py-4">
               <div className="flex w-full items-center gap-3">
-                <CompanyLogo name={job.companyName} logoUrl={job.companyLogoUrl} className="size-9 text-xs" />
+                <CompanyLogo name={job.companyName} logoUrl={job.companyLogoUrl} logoFallbackUrl={job.companyLogoFallbackUrl} className="size-9 text-xs" />
                 <div className="min-w-0">
                   <DialogTitle className="text-[15px] leading-tight">
                     {job.companyName}

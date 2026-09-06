@@ -34,7 +34,7 @@ export function JobCard({ job }: { job: Job }) {
     >
       <div className="flex items-start justify-between gap-3">
         <div className="flex min-w-0 items-center gap-2.5">
-          <CompanyLogo name={job.companyName} logoUrl={job.companyLogoUrl} />
+          <CompanyLogo name={job.companyName} logoUrl={job.companyLogoUrl} logoFallbackUrl={job.companyLogoFallbackUrl} />
           <div className="min-w-0">
             <p className="truncate text-sm font-medium">{job.companyName}</p>
             <Badge variant="outline" className={cn("mt-0.5 px-1.5 py-0 text-[10px] font-normal", COMPANY_TAG_STYLE[tag])}>

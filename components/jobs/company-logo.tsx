@@ -6,14 +6,18 @@ import { cn, monogram, monogramColor } from "@/lib/utils";
 export function CompanyLogo({
   name,
   logoUrl,
+  logoFallbackUrl,
   className,
 }: {
   name: string;
   logoUrl?: string;
+  logoFallbackUrl?: string;
   className?: string;
 }) {
-  const [failed, setFailed] = React.useState(false);
-  const showImg = Boolean(logoUrl) && !failed;
+  // 0 = photo not attempted, 1 = showing primary, 2 = showing fallback,
+  // 3 = both failed, show monogram
+  const [phase, setPhase] = React.useState(logoUrl ? 1 : 3);
+  const src = phase === 1 ? logoUrl : logoFallbackUrl;
 
   return (
     <div
@@ -23,14 +27,18 @@ export function CompanyLogo({
         className
       )}
     >
-      {showImg ? (
+      {phase < 3 ? (
         // eslint-disable-next-line @next/next/no-img-element -- favicon service, no next/image sizing available
         <img
-          src={logoUrl}
+          key={src}
+          src={src}
           alt=""
           loading="lazy"
           className="size-full object-contain p-0.5"
-          onError={() => setFailed(true)}
+          onError={() => {
+            if (phase === 1 && logoFallbackUrl) setPhase(2);
+            else setPhase(3);
+          }}
         />
       ) : (
         <span className="font-mono text-[11px] font-bold" style={{ color: monogramColor(name) }}>

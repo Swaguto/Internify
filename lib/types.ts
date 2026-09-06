@@ -14,6 +14,7 @@ export interface Job {
   id: string;
   companyName: string;
   companyLogoUrl?: string;
+  companyLogoFallbackUrl?: string;
   roleTitle: string;
   season: string;
   location: string;
