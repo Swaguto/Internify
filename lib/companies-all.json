@@ -1,19 +1,19 @@
 {
   "version": 1,
   "source": "SimplifyJobs+Pitt CSC archive · Internify curated · extras",
-  "total": 3773,
+  "total": 3840,
   "companies": [
     {
       "name": "1-800 Contacts",
       "ats": null,
       "source": "simplify",
-      "domain": "1800contacts.com"
+      "domain": null
     },
     {
       "name": "100ms",
       "ats": null,
       "source": "simplify",
-      "domain": "100ms.com"
+      "domain": null
     },
     {
       "name": "10Beauty",
@@ -25,19 +25,19 @@
       "name": "10x Genomics",
       "ats": null,
       "source": "simplify",
-      "domain": "10xgenomics.com"
+      "domain": null
     },
     {
       "name": "1Password",
       "ats": null,
       "source": "simplify",
-      "domain": "1password.com"
+      "domain": null
     },
     {
       "name": "1X",
       "ats": null,
       "source": "simplify",
-      "domain": "1x.com"
+      "domain": null
     },
     {
       "name": "1X Technologies",
@@ -54,20 +54,20 @@
       "careersUrl": "www.24g.com",
       "ats": null,
       "source": "simplify",
-      "domain": "24g.com"
+      "domain": null
     },
     {
       "name": "2nd Order Solutions",
       "ats": null,
       "source": "simplify",
-      "domain": "2ndordersolutions.com"
+      "domain": null
     },
     {
       "name": "3M",
       "careersUrl": "3m.wd1.myworkdayjobs.com",
       "ats": null,
       "source": "simplify",
-      "domain": "3m.com"
+      "domain": null
     },
     {
       "name": "60decibelsinc",
@@ -79,13 +79,13 @@
       "name": "7-Eleven",
       "ats": null,
       "source": "simplify",
-      "domain": "7eleven.com"
+      "domain": null
     },
     {
       "name": "7shifts",
       "ats": null,
       "source": "extra",
-      "domain": "7shifts.com"
+      "domain": null
     },
     {
       "name": "84.51 Degrees",
@@ -97,13 +97,13 @@
       "name": "8VC",
       "ats": null,
       "source": "simplify",
-      "domain": "8vc.com"
+      "domain": null
     },
     {
       "name": "A Thinking Ape",
       "ats": null,
       "source": "simplify",
-      "domain": "athinkingape.com"
+      "domain": null
     },
     {
       "name": "a.i. solutions",
@@ -116,7 +116,7 @@
       "name": "AAA Club Alliance",
       "ats": null,
       "source": "simplify",
-      "domain": "aaacluballiance.com"
+      "domain": null
     },
     {
       "name": "AAA Mountainwest Group",
@@ -128,48 +128,48 @@
       "name": "AAR",
       "ats": null,
       "source": "simplify",
-      "domain": "aar.com"
+      "domain": null
     },
     {
       "name": "AArete",
       "careersUrl": "www.aarete.com",
       "ats": null,
       "source": "simplify",
-      "domain": "aarete.com"
+      "domain": null
     },
     {
       "name": "AARP",
       "careersUrl": "careers.aarp.org",
       "ats": null,
       "source": "simplify",
-      "domain": "aarp.com"
+      "domain": null
     },
     {
       "name": "Abacus Insights",
       "ats": null,
       "source": "simplify",
-      "domain": "abacusinsights.com"
+      "domain": null
     },
     {
       "name": "ABB",
       "careersUrl": "abb.wd3.myworkdayjobs.com",
       "ats": null,
       "source": "simplify",
-      "domain": "abb.com"
+      "domain": null
     },
     {
       "name": "Abbott",
       "careersUrl": "www.jobs.abbott",
       "ats": null,
       "source": "simplify",
-      "domain": "abbott.com"
+      "domain": null
     },
     {
       "name": "Abbvie",
       "careersUrl": "careers.abbvie.com",
       "ats": null,
       "source": "simplify",
-      "domain": "abbvie.com"
+      "domain": null
     },
     {
       "name": "AbbVie",
@@ -179,50 +179,50 @@
         "token": "AbbVie"
       },
       "source": "simplify",
-      "domain": "abbvie.com"
+      "domain": null
     },
     {
       "name": "ABC Fitness",
       "ats": null,
       "source": "simplify",
-      "domain": "abcfitness.com"
+      "domain": null
     },
     {
       "name": "AbelsonTaylor",
       "ats": null,
       "source": "simplify",
-      "domain": "abelsontaylor.com"
+      "domain": null
     },
     {
       "name": "ABL Space Systems",
       "ats": null,
       "source": "simplify",
-      "domain": "ablspacesystems.com"
+      "domain": null
     },
     {
       "name": "Able",
       "ats": null,
       "source": "simplify",
-      "domain": "able.com"
+      "domain": null
     },
     {
       "name": "Abridge",
       "ats": null,
       "source": "simplify",
-      "domain": "abridge.com"
+      "domain": null
     },
     {
       "name": "Abrigo",
       "careersUrl": "jobs.jobvite.com",
       "ats": null,
       "source": "simplify",
-      "domain": "abrigo.com"
+      "domain": null
     },
     {
       "name": "Absci",
       "ats": null,
       "source": "simplify",
-      "domain": "absci.com"
+      "domain": null
     },
     {
       "name": "Abundant",
@@ -232,20 +232,20 @@
         "token": "abundant"
       },
       "source": "simplify",
-      "domain": "abundant.com"
+      "domain": null
     },
     {
       "name": "Academy Sports + Outdoors",
       "careersUrl": "academy.wd1.myworkdayjobs.com",
       "ats": null,
       "source": "simplify",
-      "domain": "academysportsoutdoors.com"
+      "domain": null
     },
     {
       "name": "Acadia Pharmaceuticals",
       "ats": null,
       "source": "simplify",
-      "domain": "acadiapharmaceuticals.com"
+      "domain": null
     },
     {
       "name": "Acadian Asset Management",
@@ -257,7 +257,7 @@
       "name": "Accel Learning",
       "ats": null,
       "source": "simplify",
-      "domain": "accellearning.com"
+      "domain": null
     },
     {
       "name": "AccelByte",
@@ -269,7 +269,7 @@
       "name": "Acceldata",
       "ats": null,
       "source": "simplify",
-      "domain": "acceldata.com"
+      "domain": null
     },
     {
       "name": "Accenture",
@@ -1822,6 +1822,12 @@
       "domain": null
     },
     {
+      "name": "Arize AI",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Arizona State University",
       "ats": null,
       "source": "simplify",
@@ -2467,6 +2473,12 @@
       "domain": null
     },
     {
+      "name": "Axelera AI",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Axiom Space",
       "ats": null,
       "source": "simplify",
@@ -2532,6 +2544,12 @@
       "name": "Axway",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Ayar Labs",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -2709,6 +2727,12 @@
       "name": "Base Power",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Baseten",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -3118,6 +3142,12 @@
       "domain": null
     },
     {
+      "name": "Blaize",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Bland AI",
       "careersUrl": "jobs.ashbyhq.com",
       "ats": {
@@ -3516,6 +3546,12 @@
       "domain": null
     },
     {
+      "name": "Braintrust",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Branch",
       "ats": null,
       "source": "simplify",
@@ -3901,6 +3937,12 @@
       "domain": null
     },
     {
+      "name": "CalypsoAI",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Calyxo",
       "ats": null,
       "source": "simplify",
@@ -4255,6 +4297,12 @@
       "domain": null
     },
     {
+      "name": "Celestial AI",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Cell Signaling Technology",
       "ats": null,
       "source": "simplify",
@@ -4335,6 +4383,12 @@
       "domain": null
     },
     {
+      "name": "CentML",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Centric Brands",
       "ats": null,
       "source": "simplify",
@@ -4348,6 +4402,12 @@
     },
     {
       "name": "Cerebras",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
+      "name": "Cerebras Systems",
       "ats": null,
       "source": "extra",
       "domain": null
@@ -4589,6 +4649,12 @@
       "careersUrl": "jobs.jobvite.com",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Chroma",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -5601,6 +5667,12 @@
       "domain": null
     },
     {
+      "name": "CoreWeave",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Corewell Health",
       "ats": null,
       "source": "simplify",
@@ -5797,6 +5869,12 @@
       "domain": null
     },
     {
+      "name": "Credo AI",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Cree",
       "careersUrl": "cree.wd5.myworkdayjobs.com",
       "ats": null,
@@ -5904,7 +5982,7 @@
     {
       "name": "Crusoe",
       "ats": null,
-      "source": "simplify",
+      "source": "extra",
       "domain": null
     },
     {
@@ -5969,6 +6047,12 @@
       "name": "Cummins",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Cumulus Labs",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -6080,7 +6164,7 @@
     {
       "name": "d-Matrix",
       "ats": null,
-      "source": "simplify",
+      "source": "extra",
       "domain": null
     },
     {
@@ -6218,6 +6302,12 @@
       "domain": null
     },
     {
+      "name": "DataCrunch.io",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Datadog",
       "domain": "datadoghq.com",
       "careersUrl": "https://careers.datadoghq.com/",
@@ -6262,9 +6352,21 @@
       "domain": null
     },
     {
+      "name": "dbt Labs",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "DC Water",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Deci AI",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -6321,9 +6423,21 @@
       "domain": null
     },
     {
+      "name": "DeepInfra",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "DeepIntent",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "DeepX",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -6944,6 +7058,12 @@
       "domain": null
     },
     {
+      "name": "dstack",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "DTCC",
       "careersUrl": "ebxr.fa.us2.oraclecloud.com",
       "ats": null,
@@ -7496,6 +7616,12 @@
       "name": "EnergyHub",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Enfabrica",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -8188,6 +8314,12 @@
       "domain": null
     },
     {
+      "name": "fal.ai",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Fanatics",
       "ats": null,
       "source": "simplify",
@@ -8726,6 +8858,12 @@
       "domain": null
     },
     {
+      "name": "Fluidstack",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Flux",
       "ats": null,
       "source": "simplify",
@@ -8953,6 +9091,12 @@
       "domain": null
     },
     {
+      "name": "Freedom Robotics",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Freeform",
       "careersUrl": "job-boards.greenhouse.io",
       "ats": {
@@ -9102,6 +9246,12 @@
       "name": "Galaxy",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Galileo",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -9378,6 +9528,12 @@
       "name": "Generate Biomedicines",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Genesis",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -9804,6 +9960,12 @@
       "name": "GP Fund Solutions",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Gracia",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -10340,6 +10502,12 @@
       "name": "Helaina",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Helicone",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -11527,6 +11695,12 @@
       "domain": null
     },
     {
+      "name": "Inworld AI",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Iovance Biotherapeutics",
       "ats": null,
       "source": "simplify",
@@ -12435,6 +12609,12 @@
       "domain": null
     },
     {
+      "name": "Koyeb",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "KPH Healthcare Services",
       "ats": null,
       "source": "simplify",
@@ -12596,6 +12776,24 @@
       "careersUrl": "landolakes.wd1.myworkdayjobs.com",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "LangChain",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
+      "name": "Langfuse",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
+      "name": "LangSmith",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -12810,6 +13008,12 @@
       "name": "Leonardo",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Lepton AI",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -13036,9 +13240,21 @@
       "domain": null
     },
     {
+      "name": "LMArena",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "LMI",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "LMSYS",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -13230,6 +13446,12 @@
       "name": "Lumeris",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Luminal",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -14196,6 +14418,12 @@
       "domain": null
     },
     {
+      "name": "Milvus",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Mindgrub",
       "careersUrl": "www.mindgrub.com",
       "ats": null,
@@ -14669,6 +14897,12 @@
       "domain": null
     },
     {
+      "name": "Mythic",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Mytra",
       "ats": null,
       "source": "simplify",
@@ -14805,6 +15039,12 @@
       "name": "NCR Voyix",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Nebius",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -15229,6 +15469,12 @@
       "domain": null
     },
     {
+      "name": "Noma Security",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Nomagic",
       "careersUrl": "jobs.lever.co",
       "ats": {
@@ -15312,6 +15558,12 @@
       "careersUrl": "ntrs.wd1.myworkdayjobs.com",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Northflank",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -15426,6 +15678,12 @@
       "name": "NRG Energy",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Nscale",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -15632,6 +15890,12 @@
       "name": "Octaura",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "OctoML",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -16719,6 +16983,12 @@
       "domain": null
     },
     {
+      "name": "Phoenix",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Phoenix Contact",
       "careersUrl": "job-boards.greenhouse.io",
       "ats": {
@@ -17223,6 +17493,12 @@
       "domain": null
     },
     {
+      "name": "Prime Intellect",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Primer",
       "careersUrl": "jobs.ashbyhq.com",
       "ats": {
@@ -17482,6 +17758,12 @@
       "name": "Q2",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Qdrant",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -18347,6 +18629,12 @@
       "domain": null
     },
     {
+      "name": "RiftStack",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Rigetti",
       "ats": null,
       "source": "simplify",
@@ -18778,6 +19066,18 @@
       "name": "Rune Labs",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Runhouse",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
+      "name": "RunPod",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -19466,6 +19766,12 @@
       "domain": null
     },
     {
+      "name": "SF Compute",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "SF Giants",
       "ats": null,
       "source": "simplify",
@@ -19481,6 +19787,12 @@
       "name": "SGNL",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Shadeform",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -19726,6 +20038,12 @@
       "name": "Silvus Technologies",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "SiMa.ai",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -20323,6 +20641,12 @@
       "domain": null
     },
     {
+      "name": "Spheron",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Splunk",
       "careersUrl": "www.splunk.com",
       "ats": null,
@@ -20510,6 +20834,12 @@
       "name": "Standard Aero",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Standard Bots",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -20946,6 +21276,12 @@
       "domain": null
     },
     {
+      "name": "SurrealDB",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "SurveyMonkey",
       "careersUrl": "www.surveymonkey.com",
       "ats": null,
@@ -21131,6 +21467,12 @@
       "name": "T1D Exchange",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Taalas",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -21495,6 +21837,12 @@
       "name": "Tender Food",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "TensorDock",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -22211,6 +22559,12 @@
       "name": "Trail of Bits",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Trainy",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -22973,6 +23327,24 @@
       "domain": null
     },
     {
+      "name": "Unsloth AI",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
+      "name": "Unstructured",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
+      "name": "Untether AI",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "UntilLabs",
       "ats": null,
       "source": "simplify",
@@ -23202,6 +23574,12 @@
       "domain": null
     },
     {
+      "name": "Vast Data",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Vatic Labs",
       "careersUrl": "www.vaticlabs.ai",
       "ats": null,
@@ -23213,6 +23591,12 @@
       "careersUrl": "www.vecnarobotics.com",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Vectara",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -23689,6 +24073,12 @@
       "domain": null
     },
     {
+      "name": "Voltage Park",
+      "ats": null,
+      "source": "extra",
+      "domain": null
+    },
+    {
       "name": "Voltus",
       "careersUrl": "jobs.lever.co",
       "ats": {
@@ -23975,6 +24365,12 @@
       "name": "WeaveGrid",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Weaviate",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {
@@ -24776,6 +25172,12 @@
       "name": "ZGF Architects",
       "ats": null,
       "source": "simplify",
+      "domain": null
+    },
+    {
+      "name": "Zilliz",
+      "ats": null,
+      "source": "extra",
       "domain": null
     },
     {

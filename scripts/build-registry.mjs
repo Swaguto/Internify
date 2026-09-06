@@ -197,8 +197,26 @@ const EXTRAS = [
   ["1X Technologies"], ["Figure AI"], ["Agility Robotics"], ["ANYbotics"],
 ] ;
 
+// Silicon / AI-infra / GPU-cloud / inference / compilers / data / observability
+// startups worth tracking alongside the internship archives.
+const INFRA_EXTRAS = [
+  ["Cerebras Systems"], ["d-Matrix"], ["Ayar Labs"], ["Celestial AI"], ["SiMa.ai"],
+  ["Untether AI"], ["Taalas"], ["Enfabrica"], ["Mythic"], ["Axelera AI"],
+  ["CoreWeave"], ["Crusoe"], ["Nscale"], ["Nebius"], ["RunPod"], ["TensorDock"],
+  ["Prime Intellect"], ["Voltage Park"], ["SF Compute"], ["DataCrunch.io"], ["Spheron"],
+  ["Fluidstack"], ["Shadeform"], ["Baseten"], ["Lepton AI"], ["DeepInfra"],
+  ["Inworld AI"], ["fal.ai"], ["Koyeb"], ["Northflank"], ["OctoML"], ["Deci AI"],
+  ["Blaize"], ["Unsloth AI"], ["Luminal"], ["RiftStack"], ["CentML"], ["Cumulus Labs"],
+  ["DeepX"], ["Anyscale"], ["dstack"], ["Trainy"], ["dbt Labs"], ["Vast Data"],
+  ["Runhouse"], ["Vectara"], ["Unstructured"], ["SurrealDB"], ["Milvus"], ["Zilliz"],
+  ["Qdrant"], ["Weaviate"], ["Chroma"], ["LangChain"], ["LangSmith"], ["Langfuse"],
+  ["Arize AI"], ["Braintrust"], ["Galileo"], ["Helicone"], ["Phoenix"], ["LMArena"],
+  ["LMSYS"], ["Credo AI"], ["CalypsoAI"], ["Noma Security"], ["Genesis"],
+  ["Standard Bots"], ["Freedom Robotics"], ["Gracia"],
+];
+
 const pushedExtras = new Set();
-for (const [name] of EXTRAS) {
+for (const [name] of [...EXTRAS, ...INFRA_EXTRAS]) {
   if (bestAts.has(name) || curated.some((c) => c.name === name) || pushedExtras.has(name)) continue;
   pushedExtras.add(name);
   curated.push({ name, ats: null, source: "extra" });
