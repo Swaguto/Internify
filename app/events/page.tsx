@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import {
   CalendarDays,
   Radar,
@@ -12,10 +12,10 @@ import {
   ExternalLink,
   Trophy,
   Rocket,
-  Cpu,
 } from "lucide-react";
 import { setActiveView } from "@/lib/store";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { CompanyLogo } from "@/components/jobs/company-logo";
 import events from "@/lib/events.json";
 
 setActiveView("alltech");
@@ -36,6 +36,8 @@ interface EventItem {
   hotelPerNight: number;
   nights: number;
   notes: string;
+  logoHost?: string;
+  region?: string;
 }
 
 const typedEvents = events as EventItem[];
@@ -55,22 +57,75 @@ const TYPE_LABELS: Record<string, string> = {
 
 const TYPE_ORDER = ["robotics", "ai-ml", "systems", "hackathon", "competition", "security", "hardware", "aerospace", "quant", "gaming"];
 
+const REGIONS = ["US", "Canada", "Europe", "Online", "Global"];
+const KINDS = ["conference", "hackathon", "competition"];
+const KIND_LABELS: Record<string, string> = {
+  conference: "Conferences",
+  hackathon: "Hackathons",
+  competition: "Competitions",
+};
+const BUDGETS: { value: string; label: string }[] = [
+  { value: "all", label: "Any" },
+  { value: "free", label: "Free" },
+  { value: "lt1k", label: "Under $1k" },
+  { value: "1k2k", label: "$1k–$2k" },
+  { value: "gt2k", label: "$2k+" },
+];
+
 const estTick = (e: EventItem, mid: boolean) => (mid ? (e.ticketLow + e.ticketHigh) / 2 : e.ticketLow);
 const estHotel = (e: EventItem) => e.hotelPerNight * e.nights;
-const estFlight = (e: EventItem) => e.flight;
-const estTotal = (e: EventItem, mid: boolean) => Math.round(estTick(e, mid) + estHotel(e) + estFlight(e));
+const estTotal = (e: EventItem, mid: boolean) => Math.round(estTick(e, mid) + estHotel(e) + e.flight);
+
+function budgetKey(total: number) {
+  if (total === 0) return "free";
+  if (total < 1000) return "lt1k";
+  if (total <= 2000) return "1k2k";
+  return "gt2k";
+}
 
 function fmt(n: number) {
   return n >= 1000 ? `$${(n / 1000).toFixed(1)}k` : `$${Math.round(n)}`;
 }
 
+function Chip({ active, onClick, children }: { active: boolean; onClick: () => void; children: ReactNode }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`rounded-md border px-2.5 py-1 font-mono text-[11px] transition-colors ${
+        active
+          ? "border-primary bg-primary text-primary-foreground"
+          : "border-border bg-card text-muted-foreground hover:text-foreground"
+      }`}
+    >
+      {children}
+    </button>
+  );
+}
+
+function FilterLabel({ children }: { children: ReactNode }) {
+  return (
+    <span className="mr-1 font-mono text-[10px] uppercase tracking-wide text-muted-foreground">
+      {children}
+    </span>
+  );
+}
+
 export default function EventsPage() {
   const [type, setType] = useState<string>("all");
   const [q, setQ] = useState("");
+  const [region, setRegion] = useState<string>("all");
+  const [budget, setBudget] = useState<string>("all");
+  const [kind, setKind] = useState<string>("all");
+  const [dated, setDated] = useState(false);
+  const [sort, setSort] = useState<string>("date");
 
   const filtered = useMemo(() => {
     let list = typedEvents;
     if (type !== "all") list = list.filter((e) => e.type === type);
+    if (region !== "all") list = list.filter((e) => e.region === region);
+    if (kind !== "all") list = list.filter((e) => e.kind === kind);
+    if (budget !== "all") list = list.filter((e) => budgetKey(estTotal(e, true)) === budget);
+    if (dated) list = list.filter((e) => !!e.start);
     if (q.trim()) {
       const t = q.trim().toLowerCase();
       list = list.filter(
@@ -82,13 +137,16 @@ export default function EventsPage() {
       );
     }
     return [...list].sort((a, b) => {
+      if (sort === "cost") return estTotal(a, true) - estTotal(b, true);
       if (!a.start && !b.start) return 0;
       if (!a.start) return 1;
       if (!b.start) return -1;
       return a.start.localeCompare(b.start);
     });
-  }, [type, q]);
+  }, [type, q, region, budget, kind, dated, sort]);
 
+  const hasFilters =
+    type !== "all" || region !== "all" || budget !== "all" || kind !== "all" || dated || q.trim() !== "";
   const freeCount = typedEvents.filter((e) => e.ticketLow === 0 && e.ticketHigh === 0).length;
   const hackathonish = typedEvents.filter((e) => e.kind === "hackathon" || e.kind === "competition").length;
   const roboticsCount = typedEvents.filter((e) => e.type === "robotics").length;
@@ -141,7 +199,7 @@ export default function EventsPage() {
 
           <div className="mt-6 flex flex-wrap gap-2">
             {[
-              { value: `${typedEvents.length}`, label: "events tracked" },
+              { value: `${filtered.length}`, label: "events shown" },
               { value: `${roboticsCount}`, label: "robotics events" },
               { value: `${hackathonish}`, label: "hackathons + competitions" },
               { value: `${freeCount}`, label: "free to enter" },
@@ -151,7 +209,7 @@ export default function EventsPage() {
                 key={stat.label}
                 className="flex items-baseline gap-1.5 rounded-lg border border-border bg-card px-3 py-1.5"
               >
-                <span className="font-mono text-sm font-bold text-foreground tabular-nums">
+                <span key={filtered.length} className="font-mono text-sm font-bold text-foreground tabular-nums">
                   {stat.value}
                 </span>
                 <span className="text-[11px] text-muted-foreground">{stat.label}</span>
@@ -159,28 +217,87 @@ export default function EventsPage() {
             ))}
           </div>
 
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-6 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex flex-wrap gap-1.5">
               {["all", ...TYPE_ORDER].map((t) => (
-                <button
-                  key={t}
-                  onClick={() => setType(t)}
-                  className={`rounded-md border px-2.5 py-1 font-mono text-[11px] transition-colors ${
-                    type === t
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : "border-border bg-card text-muted-foreground hover:text-foreground"
-                  }`}
-                >
+                <Chip key={t} active={type === t} onClick={() => setType(t)}>
                   {t === "all" ? "All" : TYPE_LABELS[t]}
-                </button>
+                </Chip>
               ))}
             </div>
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="search events, cities, topics…"
-              className="w-full rounded-md border border-border bg-card px-3 py-1.5 font-mono text-[12px] text-foreground outline-none placeholder:text-muted-foreground focus:border-primary sm:w-64"
+              className="w-full rounded-md border border-border bg-card px-3 py-1.5 font-mono text-[12px] text-foreground outline-none placeholder:text-muted-foreground focus:border-primary lg:w-72"
             />
+          </div>
+
+          <div className="mt-3 flex flex-col gap-2">
+            <div className="flex flex-wrap items-center gap-1.5">
+              <FilterLabel>Location</FilterLabel>
+              <Chip active={region === "all"} onClick={() => setRegion("all")}>
+                All
+              </Chip>
+              {REGIONS.map((r) => (
+                <Chip key={r} active={region === r} onClick={() => setRegion(r)}>
+                  {r}
+                </Chip>
+              ))}
+            </div>
+            <div className="flex flex-wrap items-center gap-1.5">
+              <FilterLabel>Budget (≈ total)</FilterLabel>
+              {BUDGETS.map((b) => (
+                <Chip key={b.value} active={budget === b.value} onClick={() => setBudget(b.value)}>
+                  {b.label}
+                </Chip>
+              ))}
+            </div>
+            <div className="flex flex-wrap items-center gap-1.5">
+              <FilterLabel>Kind</FilterLabel>
+              <Chip active={kind === "all"} onClick={() => setKind("all")}>
+                Any
+              </Chip>
+              {KINDS.map((k) => (
+                <Chip key={k} active={kind === k} onClick={() => setKind(k)}>
+                  {KIND_LABELS[k]}
+                </Chip>
+              ))}
+              <span className="mx-1 hidden h-4 w-px bg-border sm:block" />
+              <label className="flex cursor-pointer items-center gap-1.5 font-mono text-[11px] text-muted-foreground">
+                <input
+                  type="checkbox"
+                  checked={dated}
+                  onChange={(e) => setDated(e.target.checked)}
+                  className="accent-primary"
+                />
+                Dated dates only
+              </label>
+              <select
+                value={sort}
+                onChange={(e) => setSort(e.target.value)}
+                aria-label="Sort events"
+                className="rounded-md border border-border bg-card px-2 py-1 font-mono text-[11px] text-muted-foreground outline-none focus:border-primary"
+              >
+                <option value="date">Sort: date</option>
+                <option value="cost">Sort: cost</option>
+              </select>
+              {hasFilters && (
+                <button
+                  onClick={() => {
+                    setType("all");
+                    setQ("");
+                    setRegion("all");
+                    setBudget("all");
+                    setKind("all");
+                    setDated(false);
+                  }}
+                  className="rounded-md border border-border bg-card px-2.5 py-1 font-mono text-[11px] text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Clear
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </section>
@@ -195,9 +312,16 @@ export default function EventsPage() {
                 className="flex flex-col rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/40"
               >
                 <div className="flex items-start justify-between gap-2">
-                  <h3 className="text-sm font-semibold leading-snug text-foreground">
-                    {e.name}
-                  </h3>
+                  <div className="flex min-w-0 items-center gap-2.5">
+                    <CompanyLogo
+                      name={e.name}
+                      logoUrl={e.logoHost ? `https://icons.duckduckgo.com/ip3/${e.logoHost}.ico` : undefined}
+                      logoFallbackUrl={
+                        e.logoHost ? `https://www.google.com/s2/favicons?domain=${e.logoHost}&sz=64` : undefined
+                      }
+                    />
+                    <h3 className="text-sm font-semibold leading-snug text-foreground">{e.name}</h3>
+                  </div>
                   <a
                     href={e.url}
                     target="_blank"
@@ -216,6 +340,11 @@ export default function EventsPage() {
                   <span className="rounded-full border border-border bg-muted px-2 py-0.5 text-muted-foreground">
                     {e.kind}
                   </span>
+                  {e.region && (
+                    <span className="rounded-full border border-border bg-muted px-2 py-0.5 text-muted-foreground">
+                      {e.region}
+                    </span>
+                  )}
                 </div>
 
                 <div className="mt-3 space-y-1 text-[12px] text-muted-foreground">
@@ -278,7 +407,7 @@ export default function EventsPage() {
 
       <footer className="border-t border-border py-4 text-center text-[11px] text-muted-foreground">
         <p className="flex items-center justify-center gap-1.5">
-          <Cpu className="size-3" />
+          <Trophy className="size-3" />
           Conferences, hackathons &amp; competitions across robotics, AI, systems and more — budgets est. for a US student
         </p>
       </footer>

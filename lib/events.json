@@ -1,10 +1,10 @@
 [
   {
-    "name": "CoRL \u2014 Conference on Robot Learning",
+    "name": "CoRL — Conference on Robot Learning",
     "type": "robotics",
     "kind": "conference",
     "url": "https://www.corl.org/",
-    "dateLabel": "Nov 9\u201312, 2026",
+    "dateLabel": "Nov 9–12, 2026",
     "start": "2026-11-09",
     "end": "2026-11-12",
     "location": "Austin, TX",
@@ -14,14 +14,16 @@
     "flight": 420,
     "hotelPerNight": 240,
     "nights": 4,
-    "notes": "The top venue for robot learning. Single-track, very strong networking. Sellouts are common."
+    "notes": "The top venue for robot learning. Single-track, very strong networking. Sellouts are common.",
+    "logoHost": "corl.org",
+    "region": "US"
   },
   {
-    "name": "IROS \u2014 IEEE/RSJ Intelligent Robots & Systems",
+    "name": "IROS — IEEE/RSJ Intelligent Robots & Systems",
     "type": "robotics",
     "kind": "conference",
     "url": "https://2026.ieee-iros.org/",
-    "dateLabel": "Sep 27 \u2013 Oct 1, 2026",
+    "dateLabel": "Sep 27 – Oct 1, 2026",
     "start": "2026-09-27",
     "end": "2026-10-01",
     "location": "Pittsburgh, PA",
@@ -31,10 +33,12 @@
     "flight": 480,
     "hotelPerNight": 210,
     "nights": 4,
-    "notes": "'Roboburgh' \u2014 biggest general robotics conference (7k+ attendees). Book early for hotels."
+    "notes": "'Roboburgh' — biggest general robotics conference (7k+ attendees). Book early for hotels.",
+    "logoHost": "ieee-iros.org",
+    "region": "US"
   },
   {
-    "name": "ICRA \u2014 IEEE Robotics & Automation",
+    "name": "ICRA — IEEE Robotics & Automation",
     "type": "robotics",
     "kind": "conference",
     "url": "https://2027.ieee-icra.org/",
@@ -48,10 +52,12 @@
     "flight": 1300,
     "hotelPerNight": 190,
     "nights": 4,
-    "notes": "Flagship IEEE robotics conference. 2027 edition in Tokyo."
+    "notes": "Flagship IEEE robotics conference. 2027 edition in Tokyo.",
+    "logoHost": "ieee-icra.org",
+    "region": "Global"
   },
   {
-    "name": "RSS \u2014 Robotics: Science & Systems",
+    "name": "RSS — Robotics: Science & Systems",
     "type": "robotics",
     "kind": "conference",
     "url": "https://roboticsconference.org/",
@@ -65,48 +71,54 @@
     "flight": 450,
     "hotelPerNight": 190,
     "nights": 4,
-    "notes": "Single-track, highly selective \u2014 the premier place to see frontier robotics & ML work."
+    "notes": "Single-track, highly selective — the premier place to see frontier robotics & ML work.",
+    "logoHost": "roboticsconference.org",
+    "region": "Global"
   },
   {
     "name": "ROSCon Global",
     "type": "robotics",
     "kind": "conference",
     "url": "https://roscon.ros.org/",
-    "dateLabel": "Sep 22\u201324, 2026",
+    "dateLabel": "Sep 22–24, 2026",
     "start": "2026-09-22",
     "end": "2026-09-24",
     "location": "Toronto, ON (Canada)",
     "ticketLow": 250,
     "ticketHigh": 1025,
-    "ticketNote": "Early student $250 / general $575; late student $500 / general $1025; workshops +$50\u2013150",
+    "ticketNote": "Early student $250 / general $575; late student $500 / general $1025; workshops +$50–150",
     "flight": 460,
     "hotelPerNight": 230,
     "nights": 3,
-    "notes": "The ROS/ROS2 community event \u2014 best place for robotics software engineers & interns. Often sells out."
+    "notes": "The ROS/ROS2 community event — best place for robotics software engineers & interns. Often sells out.",
+    "logoHost": "ros.org",
+    "region": "Canada"
   },
   {
     "name": "ROSCon UK",
     "type": "robotics",
     "kind": "conference",
     "url": "https://roscon.org.uk/",
-    "dateLabel": "Oct 15\u201316, 2026",
+    "dateLabel": "Oct 15–16, 2026",
     "start": "2026-10-15",
     "end": "2026-10-16",
     "location": "Edinburgh, UK",
     "ticketLow": 130,
     "ticketHigh": 390,
-    "ticketNote": "Student early \u00a3100, professional \u00a3330",
+    "ticketNote": "Student early £100, professional £330",
     "flight": 900,
     "hotelPerNight": 160,
     "nights": 3,
-    "notes": "Compact, cheap, genuinely friendly UK ROS gathering with workshops and tours."
+    "notes": "Compact, cheap, genuinely friendly UK ROS gathering with workshops and tours.",
+    "logoHost": "roscon.org.uk",
+    "region": "Europe"
   },
   {
     "name": "IEEE-RAS Humanoids",
     "type": "robotics",
     "kind": "conference",
     "url": "https://www.humanoids-robot.org/",
-    "dateLabel": "Nov\u2013Dec (annual)",
+    "dateLabel": "Nov–Dec (annual)",
     "start": null,
     "end": null,
     "location": "Rotating (global)",
@@ -116,7 +128,9 @@
     "flight": 480,
     "hotelPerNight": 190,
     "nights": 4,
-    "notes": "All humanoid robotics \u2014 worth it if you build legged or bipedal systems."
+    "notes": "All humanoid robotics — worth it if you build legged or bipedal systems.",
+    "logoHost": "humanoids-robot.org",
+    "region": "Global"
   },
   {
     "name": "European Robotics Forum (ERF)",
@@ -133,7 +147,9 @@
     "flight": 1100,
     "hotelPerNight": 160,
     "nights": 3,
-    "notes": "European robotics ecosystem meet \u2014 heavy industry presence, lots of internship recruiting."
+    "notes": "European robotics ecosystem meet — heavy industry presence, lots of internship recruiting.",
+    "logoHost": "eu-robotics.net",
+    "region": "Europe"
   },
   {
     "name": "RoboBusiness",
@@ -146,11 +162,13 @@
     "location": "Santa Clara, CA",
     "ticketLow": 500,
     "ticketHigh": 1200,
-    "ticketNote": "Commercial robotics expo \u2014 free exhibit floor usually",
+    "ticketNote": "Commercial robotics expo — free exhibit floor usually",
     "flight": 320,
     "hotelPerNight": 210,
     "nights": 2,
-    "notes": "Robotics industry, investors, and startups \u2014 great for startup internship hunting."
+    "notes": "Robotics industry, investors, and startups — great for startup internship hunting.",
+    "logoHost": "roboticsbusinessreview.com",
+    "region": "US"
   },
   {
     "name": "Automate",
@@ -167,7 +185,9 @@
     "flight": 380,
     "hotelPerNight": 200,
     "nights": 2,
-    "notes": "North America's largest industrial automation show \u2014 logistics, AMRs, cobots, factory AI."
+    "notes": "North America's largest industrial automation show — logistics, AMRs, cobots, factory AI.",
+    "logoHost": "automateshow.com",
+    "region": "US"
   },
   {
     "name": "Robotics Summit & Expo",
@@ -184,7 +204,9 @@
     "flight": 450,
     "hotelPerNight": 240,
     "nights": 3,
-    "notes": "Deep-dive robotics engineering talks across hardware, safety, and autonomy."
+    "notes": "Deep-dive robotics engineering talks across hardware, safety, and autonomy.",
+    "logoHost": "roboticssummit.com",
+    "region": "US"
   },
   {
     "name": "Hannover Messe",
@@ -197,11 +219,13 @@
     "location": "Hannover, Germany",
     "ticketLow": 250,
     "ticketHigh": 600,
-    "ticketNote": "Day pass ~\u20ac50\u2013100, week pass ~\u20ac250+",
+    "ticketNote": "Day pass ~€50–100, week pass ~€250+",
     "flight": 1200,
     "hotelPerNight": 160,
     "nights": 3,
-    "notes": "World's biggest industrial trade fair \u2014 every industrial robot OEM exhibits."
+    "notes": "World's biggest industrial trade fair — every industrial robot OEM exhibits.",
+    "logoHost": "hannovermesse.de",
+    "region": "Europe"
   },
   {
     "name": "NVIDIA GTC",
@@ -214,11 +238,13 @@
     "location": "San Jose, CA",
     "ticketLow": 100,
     "ticketHigh": 500,
-    "ticketNote": "Digital pass free; in-person often $100\u2013500 with early-bird",
+    "ticketNote": "Digital pass free; in-person often $100–500 with early-bird",
     "flight": 320,
     "hotelPerNight": 240,
     "nights": 3,
-    "notes": "GPU + accelerated computing + robotics (Isaac/Omniverse). Student pass is very cheap."
+    "notes": "GPU + accelerated computing + robotics (Isaac/Omniverse). Student pass is very cheap.",
+    "logoHost": "nvidia.com",
+    "region": "US"
   },
   {
     "name": "AUVSI XPONENTIAL",
@@ -235,7 +261,9 @@
     "flight": 420,
     "hotelPerNight": 230,
     "nights": 3,
-    "notes": "Drones, UAS, autonomy expo \u2014 massive vendor floor for autonomy jobs."
+    "notes": "Drones, UAS, autonomy expo — massive vendor floor for autonomy jobs.",
+    "logoHost": "xponential.org",
+    "region": "US"
   },
   {
     "name": "CPS-IoT Week",
@@ -252,7 +280,9 @@
     "flight": 420,
     "hotelPerNight": 190,
     "nights": 4,
-    "notes": "The 'physics-meets-systems' crowd \u2014 IoT, real-time, robotics control."
+    "notes": "The 'physics-meets-systems' crowd — IoT, real-time, robotics control.",
+    "logoHost": "cpsi-week.org",
+    "region": "US"
   },
   {
     "name": "RoboCup World Championship",
@@ -265,11 +295,13 @@
     "location": "Rotating (global)",
     "ticketLow": 150,
     "ticketHigh": 300,
-    "ticketNote": "Team registration varies; spectating ~$150\u2013300",
+    "ticketNote": "Team registration varies; spectating ~$150–300",
     "flight": 1100,
     "hotelPerNight": 150,
     "nights": 5,
-    "notes": "Robot soccer World Cup \u2014 teams of undergrads from 45+ countries. Great for joining a team."
+    "notes": "Robot soccer World Cup — teams of undergrads from 45+ countries. Great for joining a team.",
+    "logoHost": "robocup.org",
+    "region": "Global"
   },
   {
     "name": "RoboGames",
@@ -282,11 +314,13 @@
     "location": "San Mateo, CA",
     "ticketLow": 25,
     "ticketHigh": 60,
-    "ticketNote": "Spectator ~$25\u201360; team entries separate",
+    "ticketNote": "Spectator ~$25–60; team entries separate",
     "flight": 300,
     "hotelPerNight": 170,
     "nights": 3,
-    "notes": "40+ robot contest categories under one roof \u2014 combat bots, sumo, maze, LEGO. Hidden gem."
+    "notes": "40+ robot contest categories under one roof — combat bots, sumo, maze, LEGO. Hidden gem.",
+    "logoHost": "robogames.net",
+    "region": "US"
   },
   {
     "name": "FIRST Championship",
@@ -299,11 +333,13 @@
     "location": "Houston, TX",
     "ticketLow": 0,
     "ticketHigh": 60,
-    "ticketNote": "Spectator ~$20\u201360; team costs separate",
+    "ticketNote": "Spectator ~$20–60; team costs separate",
     "flight": 380,
     "hotelPerNight": 150,
     "nights": 3,
-    "notes": "80k-person robotics festival (FRC finale). Alumni network is unmatched."
+    "notes": "80k-person robotics festival (FRC finale). Alumni network is unmatched.",
+    "logoHost": "firstinspires.org",
+    "region": "US"
   },
   {
     "name": "VEX Robotics World Championship",
@@ -316,14 +352,16 @@
     "location": "Dallas, TX",
     "ticketLow": 0,
     "ticketHigh": 60,
-    "ticketNote": "Spectator ~$30\u201360",
+    "ticketNote": "Spectator ~$30–60",
     "flight": 380,
     "hotelPerNight": 150,
     "nights": 3,
-    "notes": "World's largest robotics competition by team count."
+    "notes": "World's largest robotics competition by team count.",
+    "logoHost": "vexworlds.com",
+    "region": "US"
   },
   {
-    "name": "NHRL \u2014 National Havoc Robot League",
+    "name": "NHRL — National Havoc Robot League",
     "type": "robotics",
     "kind": "competition",
     "url": "https://www.nhrl.io/",
@@ -337,7 +375,9 @@
     "flight": 380,
     "hotelPerNight": 150,
     "nights": 1,
-    "notes": "Welterweight combat bot league \u2014 the hidden gem of fight robotics. Very DIY-friendly."
+    "notes": "Welterweight combat bot league — the hidden gem of fight robotics. Very DIY-friendly.",
+    "logoHost": "nhrl.io",
+    "region": "US"
   },
   {
     "name": "BattleBots (spectator)",
@@ -350,11 +390,13 @@
     "location": "Las Vegas / Long Beach, CA",
     "ticketLow": 40,
     "ticketHigh": 150,
-    "ticketNote": "Spectator ~$40\u2013150; teams apply",
+    "ticketNote": "Spectator ~$40–150; teams apply",
     "flight": 420,
     "hotelPerNight": 180,
     "nights": 3,
-    "notes": "Heavyweight combat robots. Team spots for students are scarce \u2014 spectating is easy."
+    "notes": "Heavyweight combat robots. Team spots for students are scarce — spectating is easy.",
+    "logoHost": "battlebots.com",
+    "region": "US"
   },
   {
     "name": "RoboSub",
@@ -371,14 +413,16 @@
     "flight": 420,
     "hotelPerNight": 0,
     "nights": 0,
-    "notes": "Autonomous underwater robotics \u2014 college teams, funded by sponsors."
+    "notes": "Autonomous underwater robotics — college teams, funded by sponsors.",
+    "logoHost": "robosub.org",
+    "region": "US"
   },
   {
     "name": "Eurobot",
     "type": "robotics",
     "kind": "competition",
     "url": "https://www.eurobot.org/",
-    "dateLabel": "May\u2013Jun (annual)",
+    "dateLabel": "May–Jun (annual)",
     "start": null,
     "end": null,
     "location": "Europe (rotating)",
@@ -388,7 +432,9 @@
     "flight": 1100,
     "hotelPerNight": 0,
     "nights": 0,
-    "notes": "Amateur/student robot builders across Europe \u2014 very approachable teams."
+    "notes": "Amateur/student robot builders across Europe — very approachable teams.",
+    "logoHost": "eurobot.org",
+    "region": "Europe"
   },
   {
     "name": "Robofest",
@@ -405,7 +451,9 @@
     "flight": 400,
     "hotelPerNight": 0,
     "nights": 0,
-    "notes": "RIT-run autonomous robotics competition with an easy regional on-ramp."
+    "notes": "RIT-run autonomous robotics competition with an easy regional on-ramp.",
+    "logoHost": "rit.edu",
+    "region": "US"
   },
   {
     "name": "NeurIPS",
@@ -422,7 +470,9 @@
     "flight": 1300,
     "hotelPerNight": 230,
     "nights": 7,
-    "notes": "The AI conference. 2026 is multi-site (Sydney + Atlanta + Paris). Career fair is enormous."
+    "notes": "The AI conference. 2026 is multi-site (Sydney + Atlanta + Paris). Career fair is enormous.",
+    "logoHost": "neurips.cc",
+    "region": "Global"
   },
   {
     "name": "ICML",
@@ -439,7 +489,9 @@
     "flight": 1100,
     "hotelPerNight": 190,
     "nights": 5,
-    "notes": "Core ML conference \u2014 papers, career fair, and industry recruiting all week."
+    "notes": "Core ML conference — papers, career fair, and industry recruiting all week.",
+    "logoHost": "icml.cc",
+    "region": "Global"
   },
   {
     "name": "ICLR",
@@ -456,7 +508,9 @@
     "flight": 1100,
     "hotelPerNight": 190,
     "nights": 5,
-    "notes": "Open-review ML conference, heavy on deep learning & LLM research."
+    "notes": "Open-review ML conference, heavy on deep learning & LLM research.",
+    "logoHost": "iclr.cc",
+    "region": "Global"
   },
   {
     "name": "AAAI",
@@ -473,7 +527,9 @@
     "flight": 450,
     "hotelPerNight": 190,
     "nights": 4,
-    "notes": "Premier general AI conference with strong student outreach programs."
+    "notes": "Premier general AI conference with strong student outreach programs.",
+    "logoHost": "aaai.org",
+    "region": "US"
   },
   {
     "name": "CVPR",
@@ -486,11 +542,13 @@
     "location": "Rotating (US)",
     "ticketLow": 525,
     "ticketHigh": 1200,
-    "ticketNote": "Student non-member early $625, IEEE student $525, general $900\u20131200",
+    "ticketNote": "Student non-member early $625, IEEE student $525, general $900–1200",
     "flight": 480,
     "hotelPerNight": 230,
     "nights": 5,
-    "notes": "Computer vision flagship. Huge expo + demo hall for startups."
+    "notes": "Computer vision flagship. Huge expo + demo hall for startups.",
+    "logoHost": "thecvf.com",
+    "region": "US"
   },
   {
     "name": "ICCV",
@@ -507,7 +565,9 @@
     "flight": 1100,
     "hotelPerNight": 210,
     "nights": 5,
-    "notes": "Vision conference on even years (next: 2028). Big industry presence."
+    "notes": "Vision conference on even years (next: 2028). Big industry presence.",
+    "logoHost": "thecvf.com",
+    "region": "Global"
   },
   {
     "name": "ECCV",
@@ -524,7 +584,9 @@
     "flight": 1200,
     "hotelPerNight": 190,
     "nights": 5,
-    "notes": "European vision conference on odd years (next: 2027)."
+    "notes": "European vision conference on odd years (next: 2027).",
+    "logoHost": "thecvf.com",
+    "region": "Europe"
   },
   {
     "name": "ACL",
@@ -541,7 +603,9 @@
     "flight": 1100,
     "hotelPerNight": 190,
     "nights": 5,
-    "notes": "Core NLP/LLM research venue."
+    "notes": "Core NLP/LLM research venue.",
+    "logoHost": "aclweb.org",
+    "region": "Global"
   },
   {
     "name": "EMNLP",
@@ -558,7 +622,9 @@
     "flight": 1100,
     "hotelPerNight": 190,
     "nights": 5,
-    "notes": "LLMs, NLP systems, and heavy industry recruiting for applied ML roles."
+    "notes": "LLMs, NLP systems, and heavy industry recruiting for applied ML roles.",
+    "logoHost": "emnlp.org",
+    "region": "Global"
   },
   {
     "name": "KDD",
@@ -575,7 +641,9 @@
     "flight": 1100,
     "hotelPerNight": 190,
     "nights": 4,
-    "notes": "Applied ML + data science venue. Strong at catching start-up MLEs."
+    "notes": "Applied ML + data science venue. Strong at catching start-up MLEs.",
+    "logoHost": "kdd.org",
+    "region": "Global"
   },
   {
     "name": "SIGGRAPH",
@@ -592,7 +660,9 @@
     "flight": 420,
     "hotelPerNight": 230,
     "nights": 6,
-    "notes": "Graphics, simulation, render, and embodied AI. The expo is spectacular."
+    "notes": "Graphics, simulation, render, and embodied AI. The expo is spectacular.",
+    "logoHost": "siggraph.org",
+    "region": "US"
   },
   {
     "name": "MLOps World",
@@ -609,7 +679,9 @@
     "flight": 450,
     "hotelPerNight": 200,
     "nights": 3,
-    "notes": "Practical ML infra. Great for spotting free-agent startups hiring interns."
+    "notes": "Practical ML infra. Great for spotting free-agent startups hiring interns.",
+    "logoHost": "mlopsworld.com",
+    "region": "US"
   },
   {
     "name": "TinyML Summit",
@@ -626,24 +698,28 @@
     "flight": 320,
     "hotelPerNight": 190,
     "nights": 2,
-    "notes": "Microcontrollers + ML \u2014 where robotics sensors and model quantization collide."
+    "notes": "Microcontrollers + ML — where robotics sensors and model quantization collide.",
+    "logoHost": "tinyml.org",
+    "region": "US"
   },
   {
     "name": "CppCon",
     "type": "systems",
     "kind": "conference",
     "url": "https://cppcon.org/",
-    "dateLabel": "Sep 12\u201318, 2026",
+    "dateLabel": "Sep 12–18, 2026",
     "start": "2026-09-12",
     "end": "2026-09-18",
     "location": "Aurora, CO (Gaylord Rockies)",
     "ticketLow": 399,
     "ticketHigh": 3499,
-    "ticketNote": "Student $399 only; regular $2299\u20133099; Friday sessions free without registration",
+    "ticketNote": "Student $399 only; regular $2299–3099; Friday sessions free without registration",
     "flight": 420,
     "hotelPerNight": 260,
     "nights": 6,
-    "notes": "The C++ conference. Student ticket is a steal. Run by CppCon volunteers."
+    "notes": "The C++ conference. Student ticket is a steal. Run by CppCon volunteers.",
+    "logoHost": "cppcon.org",
+    "region": "US"
   },
   {
     "name": "C++Now",
@@ -660,7 +736,9 @@
     "flight": 450,
     "hotelPerNight": 240,
     "nights": 5,
-    "notes": "C++ template/metaprogramming mecca at Aspen \u2014 small, intense, unforgettable."
+    "notes": "C++ template/metaprogramming mecca at Aspen — small, intense, unforgettable.",
+    "logoHost": "cppnow.org",
+    "region": "US"
   },
   {
     "name": "KubeCon + CloudNativeCon NA",
@@ -673,11 +751,13 @@
     "location": "Rotating (US)",
     "ticketLow": 700,
     "ticketHigh": 1300,
-    "ticketNote": "Early-bird ~$700\u2013900",
+    "ticketNote": "Early-bird ~$700–900",
     "flight": 420,
     "hotelPerNight": 230,
     "nights": 4,
-    "notes": "Cloud-native infrastructure. Free co-located events + huge expo."
+    "notes": "Cloud-native infrastructure. Free co-located events + huge expo.",
+    "logoHost": "linuxfoundation.org",
+    "region": "US"
   },
   {
     "name": "KubeCon EU",
@@ -690,11 +770,13 @@
     "location": "Rotating (EU)",
     "ticketLow": 600,
     "ticketHigh": 1200,
-    "ticketNote": "Early-bird ~$700\u2013900",
+    "ticketNote": "Early-bird ~$700–900",
     "flight": 1100,
     "hotelPerNight": 200,
     "nights": 4,
-    "notes": "European cloud-native counterpart to KubeCon NA."
+    "notes": "European cloud-native counterpart to KubeCon NA.",
+    "logoHost": "linuxfoundation.org",
+    "region": "Europe"
   },
   {
     "name": "PyCon US",
@@ -707,11 +789,13 @@
     "location": "Rotating (US)",
     "ticketLow": 300,
     "ticketHigh": 700,
-    "ticketNote": "Student ~$300\u2013400 early-bird",
+    "ticketNote": "Student ~$300–400 early-bird",
     "flight": 420,
     "hotelPerNight": 200,
     "nights": 5,
-    "notes": "The friendly giant. Massive tutorials + expo. Student sprints ideal for open-source."
+    "notes": "The friendly giant. Massive tutorials + expo. Student sprints ideal for open-source.",
+    "logoHost": "pycon.org",
+    "region": "US"
   },
   {
     "name": "EuroPython",
@@ -724,11 +808,13 @@
     "location": "Rotating (EU)",
     "ticketLow": 200,
     "ticketHigh": 500,
-    "ticketNote": "Early-bird ~\u20ac200 student",
+    "ticketNote": "Early-bird ~€200 student",
     "flight": 1100,
     "hotelPerNight": 150,
     "nights": 5,
-    "notes": "Community-run Python conference, budget-friendly."
+    "notes": "Community-run Python conference, budget-friendly.",
+    "logoHost": "europython.eu",
+    "region": "Europe"
   },
   {
     "name": "FOSDEM",
@@ -745,7 +831,9 @@
     "flight": 1200,
     "hotelPerNight": 140,
     "nights": 3,
-    "notes": "Story of free-software devrooms, 800+ talks, zero cost. Bring a USB-C charger and water."
+    "notes": "Story of free-software devrooms, 800+ talks, zero cost. Bring a USB-C charger and water.",
+    "logoHost": "fosdem.org",
+    "region": "Europe"
   },
   {
     "name": "Linux Plumbers Conference",
@@ -758,11 +846,13 @@
     "location": "Rotating (US/EU)",
     "ticketLow": 250,
     "ticketHigh": 600,
-    "ticketNote": "Student ~$250\u2013400",
+    "ticketNote": "Student ~$250–400",
     "flight": 420,
     "hotelPerNight": 180,
     "nights": 4,
-    "notes": "Kernel & systems devroom-style micro-confs. Watch for GSoC students."
+    "notes": "Kernel & systems devroom-style micro-confs. Watch for GSoC students.",
+    "logoHost": "lpc.events",
+    "region": "Global"
   },
   {
     "name": "USENIX ATC / OSDI",
@@ -779,7 +869,9 @@
     "flight": 450,
     "hotelPerNight": 200,
     "nights": 4,
-    "notes": "Systems research \u2014 OS, storage, networking. Academia-heavy."
+    "notes": "Systems research — OS, storage, networking. Academia-heavy.",
+    "logoHost": "usenix.org",
+    "region": "US"
   },
   {
     "name": "SPLASH / OOPSLA",
@@ -796,7 +888,9 @@
     "flight": 1100,
     "hotelPerNight": 190,
     "nights": 4,
-    "notes": "Where programming-language and software-design research meets industry."
+    "notes": "Where programming-language and software-design research meets industry.",
+    "logoHost": "splashcon.org",
+    "region": "Global"
   },
   {
     "name": "CAV / PLDI (formal methods)",
@@ -813,7 +907,9 @@
     "flight": 1100,
     "hotelPerNight": 180,
     "nights": 4,
-    "notes": "Program verification + safety-critical robotics; small community, big hiring."
+    "notes": "Program verification + safety-critical robotics; small community, big hiring.",
+    "logoHost": "sigplan.org",
+    "region": "Global"
   },
   {
     "name": "LLVM Developers' Meeting",
@@ -830,7 +926,9 @@
     "flight": 420,
     "hotelPerNight": 170,
     "nights": 3,
-    "notes": "Compiler engineering \u2014 chip and ML teams recruit tooling folks here."
+    "notes": "Compiler engineering — chip and ML teams recruit tooling folks here.",
+    "logoHost": "llvm.org",
+    "region": "Global"
   },
   {
     "name": "EuroSys / SOSP",
@@ -847,14 +945,16 @@
     "flight": 1100,
     "hotelPerNight": 180,
     "nights": 4,
-    "notes": "Systems research superconference. Golden networking for distributed systems."
+    "notes": "Systems research superconference. Golden networking for distributed systems.",
+    "logoHost": "sigops.org",
+    "region": "Global"
   },
   {
     "name": "Supercomputing (SC)",
     "type": "systems",
     "kind": "conference",
     "url": "https://sc26.supercomputing.org/",
-    "dateLabel": "Nov 15\u201320, 2026 (St. Louis)",
+    "dateLabel": "Nov 15–20, 2026 (St. Louis)",
     "start": "2026-11-15",
     "end": "2026-11-20",
     "location": "St. Louis, MO",
@@ -864,7 +964,9 @@
     "flight": 450,
     "hotelPerNight": 200,
     "nights": 5,
-    "notes": "Compute + data-center infrastructure. Buckets of accelerator startups."
+    "notes": "Compute + data-center infrastructure. Buckets of accelerator startups.",
+    "logoHost": "supercomputing.org",
+    "region": "US"
   },
   {
     "name": "CIDR (databases)",
@@ -881,7 +983,9 @@
     "flight": 450,
     "hotelPerNight": 200,
     "nights": 4,
-    "notes": "The 'cool kids' database systems conference \u2014 signaling to DB/vector startups."
+    "notes": "The 'cool kids' database systems conference — signaling to DB/vector startups.",
+    "logoHost": "cidrdb.org",
+    "region": "US"
   },
   {
     "name": "SIGMOD / VLDB",
@@ -898,7 +1002,9 @@
     "flight": 420,
     "hotelPerNight": 190,
     "nights": 4,
-    "notes": "Database research + industry \u2014 good for vector DB and data-infra folks."
+    "notes": "Database research + industry — good for vector DB and data-infra folks.",
+    "logoHost": "sigmod.org",
+    "region": "US"
   },
   {
     "name": "Google I/O",
@@ -911,11 +1017,13 @@
     "location": "Mountain View / Bay Area, CA",
     "ticketLow": 300,
     "ticketHigh": 600,
-    "ticketNote": "Ticket lottery ~$300\u2013600",
+    "ticketNote": "Ticket lottery ~$300–600",
     "flight": 320,
     "hotelPerNight": 250,
     "nights": 2,
-    "notes": "Google's dev conference \u2014 free livestreams, in-person ticket lottery."
+    "notes": "Google's dev conference — free livestreams, in-person ticket lottery.",
+    "logoHost": "google.com",
+    "region": "US"
   },
   {
     "name": "Microsoft Build",
@@ -932,7 +1040,9 @@
     "flight": 450,
     "hotelPerNight": 230,
     "nights": 3,
-    "notes": "Azure/.NET/AI dev conference."
+    "notes": "Azure/.NET/AI dev conference.",
+    "logoHost": "microsoft.com",
+    "region": "US"
   },
   {
     "name": "WWDC (Apple)",
@@ -949,7 +1059,9 @@
     "flight": 320,
     "hotelPerNight": 250,
     "nights": 3,
-    "notes": "Apple's developer conference (invite/lottery). The student scholarship program covers travel."
+    "notes": "Apple's developer conference (invite/lottery). The student scholarship program covers travel.",
+    "logoHost": "apple.com",
+    "region": "US"
   },
   {
     "name": "AWS re:Invent",
@@ -966,7 +1078,9 @@
     "flight": 450,
     "hotelPerNight": 220,
     "nights": 5,
-    "notes": "AWS's 60k-attendee conference. Insane scale; expo worth it alone."
+    "notes": "AWS's 60k-attendee conference. Insane scale; expo worth it alone.",
+    "logoHost": "awsevents.com",
+    "region": "US"
   },
   {
     "name": "Embedded World",
@@ -983,7 +1097,9 @@
     "flight": 1200,
     "hotelPerNight": 160,
     "nights": 3,
-    "notes": "Embedded/microcontrollers/RTOS \u2014 combine with a German tech visit."
+    "notes": "Embedded/microcontrollers/RTOS — combine with a German tech visit.",
+    "logoHost": "embedded-world.de",
+    "region": "Europe"
   },
   {
     "name": "RISC-V Summit",
@@ -1000,7 +1116,9 @@
     "flight": 320,
     "hotelPerNight": 200,
     "nights": 3,
-    "notes": "RISC-V cores, AI accelerators, and the hottest chip startup scene."
+    "notes": "RISC-V cores, AI accelerators, and the hottest chip startup scene.",
+    "logoHost": "riscv.org",
+    "region": "US"
   },
   {
     "name": "Hot Chips",
@@ -1017,7 +1135,9 @@
     "flight": 320,
     "hotelPerNight": 220,
     "nights": 3,
-    "notes": "Where chip architects present new silicon \u2014 AMD/Intel/Nvidia folks recruit here."
+    "notes": "Where chip architects present new silicon — AMD/Intel/Nvidia folks recruit here.",
+    "logoHost": "hotchips.org",
+    "region": "US"
   },
   {
     "name": "Go / Rust / Zig community confs",
@@ -1034,7 +1154,9 @@
     "flight": 420,
     "hotelPerNight": 180,
     "nights": 3,
-    "notes": "RustConf, GopherCon, Zig, OCaml \u2014 cheap and full of OSS builders."
+    "notes": "RustConf, GopherCon, Zig, OCaml — cheap and full of OSS builders.",
+    "logoHost": "rust-lang.org",
+    "region": "Global"
   },
   {
     "name": "Black Hat USA",
@@ -1051,24 +1173,28 @@
     "flight": 450,
     "hotelPerNight": 260,
     "nights": 4,
-    "notes": "Corporate security conference. Expensive but the expo + hiring fair is deep."
+    "notes": "Corporate security conference. Expensive but the expo + hiring fair is deep.",
+    "logoHost": "blackhat.com",
+    "region": "US"
   },
   {
     "name": "DEF CON",
     "type": "security",
     "kind": "conference",
     "url": "https://defcon.org/",
-    "dateLabel": "Aug 6\u20139, 2027 (Las Vegas)",
+    "dateLabel": "Aug 6–9, 2027 (Las Vegas)",
     "start": "2027-08-06",
     "end": "2027-08-09",
     "location": "Las Vegas, NV",
     "ticketLow": 520,
     "ticketHigh": 600,
-    "ticketNote": "Cash at door $520 (LineCon); online $560\u2013600 + CC fee",
+    "ticketNote": "Cash at door $520 (LineCon); online $560–600 + CC fee",
     "flight": 450,
     "hotelPerNight": 240,
     "nights": 4,
-    "notes": "The hacker pilgrimage after Black Hat. Bring cash, a burner laptop, and a great story."
+    "notes": "The hacker pilgrimage after Black Hat. Bring cash, a burner laptop, and a great story.",
+    "logoHost": "defcon.org",
+    "region": "US"
   },
   {
     "name": "BSides (major cities)",
@@ -1081,11 +1207,13 @@
     "location": "Every major city",
     "ticketLow": 0,
     "ticketHigh": 100,
-    "ticketNote": "Usually $0\u2013100 or free",
+    "ticketNote": "Usually $0–100 or free",
     "flight": 300,
     "hotelPerNight": 170,
     "nights": 2,
-    "notes": "Community-run security confs the week before DEF CON. Hidden-network goldmines."
+    "notes": "Community-run security confs the week before DEF CON. Hidden-network goldmines.",
+    "logoHost": "securitybsides.com",
+    "region": "Global"
   },
   {
     "name": "RSA Conference",
@@ -1098,14 +1226,16 @@
     "location": "San Francisco, CA",
     "ticketLow": 800,
     "ticketHigh": 2300,
-    "ticketNote": "Full conference ~$2200; expo-only often $300\u2013500",
+    "ticketNote": "Full conference ~$2200; expo-only often $300–500",
     "flight": 320,
     "hotelPerNight": 260,
     "nights": 4,
-    "notes": "Giant of infosec. The exhibit hall is huge for networking."
+    "notes": "Giant of infosec. The exhibit hall is huge for networking.",
+    "logoHost": "rsaconference.com",
+    "region": "US"
   },
   {
-    "name": "GDC \u2014 Game Developers Conference",
+    "name": "GDC — Game Developers Conference",
     "type": "gaming",
     "kind": "conference",
     "url": "https://gdconf.com/",
@@ -1119,7 +1249,9 @@
     "flight": 320,
     "hotelPerNight": 250,
     "nights": 5,
-    "notes": "Game dev show \u2014 useful if you build graphics/real-time simulators."
+    "notes": "Game dev show — useful if you build graphics/real-time simulators.",
+    "logoHost": "gdconf.com",
+    "region": "US"
   },
   {
     "name": "SmallSat Conference",
@@ -1136,7 +1268,9 @@
     "flight": 480,
     "hotelPerNight": 180,
     "nights": 4,
-    "notes": "CubeSats, lunar landers, on-orbit computing. Space robotics recruit here."
+    "notes": "CubeSats, lunar landers, on-orbit computing. Space robotics recruit here.",
+    "logoHost": "smallsat.org",
+    "region": "US"
   },
   {
     "name": "Space Symposium",
@@ -1153,7 +1287,9 @@
     "flight": 420,
     "hotelPerNight": 230,
     "nights": 3,
-    "notes": "Defense/space establishment \u2014 Lockheed, Raytheon, SpaceX presence."
+    "notes": "Defense/space establishment — Lockheed, Raytheon, SpaceX presence.",
+    "logoHost": "spacesymposium.org",
+    "region": "US"
   },
   {
     "name": "NASA Human Exploration Rover Challenge",
@@ -1170,10 +1306,12 @@
     "flight": 400,
     "hotelPerNight": 0,
     "nights": 0,
-    "notes": "Design a human-powered rover. Mechanical + controls + software teams."
+    "notes": "Design a human-powered rover. Mechanical + controls + software teams.",
+    "logoHost": "nasa.gov",
+    "region": "US"
   },
   {
-    "name": "DAC \u2014 Design Automation Conference",
+    "name": "DAC — Design Automation Conference",
     "type": "hardware",
     "kind": "conference",
     "url": "https://www.dac.com/",
@@ -1187,7 +1325,9 @@
     "flight": 320,
     "hotelPerNight": 240,
     "nights": 4,
-    "notes": "EDA, RTL, FPGA, ML-at-the-edge designers and chip startups."
+    "notes": "EDA, RTL, FPGA, ML-at-the-edge designers and chip startups.",
+    "logoHost": "dac.com",
+    "region": "US"
   },
   {
     "name": "QuantCon",
@@ -1204,7 +1344,9 @@
     "flight": 450,
     "hotelPerNight": 280,
     "nights": 2,
-    "notes": "NYC quant scene \u2014 networking with funds is very direct."
+    "notes": "NYC quant scene — networking with funds is very direct.",
+    "logoHost": "quantcon.com",
+    "region": "US"
   },
   {
     "name": "NYC quant meetups",
@@ -1221,14 +1363,16 @@
     "flight": 450,
     "hotelPerNight": 0,
     "nights": 1,
-    "notes": "Check NYC/London quant meetups \u2014 cheaper access to the trading world than conferences."
+    "notes": "Check NYC/London quant meetups — cheaper access to the trading world than conferences.",
+    "logoHost": "meetup.com",
+    "region": "US"
   },
   {
     "name": "HackMIT",
     "type": "hackathon",
     "kind": "hackathon",
     "url": "https://hackmit.org/",
-    "dateLabel": "Sep 19\u201320, 2026",
+    "dateLabel": "Sep 19–20, 2026",
     "start": "2026-09-19",
     "end": "2026-09-20",
     "location": "Cambridge, MA",
@@ -1238,7 +1382,9 @@
     "flight": 450,
     "hotelPerNight": 140,
     "nights": 2,
-    "notes": "MIT's flagship 1000+ student hackathon. Apply by early July."
+    "notes": "MIT's flagship 1000+ student hackathon. Apply by early July.",
+    "logoHost": "hackmit.org",
+    "region": "US"
   },
   {
     "name": "PennApps",
@@ -1255,7 +1401,9 @@
     "flight": 420,
     "hotelPerNight": 140,
     "nights": 2,
-    "notes": "48-hour college hackathon, 1000+ students."
+    "notes": "48-hour college hackathon, 1000+ students.",
+    "logoHost": "pennapps.com",
+    "region": "US"
   },
   {
     "name": "TreeHacks (Stanford)",
@@ -1272,7 +1420,9 @@
     "flight": 320,
     "hotelPerNight": 140,
     "nights": 2,
-    "notes": "Stanford's elite 36-hour hardware + AI hackathon."
+    "notes": "Stanford's elite 36-hour hardware + AI hackathon.",
+    "logoHost": "treehacks.com",
+    "region": "US"
   },
   {
     "name": "Cal Hacks",
@@ -1289,7 +1439,9 @@
     "flight": 320,
     "hotelPerNight": 140,
     "nights": 2,
-    "notes": "Berkeley's fall megahackathon."
+    "notes": "Berkeley's fall megahackathon.",
+    "logoHost": "calhacks.io",
+    "region": "US"
   },
   {
     "name": "LA Hacks (UCLA)",
@@ -1306,7 +1458,9 @@
     "flight": 320,
     "hotelPerNight": 140,
     "nights": 2,
-    "notes": "UCLA hackathon with generous travel for out-of-state students."
+    "notes": "UCLA hackathon with generous travel for out-of-state students.",
+    "logoHost": "lahacks.com",
+    "region": "US"
   },
   {
     "name": "Hack the North (Waterloo)",
@@ -1323,14 +1477,16 @@
     "flight": 600,
     "hotelPerNight": 0,
     "nights": 2,
-    "notes": "Canada's largest collegiate hackathon, 1000 hackers."
+    "notes": "Canada's largest collegiate hackathon, 1000 hackers.",
+    "logoHost": "hackthenorth.com",
+    "region": "Canada"
   },
   {
     "name": "HackHarvard",
     "type": "hackathon",
     "kind": "hackathon",
     "url": "https://hackharvard.io/",
-    "dateLabel": "Oct\u2013Nov (annual)",
+    "dateLabel": "Oct–Nov (annual)",
     "start": null,
     "end": null,
     "location": "Cambridge, MA",
@@ -1340,7 +1496,9 @@
     "flight": 450,
     "hotelPerNight": 140,
     "nights": 2,
-    "notes": "Harvard's lively debut-event hackathon."
+    "notes": "Harvard's lively debut-event hackathon.",
+    "logoHost": "hackharvard.io",
+    "region": "US"
   },
   {
     "name": "MHacks (Michigan)",
@@ -1357,7 +1515,9 @@
     "flight": 380,
     "hotelPerNight": 120,
     "nights": 2,
-    "notes": "Big Midwestern hackathon back on the circuit."
+    "notes": "Big Midwestern hackathon back on the circuit.",
+    "logoHost": "mhacks.org",
+    "region": "US"
   },
   {
     "name": "hackNY (Fellowship)",
@@ -1374,7 +1534,9 @@
     "flight": 420,
     "hotelPerNight": 200,
     "nights": 0,
-    "notes": "Not a weekend hack \u2014 a paid NYC startup summer fellowship with a hackday."
+    "notes": "Not a weekend hack — a paid NYC startup summer fellowship with a hackday.",
+    "logoHost": "hackny.org",
+    "region": "US"
   },
   {
     "name": "CityHacks (London)",
@@ -1391,7 +1553,9 @@
     "flight": 900,
     "hotelPerNight": 150,
     "nights": 2,
-    "notes": "Student-run London hackathon with a hardware track."
+    "notes": "Student-run London hackathon with a hardware track.",
+    "logoHost": "cityhacks.io",
+    "region": "Europe"
   },
   {
     "name": "TechTogether",
@@ -1408,7 +1572,9 @@
     "flight": 300,
     "hotelPerNight": 0,
     "nights": 1,
-    "notes": "Inclusive hackathon series with strong sponsor mentorship."
+    "notes": "Inclusive hackathon series with strong sponsor mentorship.",
+    "logoHost": "techtogether.org",
+    "region": "US"
   },
   {
     "name": "MIT Reality Hack",
@@ -1421,11 +1587,13 @@
     "location": "Cambridge, MA",
     "ticketLow": 0,
     "ticketHigh": 250,
-    "ticketNote": "XR/vision hack; entry fee ~$100\u2013250",
+    "ticketNote": "XR/vision hack; entry fee ~$100–250",
     "flight": 450,
     "hotelPerNight": 170,
     "nights": 4,
-    "notes": "AR/VR/embodied-AI hack week with industry sponsors \u2014 robotics-adjacent."
+    "notes": "AR/VR/embodied-AI hack week with industry sponsors — robotics-adjacent.",
+    "logoHost": "mit.edu",
+    "region": "US"
   },
   {
     "name": "NASA Space Apps Challenge",
@@ -1442,7 +1610,9 @@
     "flight": 0,
     "hotelPerNight": 0,
     "nights": 2,
-    "notes": "NASA's worldwide civic hackathon \u2014 find a local node, join a team."
+    "notes": "NASA's worldwide civic hackathon — find a local node, join a team.",
+    "logoHost": "spaceappschallenge.org",
+    "region": "Online"
   },
   {
     "name": "ICPC World Finals",
@@ -1455,18 +1625,20 @@
     "location": "Rotating (global)",
     "ticketLow": 0,
     "ticketHigh": 0,
-    "ticketNote": "Team competition \u2014 universities sponsor travel",
+    "ticketNote": "Team competition — universities sponsor travel",
     "flight": 1100,
     "hotelPerNight": 150,
     "nights": 4,
-    "notes": "Competitive programming world finals. Your school registers the team."
+    "notes": "Competitive programming world finals. Your school registers the team.",
+    "logoHost": "icpc.global",
+    "region": "Global"
   },
   {
     "name": "MIT Battlecode",
     "type": "competition",
     "kind": "competition",
     "url": "https://battlecode.org/",
-    "dateLabel": "Jan\u2013Apr 2027",
+    "dateLabel": "Jan–Apr 2027",
     "start": "2027-01-01",
     "end": "2027-04-30",
     "location": "Online frontier + MIT finals",
@@ -1476,7 +1648,9 @@
     "flight": 450,
     "hotelPerNight": 0,
     "nights": 0,
-    "notes": "Realtime robot programming game. Perfect ice-breaker for robotics/eng interviews."
+    "notes": "Realtime robot programming game. Perfect ice-breaker for robotics/eng interviews.",
+    "logoHost": "battlecode.org",
+    "region": "Online"
   },
   {
     "name": "Kaggle Competitions",
@@ -1493,7 +1667,9 @@
     "flight": 0,
     "hotelPerNight": 0,
     "nights": 0,
-    "notes": "Ongoing ML competitions \u2014 small hidden ones feed directly into internships."
+    "notes": "Ongoing ML competitions — small hidden ones feed directly into internships.",
+    "logoHost": "kaggle.com",
+    "region": "Online"
   },
   {
     "name": "ARC-AGI Prize",
@@ -1510,7 +1686,9 @@
     "flight": 0,
     "hotelPerNight": 0,
     "nights": 0,
-    "notes": "$1M ARC-AGI benchmark \u2014 winning it is a recruiting rocket."
+    "notes": "$1M ARC-AGI benchmark — winning it is a recruiting rocket.",
+    "logoHost": "arcprize.org",
+    "region": "Online"
   },
   {
     "name": "iCTF (UCSB)",
@@ -1527,14 +1705,16 @@
     "flight": 0,
     "hotelPerNight": 0,
     "nights": 0,
-    "notes": "The original attack-defense CTF. Join a campus team."
+    "notes": "The original attack-defense CTF. Join a campus team.",
+    "logoHost": "ucsb.edu",
+    "region": "Online"
   },
   {
     "name": "Meta Hacker Cup",
     "type": "competition",
     "kind": "competition",
     "url": "https://www.facebook.com/codingcompetitions/hacker-cup/",
-    "dateLabel": "Aug\u2013Nov (annual)",
+    "dateLabel": "Aug–Nov (annual)",
     "start": null,
     "end": null,
     "location": "Online (global)",
@@ -1544,7 +1724,9 @@
     "flight": 0,
     "hotelPerNight": 0,
     "nights": 0,
-    "notes": "Meta's algorithm competition with a paid travel final."
+    "notes": "Meta's algorithm competition with a paid travel final.",
+    "logoHost": "facebook.com",
+    "region": "Online"
   },
   {
     "name": "Student Cluster Competition (SC)",
@@ -1557,18 +1739,20 @@
     "location": "Houston, TX",
     "ticketLow": 0,
     "ticketHigh": 0,
-    "ticketNote": "Team competition \u2014 students build a cluster live",
+    "ticketNote": "Team competition — students build a cluster live",
     "flight": 420,
     "hotelPerNight": 0,
     "nights": 0,
-    "notes": "Build + tune an HPC cluster under power limits at SC. Great resume line."
+    "notes": "Build + tune an HPC cluster under power limits at SC. Great resume line.",
+    "logoHost": "studentclustercompetition.us",
+    "region": "US"
   },
   {
     "name": "Google Summer of Code",
     "type": "competition",
     "kind": "competition",
     "url": "https://summerofcode.withgoogle.com/",
-    "dateLabel": "May\u2013Aug (annual)",
+    "dateLabel": "May–Aug (annual)",
     "start": null,
     "end": null,
     "location": "Remote",
@@ -1578,7 +1762,9 @@
     "flight": 0,
     "hotelPerNight": 0,
     "nights": 0,
-    "notes": "Not a conference \u2014 a stipended open-source summer. Best offline 'event' for interns."
+    "notes": "Not a conference — a stipended open-source summer. Best offline 'event' for interns.",
+    "logoHost": "withgoogle.com",
+    "region": "Online"
   },
   {
     "name": "Hacktoberfest",
@@ -1595,7 +1781,9 @@
     "flight": 0,
     "hotelPerNight": 0,
     "nights": 0,
-    "notes": "Monthly open-source push \u2014 small OSS contributions snowball into offers."
+    "notes": "Monthly open-source push — small OSS contributions snowball into offers.",
+    "logoHost": "hacktoberfest.com",
+    "region": "Online"
   },
   {
     "name": "Advent of Code",
@@ -1612,7 +1800,9 @@
     "flight": 0,
     "hotelPerNight": 0,
     "nights": 0,
-    "notes": "25 days of tough puzzles \u2014 great fun and a talking point in interviews."
+    "notes": "25 days of tough puzzles — great fun and a talking point in interviews.",
+    "logoHost": "adventofcode.com",
+    "region": "Online"
   },
   {
     "name": "NeurIPS competitions & challenges",
@@ -1629,7 +1819,9 @@
     "flight": 0,
     "hotelPerNight": 0,
     "nights": 0,
-    "notes": "NeurIPS hosts side challenges \u2014 winning one is a recruiting rocket."
+    "notes": "NeurIPS hosts side challenges — winning one is a recruiting rocket.",
+    "logoHost": "kaggle.com",
+    "region": "Online"
   },
   {
     "name": "Hackster.io challenges",
@@ -1646,6 +1838,8 @@
     "flight": 0,
     "hotelPerNight": 0,
     "nights": 0,
-    "notes": "Hardware + embedded design challenges that look great in internship apps."
+    "notes": "Hardware + embedded design challenges that look great in internship apps.",
+    "logoHost": "hackster.io",
+    "region": "Online"
   }
 ]
