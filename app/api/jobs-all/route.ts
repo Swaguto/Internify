@@ -9,7 +9,7 @@ export async function GET() {
       SELECT
         aj.source_id AS id,
         ac.name AS "companyName",
-        ac.domain AS domain,
+        ac.logo_host AS "logoHost",
         aj.title AS "roleTitle",
         aj.season,
         aj.location,
@@ -28,8 +28,8 @@ export async function GET() {
     const jobs = result.rows.map((r) => ({
       id: r.id,
       companyName: r.companyName,
-      companyLogoUrl: r.domain
-        ? `https://www.google.com/s2/favicons?domain=${r.domain}&sz=64`
+      companyLogoUrl: r.logoHost
+        ? `https://www.google.com/s2/favicons?domain=${r.logoHost}&sz=64`
         : undefined,
       roleTitle: r.roleTitle,
       season: r.season || "Rolling",
