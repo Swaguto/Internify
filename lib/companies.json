@@ -636,6 +636,36 @@
       "ats": null,
       "trackOnly": false,
       "addedAt": "2026-09-05T03:43:19.361Z"
+    },
+    {
+      "name": "Replit",
+      "domain": "replit.com",
+      "careersUrl": "https://replit.com/careers/",
+      "ats": {
+        "type": "ashby",
+        "slug": "replit"
+      },
+      "trackOnly": false
+    },
+    {
+      "name": "Marvell",
+      "domain": "marvell.com",
+      "careersUrl": "https://marvell.wd1.myworkdayjobs.com/en-US/MarvellCareers",
+      "ats": {
+        "type": "workday",
+        "token": "marvell"
+      },
+      "trackOnly": false
+    },
+    {
+      "name": "Medtronic (MiniMed)",
+      "domain": "medtronic.com",
+      "careersUrl": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers",
+      "ats": {
+        "type": "workday",
+        "token": "medtronic"
+      },
+      "trackOnly": false
     }
   ]
 }

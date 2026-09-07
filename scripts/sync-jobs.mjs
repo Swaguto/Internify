@@ -239,6 +239,41 @@ function agoIso(s) {
   return new Date(Date.now() - n * units[m[2].toLowerCase()]).toISOString();
 }
 
+/* ---------- source: generic workday cxs ---------- */
+async function fetchWorkday(tenant, site, company, wdInstance = "1") {
+  const endpoint = `https://${tenant}.wd${wdInstance}.myworkdayjobs.com/wday/cxs/${tenant}/${site}/jobs`;
+  const stateRe = /\b(CA|WA|TX|MA|GA|IL|NC|OR|NY|CO|AZ|UT|NJ|MN|MD|VA|FL|PA|NH|MI|OH|SC|IN|ID|MT|RI|DE|TN|WI|DC)\b|united states|remote|u\.s\.|usa\b/i;
+  const out = [];
+  const seen = new Set();
+  for (let offset = 0; offset < 4000; offset += 20) {
+    let data = {};
+    try {
+      const res = await post(endpoint, { appliedFacets: {}, limit: 20, offset, searchText: "intern" });
+      data = await res.json();
+    } catch {
+      break;
+    }
+    const jp = data.jobPostings || [];
+    if (!jp.length) break;
+    for (const j of jp) {
+      const loc = j.locationsText || "";
+      if (!stateRe.test(loc)) continue;
+      const key = `${j.title}|${loc}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push({
+        company,
+        title: j.title || "",
+        location: loc.replace(/, United States\s*$/i, ""),
+        updated_at: agoIso(j.postedOn),
+        url: `https://${tenant}.wd${wdInstance}.myworkdayjobs.com/en-US/${site}${j.externalPath || ""}`,
+        meta: /remote/i.test(loc) ? "Remote" : "On-Site",
+      });
+    }
+  }
+  return out;
+}
+
 /* ---------- helpers ---------- */
 const DOMAIN = (name) =>
   ({
@@ -344,8 +379,23 @@ function discoverFromUrl(careersUrl) {
   if ((m = careersUrl.match(/jobs\.ashbyhq\.com\/([a-z0-9_-]+)/i)))
     return { type: "ashby", slug: m[1] };
   if (/(amazon\.jobs|amazon\.com\/jobs)/i.test(careersUrl)) return { type: "amazon" };
-  if (/\.wd\d+\.myworkdayjobs\.com/i.test(careersUrl) || /nvidia|workday/i.test(careersUrl))
+  if (/\.wd\d+\.myworkdayjobs\.com/i.test(careersUrl) || /nvidia|workday/i.test(careersUrl)) {
+    const wdm = careersUrl.match(/https?:\/\/([\w-]+)\.wd(\d+)\.myworkdayjobs\.com/i);
+    if (wdm) {
+      const tenant = wdm[1];
+      const wdInstance = wdm[2];
+      let site = (careersUrl.match(/\/wday\/cxs\/[\w-]+\/([\w-]+)\/jobs/i) || [])[1] || null;
+      if (!site) {
+        const segs = careersUrl
+          .split("/")
+          .filter(Boolean)
+          .filter((s) => !/^[a-z]{2,3}-[A-Z]{2}$/.test(s) && !/^[a-z]{2,3}$/i.test(s));
+        site = segs[segs.length - 1];
+      }
+      if (site) return { type: "workday", token: tenant, site, wdInstance };
+    }
     return { type: "nvidia" };
+  }
   return null;
 }
 
@@ -518,6 +568,14 @@ export async function runSync() {
       let jobs;
       if (ats.type === "amazon") jobs = await fetchAmazon();
       else if (ats.type === "nvidia") jobs = await fetchNvidia();
+      else if (ats.type === "workday") {
+        const tenant = ats.token || ats.slug;
+        const w = c.careers_url ? discoverFromUrl(c.careers_url) : null;
+        const site = w?.type === "workday" ? w.site : tenant ? `${tenant.charAt(0).toUpperCase()}${tenant.slice(1)}Careers` : null;
+        const wdInstance = w?.type === "workday" ? w.wdInstance : "1";
+        if (site) jobs = await fetchWorkday(tenant, site, c.name, wdInstance);
+        else throw new Error("workday site unknown");
+      }
       else {
         const fetcher =
           ats.type === "greenhouse" ? fetchGreenhouse : ats.type === "lever" ? fetchLever : ats.type === "ashby" ? fetchAshby : ats.type === "workable" ? fetchWorkable : null;
