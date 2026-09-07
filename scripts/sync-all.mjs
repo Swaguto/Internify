@@ -282,20 +282,23 @@ async function fetchWorkday(tenant, site, company, wdInstance = "1") {
   const endpoint = `https://${tenant}.wd${wdInstance}.myworkdayjobs.com/wday/cxs/${tenant}/${site}/jobs`;
   const out = [];
   const seen = new Set();
-  for (let offset = 0; offset < 4000; offset += 20) {
-    let data = {};
-    try {
-      const res = await fetch(endpoint, {
-        method: "POST",
-        headers: { "content-type": "application/json", "user-agent": UA, accept: "application/json" },
-        body: JSON.stringify({ appliedFacets: {}, limit: 20, offset, searchText: "intern" }),
-        signal: AbortSignal.timeout(20_000),
-      });
-      if (!res.ok) break;
-      data = await res.json();
-    } catch {
-      break;
+  for (let offset = 0; offset < 800 && out.length < 600; offset += 20) {
+    let data = null;
+    for (let attempt = 0; attempt < 3 && !data; attempt++) {
+      try {
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: { "content-type": "application/json", "user-agent": UA, accept: "application/json" },
+          body: JSON.stringify({ appliedFacets: {}, limit: 20, offset, searchText: "intern" }),
+          signal: AbortSignal.timeout(20_000),
+        });
+        if (!res.ok) break;
+        data = await res.json();
+      } catch {
+        await new Promise((r) => setTimeout(r, 400 * (attempt + 1)));
+      }
     }
+    if (!data) break;
     const jp = data.jobPostings || [];
     if (!jp.length) break;
     for (const j of jp) {

@@ -245,25 +245,31 @@ async function fetchWorkday(tenant, site, company, wdInstance = "1") {
   const stateRe = /\b(CA|WA|TX|MA|GA|IL|NC|OR|NY|CO|AZ|UT|NJ|MN|MD|VA|FL|PA|NH|MI|OH|SC|IN|ID|MT|RI|DE|TN|WI|DC)\b|united states|remote|u\.s\.|usa\b/i;
   const out = [];
   const seen = new Set();
-  for (let offset = 0; offset < 4000; offset += 20) {
-    let data = {};
-    try {
-      const res = await post(endpoint, { appliedFacets: {}, limit: 20, offset, searchText: "intern" });
-      data = await res.json();
-    } catch {
-      break;
+  for (let offset = 0; offset < 800 && out.length < 600; offset += 20) {
+    let data = null;
+    for (let attempt = 0; attempt < 3 && !data; attempt++) {
+      try {
+        const res = await post(endpoint, { appliedFacets: {}, limit: 20, offset, searchText: "intern" });
+        if (!res.ok) break;
+        data = await res.json();
+      } catch {
+        await new Promise((r) => setTimeout(r, 400 * (attempt + 1)));
+      }
     }
+    if (!data) break;
     const jp = data.jobPostings || [];
     if (!jp.length) break;
     for (const j of jp) {
+      const title = j.title || "";
+      if (!GH_INTERN.test(title)) continue;
       const loc = j.locationsText || "";
       if (!stateRe.test(loc)) continue;
-      const key = `${j.title}|${loc}`;
+      const key = `${title}|${loc}`;
       if (seen.has(key)) continue;
       seen.add(key);
       out.push({
         company,
-        title: j.title || "",
+        title,
         location: loc.replace(/, United States\s*$/i, ""),
         updated_at: agoIso(j.postedOn),
         url: `https://${tenant}.wd${wdInstance}.myworkdayjobs.com/en-US/${site}${j.externalPath || ""}`,
