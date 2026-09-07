@@ -537,7 +537,9 @@ export async function runSync() {
     );
   }
 
-  const companiesRes = await pool.query("SELECT * FROM companies WHERE enabled = TRUE AND track_only = FALSE");
+  const companiesRes = await pool.query(
+    "SELECT * FROM companies WHERE enabled = TRUE AND track_only = FALSE ORDER BY (last_fetched IS NULL) DESC, id"
+  );
   const companies = companiesRes.rows;
   const domains = new Map(
     companies.filter((c) => c.domain).map((c) => [c.name.toLowerCase(), c.domain])
